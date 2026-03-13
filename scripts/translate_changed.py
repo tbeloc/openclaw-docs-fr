@@ -7,41 +7,41 @@ client = Anthropic(api_key=os.environ["ANTHROPIC_API_KEY"])
 EN = Path("docs/en")
 FR = Path("docs/fr")
 
-def translate(text):
+TEST_FILE = EN / "index.mdx"   # change si ce fichier n'existe pas
 
-    prompt = "Translate this technical documentation to French. Keep markdown and code blocks unchanged."
+def translate(text):
+    prompt = """Translate this technical documentation to French.
+Keep markdown and MDX structure unchanged.
+Do not translate code blocks.
+Do not change links, filenames, imports, ids, anchors, or frontmatter keys.
+Return only the translated content.
+"""
 
     r = client.messages.create(
-        model="claude-haiku-4-5-20251001",
-        max_tokens=8000,
+        model="claude-sonnet-4",
+        max_tokens=4000,
         messages=[{
             "role": "user",
             "content": prompt + "\n\n" + text
         }]
     )
 
-    return r.content[0].text
+    parts = []
+    for block in r.content:
+        if getattr(block, "type", None) == "text":
+            parts.append(block.text)
 
+    return "".join(parts).strip()
 
-for root, dirs, files in os.walk(EN):
+if not TEST_FILE.exists():
+    raise FileNotFoundError(f"Test file not found: {TEST_FILE}")
 
-    for file in files:
+rel = TEST_FILE.relative_to(EN)
+dst = FR / rel
+dst.parent.mkdir(parents=True, exist_ok=True)
 
-        if not file.endswith(".md") and not file.endswith(".mdx"):
-            continue
-
-        src = Path(root) / file
-
-        rel = src.relative_to(EN)
-
-        dst = FR / rel
-
-        dst.parent.mkdir(parents=True, exist_ok=True)
-
-        text = src.read_text()
-
-        fr = translate(text)
-
-        dst.write_text(fr)
-
-        print("translated", rel)
+print(f"translating test file: {rel}")
+text = TEST_FILE.read_text(encoding="utf-8")
+fr = translate(text)
+dst.write_text(fr + "\n", encoding="utf-8")
+print(f"translated: {rel}")
