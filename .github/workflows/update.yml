@@ -1,0 +1,43 @@
+name: update french docs
+
+on:
+  schedule:
+    - cron: "0 */6 * * *"
+  workflow_dispatch:
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+
+    steps:
+
+      - uses: actions/checkout@v4
+
+      - name: Clone upstream
+        run: |
+          git clone --depth 1 https://github.com/openclaw/openclaw upstream
+
+      - name: Sync docs
+        run: |
+          mkdir -p docs/en
+          rsync -av upstream/docs/ docs/en/
+
+      - name: Setup python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - run: pip install anthropic
+
+      - name: Translate
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: python scripts/translate_changed.py
+
+      - name: Commit
+        run: |
+          git config user.name bot
+          git config user.email bot@bot.com
+          git add .
+          git commit -m "update docs fr" || echo "no change"
+          git push
