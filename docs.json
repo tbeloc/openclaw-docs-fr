@@ -1,0 +1,24 @@
+{
+  "$schema": "https://mintlify.com/schema.json",
+  "name": "OpenClaw Docs FR",
+  "theme": "mint",
+  "languages": [
+    {
+      "name": "English",
+      "code": "en"
+    },
+    {
+      "name": "Français",
+      "code": "fr"
+    }
+  ],
+  "navigation": [
+    {
+      "group": "Documentation",
+      "pages": [
+        "en/index",
+        "fr/index"
+      ]
+    }
+  ]
+}
