@@ -2,14 +2,10 @@ import os
 from pathlib import Path
 from anthropic import Anthropic
 
-# connexion API
 client = Anthropic(api_key=os.environ["ANTHROPIC_API_KEY"])
 
 EN = Path("docs/en")
 FR = Path("docs/fr")
-
-# fichier test
-TEST_FILE = EN / "index.md"
 
 
 def translate(text):
@@ -17,23 +13,21 @@ def translate(text):
 Translate this technical documentation to French.
 
 Rules:
-- Keep markdown structure identical
+- Keep markdown/MDX structure identical
 - Do not translate code blocks
 - Do not modify links or URLs
-- Do not change filenames or anchors
-- Do not change frontmatter keys
+- Do not change filenames, anchors, imports or frontmatter keys
 - Return ONLY the translated content
 """
 
     r = client.messages.create(
         model="claude-haiku-4-5-20251001",
         max_tokens=4000,
-        messages=[
-            {
-                "role": "user",
-                "content": prompt + "\n\n" + text
-            }
-        ]
+        temperature=0,
+        messages=[{
+            "role": "user",
+            "content": prompt + "\n\n" + text
+        }]
     )
 
     parts = []
@@ -45,21 +39,29 @@ Rules:
     return "".join(parts).strip()
 
 
-# vérifie que le fichier existe
-if not TEST_FILE.exists():
-    raise FileNotFoundError(f"Test file not found: {TEST_FILE}")
+for root, dirs, files in os.walk(EN):
+    for file in files:
 
-rel = TEST_FILE.relative_to(EN)
-dst = FR / rel
+        if not file.endswith((".md", ".mdx")):
+            continue
 
-dst.parent.mkdir(parents=True, exist_ok=True)
+        src = Path(root) / file
+        rel = src.relative_to(EN)
+        dst = FR / rel
 
-print(f"translating test file: {rel}")
+        dst.parent.mkdir(parents=True, exist_ok=True)
 
-text = TEST_FILE.read_text(encoding="utf-8")
+        # IMPORTANT : ne pas retraduire
+        if dst.exists():
+            print(f"skip existing: {rel}")
+            continue
 
-fr = translate(text)
+        print(f"translating: {rel}")
 
-dst.write_text(fr + "\n", encoding="utf-8")
+        text = src.read_text(encoding="utf-8")
 
-print(f"translated: {rel}")
+        fr = translate(text)
+
+        dst.write_text(fr + "\n", encoding="utf-8")
+
+        print(f"translated: {rel}")
