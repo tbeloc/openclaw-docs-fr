@@ -1,0 +1,60 @@
+---
+title: Déployer sur Northflank
+x-i18n:
+  generated_at: "2026-02-01T21:19:03Z"
+  model: claude-opus-4-5
+  provider: pi
+  source_hash: ad0be8dda41c51d0b6424259316db1b22be5216434f5879f21a5e8c60e0a2ee0
+  source_path: northflank.mdx
+  workflow: 15
+---
+
+Déployez OpenClaw sur Northflank avec un modèle en un clic, puis terminez la configuration dans votre navigateur.
+C'est le moyen le plus simple de « ne pas utiliser le terminal sur un serveur » : Northflank exécute la Gateway pour vous,
+et vous configurez tout via l'assistant web `/setup`.
+
+## Comment commencer
+
+1. Cliquez sur [Deploy OpenClaw](https://northflank.com/stacks/deploy-openclaw) pour ouvrir le modèle.
+2. Si vous n'avez pas encore de compte, créez un [compte Northflank](https://app.northflank.com/signup).
+3. Cliquez sur **Deploy OpenClaw now**.
+4. Configurez la variable d'environnement requise : `SETUP_PASSWORD`.
+5. Cliquez sur **Deploy stack** pour construire et exécuter le modèle OpenClaw.
+6. Attendez la fin du déploiement, puis cliquez sur **View resources**.
+7. Ouvrez le service OpenClaw.
+8. Ouvrez l'URL OpenClaw publique et terminez la configuration à `/setup`.
+9. Ouvrez l'interface utilisateur du tableau de bord à `/openclaw`.
+
+## Ce que vous obtiendrez
+
+- Gateway OpenClaw hébergée + interface utilisateur du tableau de bord
+- Assistant de configuration web à `/setup` (aucune commande de terminal requise)
+- Stockage persistant via Northflank Volume (`/data`), les configurations/identifiants/espaces de travail ne seront pas perdus après un redéploiement
+
+## Flux de configuration
+
+1. Accédez à `https://<your-northflank-domain>/setup` et entrez votre `SETUP_PASSWORD`.
+2. Sélectionnez le modèle/fournisseur d'authentification et collez votre clé.
+3. (Optionnel) Ajoutez des jetons Telegram/Discord/Slack.
+4. Cliquez sur **Run setup**.
+5. Ouvrez l'interface utilisateur du tableau de bord à `https://<your-northflank-domain>/openclaw`.
+
+Si les messages privés Telegram sont configurés en mode d'appairage, l'assistant de configuration peut approuver les codes d'appairage.
+
+## Obtenir des jetons de chat
+
+### Jeton de bot Telegram
+
+1. Envoyez un message à `@BotFather` sur Telegram
+2. Exécutez `/newbot`
+3. Copiez le jeton (format comme `123456789:AA...`)
+4. Collez-le dans `/setup`
+
+### Jeton de bot Discord
+
+1. Allez sur https://discord.com/developers/applications
+2. **New Application** → Choisissez un nom
+3. **Bot** → **Add Bot**
+4. Sous Bot → Privileged Gateway Intents, **activez MESSAGE CONTENT INTENT** (obligatoire, sinon le bot plante au démarrage)
+5. Copiez le **Bot Token** et collez-le dans `/setup`
+6. Invitez le bot à rejoindre votre serveur (OAuth2 URL Generator ; portée des permissions : `bot`, `applications.commands`)
