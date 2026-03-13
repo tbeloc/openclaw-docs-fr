@@ -12,7 +12,7 @@ def translate(text):
     prompt = "Translate this technical documentation to French. Keep markdown and code blocks unchanged."
 
     r = client.messages.create(
-        model="claude-3-5-sonnet",
+        model="claude-haiku-4-5-20251001",
         max_tokens=8000,
         messages=[{
             "role": "user",
