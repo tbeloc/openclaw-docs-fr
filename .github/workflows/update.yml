@@ -38,6 +38,7 @@ jobs:
       - name: Translate docs
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          PYTHONUNBUFFERED: "1"
         run: python scripts/translate_changed.py
 
       - name: Commit changes
