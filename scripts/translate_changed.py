@@ -2,7 +2,6 @@ import os
 from pathlib import Path
 from anthropic import Anthropic
 
-# connexion API
 client = Anthropic(api_key=os.environ["ANTHROPIC_API_KEY"])
 
 EN = Path("docs/en")
@@ -10,7 +9,6 @@ FR = Path("docs/fr")
 
 
 def translate(text):
-
     prompt = """
 Translate this technical documentation to French.
 
@@ -35,7 +33,6 @@ Rules:
     )
 
     parts = []
-
     for block in r.content:
         if getattr(block, "type", None) == "text":
             parts.append(block.text)
@@ -44,9 +41,7 @@ Rules:
 
 
 for root, dirs, files in os.walk(EN):
-
     for file in files:
-
         if not file.endswith((".md", ".mdx")):
             continue
 
@@ -56,17 +51,14 @@ for root, dirs, files in os.walk(EN):
 
         dst.parent.mkdir(parents=True, exist_ok=True)
 
-        # ne pas retraduire
         if dst.exists():
-            print(f"skip existing: {rel}")
+            print(f"skip existing: {rel}", flush=True)
             continue
 
-        print(f"translating: {rel}")
+        print(f"translating: {rel}", flush=True)
 
         text = src.read_text(encoding="utf-8")
-
         fr = translate(text)
-
         dst.write_text(fr + "\n", encoding="utf-8")
 
-        print(f"translated: {rel}")
+        print(f"translated: {rel}", flush=True)
