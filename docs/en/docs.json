@@ -2200,14 +2200,14 @@
             "tab": "Installation",
             "groups": [
               {
-                "group": "Aperçu de l'installation",
+                "group": "Install overview",
                 "pages": [
                   "fr/install/index",
                   "fr/install/installer"
                 ]
               },
               {
-                "group": "Autres méthodes d'installation",
+                "group": "Other install methods",
                 "pages": [
                   "fr/install/docker",
                   "fr/install/podman",
@@ -2225,7 +2225,7 @@
                 ]
               },
               {
-                "group": "Hébergement et déploiement",
+                "group": "Hosting and deployment",
                 "pages": [
                   "fr/vps",
                   "fr/install/kubernetes",
@@ -2257,7 +2257,7 @@
                 ]
               },
               {
-                "group": "Plateformes de messagerie",
+                "group": "Messaging platforms",
                 "pages": [
                   "fr/channels/bluebubbles",
                   "fr/channels/discord",
@@ -2300,7 +2300,7 @@
             "tab": "Agents",
             "groups": [
               {
-                "group": "Fondamentaux",
+                "group": "Fundamentals",
                 "pages": [
                   "fr/pi",
                   "fr/concepts/architecture",
@@ -2313,13 +2313,13 @@
                 ]
               },
               {
-                "group": "Amorçage",
+                "group": "Bootstrapping",
                 "pages": [
                   "fr/start/bootstrapping"
                 ]
               },
               {
-                "group": "Sessions et mémoire",
+                "group": "Sessions and memory",
                 "pages": [
                   "fr/concepts/session",
                   "fr/concepts/session-pruning",
@@ -2336,7 +2336,7 @@
                 ]
               },
               {
-                "group": "Messages et livraison",
+                "group": "Messages and delivery",
                 "pages": [
                   "fr/concepts/messages",
                   "fr/concepts/streaming",
@@ -2376,7 +2376,7 @@
                 ]
               },
               {
-                "group": "Navigateur",
+                "group": "Browser",
                 "pages": [
                   "fr/tools/browser",
                   "fr/tools/browser-login",
@@ -2385,7 +2385,7 @@
                 ]
               },
               {
-                "group": "Coordination d'agents",
+                "group": "Agent coordination",
                 "pages": [
                   "fr/tools/agent-send",
                   "fr/tools/subagents",
@@ -2394,7 +2394,7 @@
                 ]
               },
               {
-                "group": "Compétences",
+                "group": "Skills",
                 "pages": [
                   "fr/tools/creating-skills",
                   "fr/tools/slash-commands",
@@ -2429,7 +2429,7 @@
                 ]
               },
               {
-                "group": "Médias et appareils",
+                "group": "Media and devices",
                 "pages": [
                   "fr/nodes/index",
                   "fr/nodes/troubleshooting",
@@ -2456,7 +2456,7 @@
                 ]
               },
               {
-                "group": "Concepts de modèles",
+                "group": "Model concepts",
                 "pages": [
                   "fr/concepts/models"
                 ]
@@ -2507,7 +2507,7 @@
             "tab": "Plateformes",
             "groups": [
               {
-                "group": "Aperçu des plateformes",
+                "group": "Platforms overview",
                 "pages": [
                   "fr/platforms/index",
                   "fr/platforms/macos",
@@ -2521,7 +2521,7 @@
                 ]
               },
               {
-                "group": "Application macOS",
+                "group": "macOS companion app",
                 "pages": [
                   "fr/platforms/mac/dev-setup",
                   "fr/platforms/mac/menu-bar",
@@ -2553,7 +2553,7 @@
                 "pages": [
                   "fr/gateway/index",
                   {
-                    "group": "Configuration et opérations",
+                    "group": "Configuration and operations",
                     "pages": [
                       "fr/gateway/configuration",
                       "fr/gateway/configuration-reference",
@@ -2574,7 +2574,7 @@
                     ]
                   },
                   {
-                    "group": "Sécurité et bac à sable",
+                    "group": "Security and sandboxing",
                     "pages": [
                       "fr/gateway/security/index",
                       "fr/gateway/sandboxing",
@@ -2582,7 +2582,7 @@
                     ]
                   },
                   {
-                    "group": "Protocoles et API",
+                    "group": "Protocols and APIs",
                     "pages": [
                       "fr/gateway/protocol",
                       "fr/gateway/bridge-protocol",
@@ -2594,7 +2594,7 @@
                     ]
                   },
                   {
-                    "group": "Réseau et découverte",
+                    "group": "Networking and discovery",
                     "pages": [
                       "fr/gateway/network-model",
                       "fr/gateway/pairing",
@@ -2605,7 +2605,7 @@
                 ]
               },
               {
-                "group": "Accès distant",
+                "group": "Remote access",
                 "pages": [
                   "fr/gateway/remote",
                   "fr/gateway/remote-gateway-readme",
@@ -2622,7 +2622,7 @@
                 ]
               },
               {
-                "group": "Interfaces web",
+                "group": "Web interfaces",
                 "pages": [
                   "fr/web/index",
                   "fr/web/control-ui",
@@ -2637,7 +2637,7 @@
             "tab": "Référence",
             "groups": [
               {
-                "group": "Commandes CLI",
+                "group": "CLI commands",
                 "pages": [
                   "fr/cli/index",
                   "fr/cli/acp",
@@ -2688,16 +2688,15 @@
                 ]
               },
               {
-                "group": "RPC et API",
+                "group": "RPC and API",
                 "pages": [
                   "fr/reference/rpc",
                   "fr/reference/device-models"
                 ]
               },
               {
-                "group": "Modèles",
+                "group": "Templates",
                 "pages": [
-                  "fr/reference/AGENTS.default",
                   "fr/reference/templates/AGENTS",
                   "fr/reference/templates/BOOT",
                   "fr/reference/templates/BOOTSTRAP",
@@ -2709,7 +2708,7 @@
                 ]
               },
               {
-                "group": "Référence technique",
+                "group": "Technical reference",
                 "pages": [
                   "fr/reference/wizard",
                   "fr/reference/token-use",
@@ -2721,7 +2720,7 @@
                 ]
               },
               {
-                "group": "Mécanismes internes",
+                "group": "Concept internals",
                 "pages": [
                   "fr/concepts/typebox",
                   "fr/concepts/markdown-formatting",
@@ -2731,20 +2730,20 @@
                 ]
               },
               {
-                "group": "Projet",
+                "group": "Project",
                 "pages": [
                   "fr/reference/credits"
                 ]
               },
               {
-                "group": "Notes de version",
+                "group": "Release notes",
                 "pages": [
                   "fr/reference/RELEASING",
                   "fr/reference/test"
                 ]
               },
               {
-                "group": "Expériences",
+                "group": "Experiments",
                 "pages": [
                   "fr/design/kilo-gateway-integration",
                   "fr/experiments/onboarding-config-protocol",
@@ -2778,7 +2777,7 @@
                 ]
               },
               {
-                "group": "Environnement et débogage",
+                "group": "Environment and debugging",
                 "pages": [
                   "fr/help/environment",
                   "fr/help/debugging",
@@ -2789,19 +2788,19 @@
                 ]
               },
               {
-                "group": "Runtime Node",
+                "group": "Node runtime",
                 "pages": [
                   "fr/install/node"
                 ]
               },
               {
-                "group": "Mécanismes de compaction",
+                "group": "Compaction internals",
                 "pages": [
                   "fr/reference/session-management-compaction"
                 ]
               },
               {
-                "group": "Configuration développeur",
+                "group": "Developer setup",
                 "pages": [
                   "fr/start/setup",
                   "fr/pi-dev"
@@ -2814,7 +2813,7 @@
                 ]
               },
               {
-                "group": "Méta docs",
+                "group": "Docs meta",
                 "pages": [
                   "fr/start/hubs",
                   "fr/start/docs-directory"
