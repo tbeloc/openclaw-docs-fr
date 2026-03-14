@@ -14,9 +14,10 @@ SKIP_DIRS = {"zh-CN", "ja-JP", "fr"}
 # MDX self-closing tags that don't need a closing counterpart
 SELF_CLOSING_TAGS = {"img", "br", "hr", "Frame", "Icon"}
 
+# Rough char threshold for chunking (~3000 tokens input → safe 16k output)
+CHUNK_CHAR_LIMIT = 12000
 
-def translate(text):
-    prompt = """
+TRANSLATE_PROMPT = """
 Translate this technical documentation to French.
 
 Rules:
@@ -29,6 +30,8 @@ Rules:
 - Return ONLY the translated content, complete and untruncated
 """
 
+
+def translate(text):
     r = client.messages.create(
         model="claude-haiku-4-5-20251001",
         max_tokens=16000,
@@ -36,7 +39,7 @@ Rules:
         messages=[
             {
                 "role": "user",
-                "content": prompt + "\n\n" + text
+                "content": TRANSLATE_PROMPT + "\n\n" + text
             }
         ]
     )
@@ -49,13 +52,58 @@ Rules:
     return "".join(parts).strip()
 
 
+def split_into_chunks(text):
+    """
+    Split a markdown document into chunks at H2 (##) boundaries.
+    The frontmatter (---...---) stays attached to the first chunk.
+    Each chunk stays under CHUNK_CHAR_LIMIT when possible.
+    """
+    # Separate frontmatter
+    frontmatter = ""
+    body = text
+    fm_match = re.match(r'^(---\n.*?\n---\n)(.*)', text, re.DOTALL)
+    if fm_match:
+        frontmatter = fm_match.group(1)
+        body = fm_match.group(2)
+
+    # Split on H2 headings (keep the heading with the section that follows)
+    sections = re.split(r'(?=\n## )', body)
+
+    chunks = []
+    current = frontmatter
+
+    for section in sections:
+        # If adding this section would exceed the limit and we already have content
+        if len(current) + len(section) > CHUNK_CHAR_LIMIT and current.strip():
+            chunks.append(current)
+            current = section
+        else:
+            current += section
+
+    if current.strip():
+        chunks.append(current)
+
+    return chunks
+
+
+def strip_code_blocks(text):
+    """Remove fenced code blocks and inline code so tags inside them are ignored."""
+    # Remove fenced code blocks (```...```)
+    text = re.sub(r'```[\s\S]*?```', '', text)
+    # Remove inline code (`...`)
+    text = re.sub(r'`[^`]+`', '', text)
+    return text
+
+
 def check_mdx_balance(text):
     """
     Check that every MDX opening tag has a matching closing tag.
+    Ignores tags inside code blocks and inline code.
     Returns a list of unbalanced tag names, or an empty list if balanced.
     """
-    opening = re.findall(r'<([A-Z][a-zA-Z]*)\b', text)
-    closing = re.findall(r'</([A-Z][a-zA-Z]*)\b', text)
+    cleaned = strip_code_blocks(text)
+    opening = re.findall(r'<([A-Z][a-zA-Z]*)\b', cleaned)
+    closing = re.findall(r'</([A-Z][a-zA-Z]*)\b', cleaned)
 
     open_counts = {}
     for tag in opening:
@@ -77,7 +125,26 @@ def check_mdx_balance(text):
     return unbalanced
 
 
-MAX_RETRIES = 2
+def translate_with_validation(text):
+    """Translate text and validate MDX balance. Retries up to 2 times."""
+    src_tags = re.findall(r'<([A-Z][a-zA-Z]*)\b', text)
+    has_mdx = len(src_tags) > 0
+
+    for attempt in range(3):
+        fr = translate(text)
+
+        if not has_mdx:
+            return fr
+
+        issues = check_mdx_balance(fr)
+        if not issues:
+            return fr
+
+        if attempt < 2:
+            print(f"    unbalanced MDX: {', '.join(issues)} — retrying ({attempt + 1}/2)", flush=True)
+
+    return None  # still broken after retries
+
 
 for root, dirs, files in os.walk(EN):
     # Prune language subdirectories so os.walk doesn't descend into them
@@ -101,25 +168,31 @@ for root, dirs, files in os.walk(EN):
 
         text = src.read_text(encoding="utf-8")
 
-        # Check if source has MDX tags to validate
-        src_tags = re.findall(r'<([A-Z][a-zA-Z]*)\b', text)
-        has_mdx = len(src_tags) > 0
+        # Decide: chunk large files, translate small ones directly
+        if len(text) > CHUNK_CHAR_LIMIT:
+            chunks = split_into_chunks(text)
+            print(f"  large file ({len(text)} chars) → split into {len(chunks)} chunks", flush=True)
 
-        fr = translate(text)
-
-        # Validate MDX balance if source had MDX components
-        if has_mdx:
-            for attempt in range(MAX_RETRIES):
-                issues = check_mdx_balance(fr)
-                if not issues:
+            translated_chunks = []
+            failed = False
+            for i, chunk in enumerate(chunks):
+                print(f"  chunk {i + 1}/{len(chunks)} ({len(chunk)} chars)", flush=True)
+                result = translate_with_validation(chunk)
+                if result is None:
+                    print(f"  SKIPPING {rel}: chunk {i + 1} has unbalanced MDX after retries", flush=True)
+                    failed = True
                     break
-                print(f"  WARNING: unbalanced MDX tags: {', '.join(issues)} — retrying ({attempt + 1}/{MAX_RETRIES})", flush=True)
-                fr = translate(text)
-            else:
-                issues = check_mdx_balance(fr)
-                if issues:
-                    print(f"  SKIPPING {rel}: still unbalanced after {MAX_RETRIES} retries: {', '.join(issues)}", flush=True)
-                    continue
+                translated_chunks.append(result)
+
+            if failed:
+                continue
+
+            fr = "\n\n".join(translated_chunks)
+        else:
+            fr = translate_with_validation(text)
+            if fr is None:
+                print(f"  SKIPPING {rel}: unbalanced MDX after retries", flush=True)
+                continue
 
         dst.write_text(fr + "\n", encoding="utf-8")
 
