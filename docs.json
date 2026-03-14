@@ -8,11 +8,11 @@
   "navigation": {
     "languages": [
       {
-        "language": "English",
+        "language": "en",
         "pages": ["docs/en/index"]
       },
       {
-        "language": "Français",
+        "language": "fr",
         "pages": ["docs/fr/index"]
       }
     ]
