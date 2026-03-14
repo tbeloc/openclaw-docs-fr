@@ -1,46 +1,41 @@
 name: update french docs
-
 on:
   schedule:
     - cron: "0 */6 * * *"
   workflow_dispatch:
-
 permissions:
   contents: write
-
 jobs:
   update:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
-
       - name: Clone upstream
         run: |
           git clone --depth 1 https://github.com/openclaw/openclaw.git upstream
-
       - name: Sync docs
         run: |
           mkdir -p docs/en
           rsync -av --delete upstream/docs/ docs/en/
-
+      - name: Sync images and assets to FR
+        run: |
+          mkdir -p docs/fr/images docs/fr/assets
+          rsync -av --delete docs/en/images/ docs/fr/images/
+          rsync -av --delete docs/en/assets/ docs/fr/assets/
       - name: Setup Python
         uses: actions/setup-python@v5
         with:
           python-version: "3.11"
-
       - name: Install dependencies
         run: pip install anthropic
-
       - name: Translate docs
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           PYTHONUNBUFFERED: "1"
         run: python scripts/translate_changed.py
-
       - name: Commit changes
         run: |
           git config --global user.name "github-actions[bot]"
@@ -48,6 +43,5 @@ jobs:
           git add .
           git diff --cached --quiet && echo "No changes to commit" && exit 0
           git commit -m "update docs fr"
-
       - name: Push changes
         run: git push
