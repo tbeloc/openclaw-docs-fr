@@ -5,7 +5,7 @@ from anthropic import Anthropic
 client = Anthropic(api_key=os.environ["ANTHROPIC_API_KEY"])
 
 EN = Path("docs/en")
-FR = Path("docs/fr")
+FR = Path("docs/en/fr")
 
 
 def translate(text):
