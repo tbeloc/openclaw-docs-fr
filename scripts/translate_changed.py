@@ -7,6 +7,9 @@ client = Anthropic(api_key=os.environ["ANTHROPIC_API_KEY"])
 EN = Path("docs/en")
 FR = Path("docs/en/fr")
 
+# Subdirectories to skip (other languages living inside docs/en/)
+SKIP_DIRS = {"zh-CN", "ja-JP", "fr"}
+
 
 def translate(text):
     prompt = """
@@ -41,6 +44,9 @@ Rules:
 
 
 for root, dirs, files in os.walk(EN):
+    # Prune language subdirectories so os.walk doesn't descend into them
+    dirs[:] = [d for d in dirs if d not in SKIP_DIRS]
+
     for file in files:
         if not file.endswith((".md", ".mdx")):
             continue
