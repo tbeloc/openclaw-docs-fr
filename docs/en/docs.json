@@ -2369,7 +2369,8 @@
                   "fr/tools/loop-detection",
                   "fr/tools/reactions",
                   "fr/tools/thinking",
-                  "fr/tools/web"
+                  "fr/tools/web",
+                  "fr/tools/btw"
                 ]
               },
               {
