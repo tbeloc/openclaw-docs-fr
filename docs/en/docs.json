@@ -1278,7 +1278,6 @@
                 "group": "Security",
                 "pages": [
                   "security/formal-verification",
-                  "security/README",
                   "security/THREAT-MODEL-ATLAS",
                   "security/CONTRIBUTING-THREAT-MODEL"
                 ]
@@ -1688,7 +1687,6 @@
                   "zh-CN/tools/apply-patch",
                   "zh-CN/brave-search",
                   "zh-CN/perplexity",
-                  "zh-CN/tools/diffs",
                   "zh-CN/tools/elevated",
                   "zh-CN/tools/exec",
                   "zh-CN/tools/exec-approvals",
@@ -2613,7 +2611,6 @@
                 "group": "Sécurité",
                 "pages": [
                   "fr/security/formal-verification",
-                  "fr/security/README",
                   "fr/security/THREAT-MODEL-ATLAS",
                   "fr/security/CONTRIBUTING-THREAT-MODEL"
                 ]
