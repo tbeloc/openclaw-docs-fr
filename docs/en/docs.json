@@ -2181,7 +2181,8 @@
                 "pages": [
                   "fr/start/getting-started",
                   "fr/start/onboarding-overview",
-                  "fr/start/wizard"
+                  "fr/start/wizard",
+                  "fr/start/onboarding"
                 ]
               },
               {
@@ -2226,6 +2227,7 @@
                 "group": "Hosting and deployment",
                 "pages": [
                   "fr/vps",
+                  "fr/install/kubernetes",
                   "fr/install/fly",
                   "fr/install/hetzner",
                   "fr/install/gcp",
@@ -2258,7 +2260,9 @@
                 "pages": [
                   "fr/channels/bluebubbles",
                   "fr/channels/discord",
+                  "fr/channels/feishu",
                   "fr/channels/googlechat",
+                  "fr/channels/imessage",
                   "fr/channels/irc",
                   "fr/channels/line",
                   "fr/channels/matrix",
@@ -2511,6 +2515,7 @@
                   "fr/platforms/windows",
                   "fr/platforms/android",
                   "fr/platforms/ios",
+                  "fr/platforms/digitalocean",
                   "fr/platforms/oracle",
                   "fr/platforms/raspberry-pi"
                 ]
