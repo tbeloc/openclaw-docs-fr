@@ -1,0 +1,49 @@
+---
+summary: "Appliquer des correctifs multi-fichiers avec l'outil apply_patch"
+read_when:
+  - Vous avez besoin de modifications de fichiers structurées sur plusieurs fichiers
+  - Vous souhaitez documenter ou déboguer des modifications basées sur des correctifs
+title: "Outil apply_patch"
+---
+
+# Outil apply_patch
+
+Appliquez des modifications de fichiers en utilisant un format de correctif structuré. C'est idéal pour les modifications multi-fichiers ou multi-sections où un seul appel `edit` serait fragile.
+
+L'outil accepte une seule chaîne `input` qui encapsule une ou plusieurs opérations de fichiers :
+
+```
+*** Begin Patch
+*** Add File: path/to/file.txt
++line 1
++line 2
+*** Update File: src/app.ts
+@@
+-old line
++new line
+*** Delete File: obsolete.txt
+*** End Patch
+```
+
+## Paramètres
+
+- `input` (requis) : Contenu complet du correctif incluant `*** Begin Patch` et `*** End Patch`.
+
+## Notes
+
+- Les chemins de correctif supportent les chemins relatifs (depuis le répertoire de l'espace de travail) et les chemins absolus.
+- `tools.exec.applyPatch.workspaceOnly` est défini par défaut à `true` (contenu dans l'espace de travail). Définissez-le à `false` uniquement si vous souhaitez intentionnellement que `apply_patch` écrive/supprime en dehors du répertoire de l'espace de travail.
+- Utilisez `*** Move to:` dans une section `*** Update File:` pour renommer des fichiers.
+- `*** End of File` marque une insertion EOF uniquement si nécessaire.
+- Expérimental et désactivé par défaut. Activez avec `tools.exec.applyPatch.enabled`.
+- OpenAI uniquement (y compris OpenAI Codex). Optionnellement limitez par modèle via `tools.exec.applyPatch.allowModels`.
+- La configuration se trouve uniquement sous `tools.exec`.
+
+## Exemple
+
+```json
+{
+  "tool": "apply_patch",
+  "input": "*** Begin Patch\n*** Update File: src/index.ts\n@@\n-const foo = 1\n+const foo = 2\n*** End Patch"
+}
+```

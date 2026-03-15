@@ -1,0 +1,131 @@
+---
+summary: "Référence CLI pour `openclaw devices` (appairage d'appareils + rotation/révocation de jetons)"
+read_when:
+  - You are approving device pairing requests
+  - You need to rotate or revoke device tokens
+title: "devices"
+---
+
+# `openclaw devices`
+
+Gérez les demandes d'appairage d'appareils et les jetons limités aux appareils.
+
+## Commandes
+
+### `openclaw devices list`
+
+Listez les demandes d'appairage en attente et les appareils appairés.
+
+```
+openclaw devices list
+openclaw devices list --json
+```
+
+### `openclaw devices remove <deviceId>`
+
+Supprimez une entrée d'appareil appairé.
+
+```
+openclaw devices remove <deviceId>
+openclaw devices remove <deviceId> --json
+```
+
+### `openclaw devices clear --yes [--pending]`
+
+Effacez les appareils appairés en masse.
+
+```
+openclaw devices clear --yes
+openclaw devices clear --yes --pending
+openclaw devices clear --yes --pending --json
+```
+
+### `openclaw devices approve [requestId] [--latest]`
+
+Approuvez une demande d'appairage d'appareil en attente. Si `requestId` est omis, OpenClaw
+approuve automatiquement la demande en attente la plus récente.
+
+```
+openclaw devices approve
+openclaw devices approve <requestId>
+openclaw devices approve --latest
+```
+
+### `openclaw devices reject <requestId>`
+
+Rejetez une demande d'appairage d'appareil en attente.
+
+```
+openclaw devices reject <requestId>
+```
+
+### `openclaw devices rotate --device <id> --role <role> [--scope <scope...>]`
+
+Faites tourner un jeton d'appareil pour un rôle spécifique (en mettant à jour optionnellement les portées).
+
+```
+openclaw devices rotate --device <deviceId> --role operator --scope operator.read --scope operator.write
+```
+
+### `openclaw devices revoke --device <id> --role <role>`
+
+Révoquez un jeton d'appareil pour un rôle spécifique.
+
+```
+openclaw devices revoke --device <deviceId> --role node
+```
+
+## Options communes
+
+- `--url <url>`: URL WebSocket de la passerelle (par défaut `gateway.remote.url` si configuré).
+- `--token <token>`: Jeton de passerelle (si requis).
+- `--password <password>`: Mot de passe de la passerelle (authentification par mot de passe).
+- `--timeout <ms>`: Délai d'expiration RPC.
+- `--json`: Sortie JSON (recommandée pour les scripts).
+
+Remarque : lorsque vous définissez `--url`, la CLI ne revient pas aux identifiants de configuration ou d'environnement.
+Passez `--token` ou `--password` explicitement. Les identifiants explicites manquants constituent une erreur.
+
+## Remarques
+
+- La rotation de jeton retourne un nouveau jeton (sensible). Traitez-le comme un secret.
+- Ces commandes nécessitent la portée `operator.pairing` (ou `operator.admin`).
+- `devices clear` est intentionnellement protégé par `--yes`.
+- Si la portée d'appairage n'est pas disponible sur la boucle locale (et qu'aucun `--url` explicite n'est passé), list/approve peut utiliser un secours d'appairage local.
+
+## Liste de contrôle de récupération de dérive de jeton
+
+Utilisez ceci lorsque Control UI ou d'autres clients continuent d'échouer avec `AUTH_TOKEN_MISMATCH` ou `AUTH_DEVICE_TOKEN_MISMATCH`.
+
+1. Confirmez la source actuelle du jeton de passerelle :
+
+```bash
+openclaw config get gateway.auth.token
+```
+
+2. Listez les appareils appairés et identifiez l'ID d'appareil affecté :
+
+```bash
+openclaw devices list
+```
+
+3. Faites tourner le jeton opérateur pour l'appareil affecté :
+
+```bash
+openclaw devices rotate --device <deviceId> --role operator
+```
+
+4. Si la rotation ne suffit pas, supprimez l'appairage obsolète et approuvez à nouveau :
+
+```bash
+openclaw devices remove <deviceId>
+openclaw devices list
+openclaw devices approve <requestId>
+```
+
+5. Réessayez la connexion client avec le jeton/mot de passe partagé actuel.
+
+Connexes :
+
+- [Dépannage de l'authentification du tableau de bord](/web/dashboard#if-you-see-unauthorized-1008)
+- [Dépannage de la passerelle](/gateway/troubleshooting#dashboard-control-ui-connectivity)
