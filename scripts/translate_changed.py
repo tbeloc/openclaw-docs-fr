@@ -33,6 +33,43 @@ Rules:
 """
 
 
+def prefix_internal_links(text):
+    """
+    Prefix internal doc links with /fr/ so they stay within the FR version.
+    Handles both markdown links [text](/path) and MDX href="/path" attributes.
+    Skips external URLs (http/https), anchors-only (#), and already-prefixed /fr/ links.
+    Also skips asset paths (/assets/, /images/) that should remain shared.
+    """
+    def replace_md_link(m):
+        """Handle markdown links: [text](/path)"""
+        path = m.group(1)
+        # Skip external, anchors-only, already prefixed, or asset paths
+        if (path.startswith(('http://', 'https://', '#', '/fr/'))
+                or path.startswith(('/assets/', '/images/'))):
+            return m.group(0)
+        if path.startswith('/'):
+            return f']({"/fr" + path})'
+        return m.group(0)
+
+    def replace_href(m):
+        """Handle MDX href attributes: href="/path" """
+        quote = m.group(1)  # " or '
+        path = m.group(2)
+        if (path.startswith(('http://', 'https://', '#', '/fr/'))
+                or path.startswith(('/assets/', '/images/'))):
+            return m.group(0)
+        if path.startswith('/'):
+            return f'href={quote}/fr{path}{quote}'
+        return m.group(0)
+
+    # Markdown links: [text](/path)
+    text = re.sub(r'\]\((/[^)]*)\)', replace_md_link, text)
+    # MDX href attributes: href="/path" or href='/path'
+    text = re.sub(r'href=(["\'])(/[^"\']*)\1', replace_href, text)
+
+    return text
+
+
 def strip_wrapping_fences(text):
     """
     Remove wrapping code fences that the LLM sometimes adds around the output.
@@ -70,6 +107,8 @@ def translate(text):
     result = "".join(parts).strip()
     # Always strip wrapping code fences the LLM may have added
     result = strip_wrapping_fences(result)
+    # Prefix internal links with /fr/ so navigation stays in FR
+    result = prefix_internal_links(result)
     return result
 
 
