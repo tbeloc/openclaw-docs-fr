@@ -48,7 +48,7 @@ def prefix_internal_links(text):
                 or path.startswith(('/assets/', '/images/'))):
             return m.group(0)
         if path.startswith('/'):
-            return f']({"/fr" + path})'
+            return '](/fr' + path + ')'
         return m.group(0)
 
     def replace_href(m):
@@ -59,7 +59,7 @@ def prefix_internal_links(text):
                 or path.startswith(('/assets/', '/images/'))):
             return m.group(0)
         if path.startswith('/'):
-            return f'href={quote}/fr{path}{quote}'
+            return 'href=' + quote + '/fr' + path + quote
         return m.group(0)
 
     # Markdown links: [text](/path)
