@@ -125,25 +125,25 @@ def check_mdx_balance(text):
     return unbalanced
 
 
-def translate_with_validation(text):
-    """Translate text and validate MDX balance. Retries up to 2 times."""
-    src_tags = re.findall(r'<([A-Z][a-zA-Z]*)\b', text)
-    has_mdx = len(src_tags) > 0
+def translate_with_retry(text):
+    """Translate text, retry once if MDX is unbalanced. Always returns a result."""
+    fr = translate(text)
 
-    for attempt in range(3):
-        fr = translate(text)
+    # Check MDX balance (only on cleaned text, ignoring code blocks)
+    issues = check_mdx_balance(fr)
+    if issues:
+        print(f"    unbalanced MDX: {', '.join(issues)} — retrying", flush=True)
+        fr2 = translate(text)
+        issues2 = check_mdx_balance(fr2)
+        if not issues2:
+            return fr2
+        # Use whichever attempt has fewer issues
+        if len(issues2) < len(issues):
+            print(f"    still unbalanced but improved, using retry", flush=True)
+            return fr2
+        print(f"    still unbalanced: {', '.join(issues)} — writing anyway", flush=True)
 
-        if not has_mdx:
-            return fr
-
-        issues = check_mdx_balance(fr)
-        if not issues:
-            return fr
-
-        if attempt < 2:
-            print(f"    unbalanced MDX: {', '.join(issues)} — retrying ({attempt + 1}/2)", flush=True)
-
-    return None  # still broken after retries
+    return fr
 
 
 for root, dirs, files in os.walk(EN):
@@ -174,25 +174,14 @@ for root, dirs, files in os.walk(EN):
             print(f"  large file ({len(text)} chars) → split into {len(chunks)} chunks", flush=True)
 
             translated_chunks = []
-            failed = False
             for i, chunk in enumerate(chunks):
                 print(f"  chunk {i + 1}/{len(chunks)} ({len(chunk)} chars)", flush=True)
-                result = translate_with_validation(chunk)
-                if result is None:
-                    print(f"  SKIPPING {rel}: chunk {i + 1} has unbalanced MDX after retries", flush=True)
-                    failed = True
-                    break
+                result = translate_with_retry(chunk)
                 translated_chunks.append(result)
-
-            if failed:
-                continue
 
             fr = "\n\n".join(translated_chunks)
         else:
-            fr = translate_with_validation(text)
-            if fr is None:
-                print(f"  SKIPPING {rel}: unbalanced MDX after retries", flush=True)
-                continue
+            fr = translate_with_retry(text)
 
         dst.write_text(fr + "\n", encoding="utf-8")
 
