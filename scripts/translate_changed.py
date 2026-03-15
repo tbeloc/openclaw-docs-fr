@@ -28,7 +28,25 @@ Rules:
 - Preserve ALL MDX/JSX components exactly (<Tabs>, <Tab>, <Steps>, <Step>, <Accordion>, <AccordionGroup>, <Note>, <Tip>, <Warning>, <Info>, <Card>, <CardGroup>, <CODE> etc.)
 - Every opening tag MUST have its matching closing tag
 - Return ONLY the translated content, complete and untruncated
+- Do NOT wrap the output in a code fence (no ```markdown or ``` wrapper)
+- The output must start directly with the frontmatter --- or the first line of content
 """
+
+
+def strip_wrapping_fences(text):
+    """
+    Remove wrapping code fences that the LLM sometimes adds around the output.
+    Handles ```markdown, ```mdx, ```md, or plain ``` at start/end.
+    """
+    stripped = text.strip()
+    # Match opening fence: ```markdown, ```mdx, ```md, or just ```
+    m = re.match(r'^```(?:markdown|mdx|md)?\s*\n', stripped)
+    if m:
+        # Remove the opening fence
+        stripped = stripped[m.end():]
+        # Remove the closing fence (last ``` on its own line)
+        stripped = re.sub(r'\n```\s*$', '', stripped)
+    return stripped.strip()
 
 
 def translate(text):
@@ -49,7 +67,10 @@ def translate(text):
         if getattr(block, "type", None) == "text":
             parts.append(block.text)
 
-    return "".join(parts).strip()
+    result = "".join(parts).strip()
+    # Always strip wrapping code fences the LLM may have added
+    result = strip_wrapping_fences(result)
+    return result
 
 
 def split_into_chunks(text):
