@@ -469,7 +469,7 @@
     },
     {
       "source": "/mac/release",
-      "destination": "/platforms/mac/release"
+      "destination": "/reference/RELEASING"
     },
     {
       "source": "/mac/remote",
@@ -1070,6 +1070,7 @@
                 "group": "Extensions",
                 "pages": [
                   "plugins/community",
+                  "plugins/bundles",
                   "plugins/voice-call",
                   "plugins/zalouser",
                   "plugins/manifest",
@@ -1198,7 +1199,6 @@
                   "platforms/mac/permissions",
                   "platforms/mac/remote",
                   "platforms/mac/signing",
-                  "platforms/mac/release",
                   "platforms/mac/bundled-gateway",
                   "platforms/mac/xpc",
                   "platforms/mac/skills",
@@ -1398,7 +1398,7 @@
                 ]
               },
               {
-                "group": "Release notes",
+                "group": "Release policy",
                 "pages": [
                   "reference/RELEASING",
                   "reference/test"
@@ -1848,7 +1848,6 @@
                   "zh-CN/platforms/mac/permissions",
                   "zh-CN/platforms/mac/remote",
                   "zh-CN/platforms/mac/signing",
-                  "zh-CN/platforms/mac/release",
                   "zh-CN/platforms/mac/bundled-gateway",
                   "zh-CN/platforms/mac/xpc",
                   "zh-CN/platforms/mac/skills",
@@ -2041,7 +2040,7 @@
                 ]
               },
               {
-                "group": "发布说明",
+                "group": "发布策略",
                 "pages": [
                   "zh-CN/reference/RELEASING",
                   "zh-CN/reference/test"
@@ -2408,6 +2407,7 @@
                 "group": "Extensions",
                 "pages": [
                   "fr/plugins/community",
+                  "fr/plugins/bundles",
                   "fr/plugins/voice-call",
                   "fr/plugins/zalouser",
                   "fr/plugins/manifest",
@@ -2536,7 +2536,6 @@
                   "fr/platforms/mac/permissions",
                   "fr/platforms/mac/remote",
                   "fr/platforms/mac/signing",
-                  "fr/platforms/mac/release",
                   "fr/platforms/mac/bundled-gateway",
                   "fr/platforms/mac/xpc",
                   "fr/platforms/mac/skills",
@@ -2735,7 +2734,7 @@
                 ]
               },
               {
-                "group": "Release notes",
+                "group": "Release policy",
                 "pages": [
                   "fr/reference/RELEASING",
                   "fr/reference/test"
