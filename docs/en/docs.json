@@ -60,6 +60,10 @@
       "destination": "/concepts/compaction"
     },
     {
+      "source": "/context-engine",
+      "destination": "/concepts/context-engine"
+    },
+    {
       "source": "/cron",
       "destination": "/cron-jobs"
     },
@@ -969,6 +973,7 @@
                   "concepts/agent-loop",
                   "concepts/system-prompt",
                   "concepts/context",
+                  "concepts/context-engine",
                   "concepts/agent-workspace",
                   "concepts/oauth"
                 ]
@@ -2304,6 +2309,7 @@
                   "fr/concepts/agent-loop",
                   "fr/concepts/system-prompt",
                   "fr/concepts/context",
+                  "fr/concepts/context-engine",
                   "fr/concepts/agent-workspace",
                   "fr/concepts/oauth"
                 ]
