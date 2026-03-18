@@ -1079,6 +1079,7 @@
                   "plugins/zalouser",
                   "plugins/manifest",
                   "plugins/agent-tools",
+                  "tools/capability-cookbook",
                   "prose"
                 ]
               },
@@ -2415,6 +2416,7 @@
                   "fr/plugins/zalouser",
                   "fr/plugins/manifest",
                   "fr/plugins/agent-tools",
+                  "fr/tools/capability-cookbook",
                   "fr/prose"
                 ]
               },
