@@ -43,10 +43,27 @@
         "label": "Releases",
         "href": "https://github.com/openclaw/openclaw/releases",
         "icon": "package"
+      },
+      {
+        "label": "Discord",
+        "href": "https://discord.com/invite/clawd",
+        "icon": "discord"
       }
     ]
   },
   "redirects": [
+    {
+      "source": "/platforms/oracle",
+      "destination": "/install/oracle"
+    },
+    {
+      "source": "/platforms/digitalocean",
+      "destination": "/install/digitalocean"
+    },
+    {
+      "source": "/platforms/raspberry-pi",
+      "destination": "/install/raspberry-pi"
+    },
     {
       "source": "/brave-search",
       "destination": "/tools/brave-search"
@@ -875,13 +892,33 @@
                 ]
               },
               {
-                "group": "Other install methods",
+                "group": "Containers",
                 "pages": [
-                  "install/docker",
-                  "install/podman",
-                  "install/nix",
                   "install/ansible",
-                  "install/bun"
+                  "install/bun",
+                  "install/docker",
+                  "install/nix",
+                  "install/podman"
+                ]
+              },
+              {
+                "group": "Hosting",
+                "pages": [
+                  "install/azure",
+                  "install/digitalocean",
+                  "install/docker-vm-runtime",
+                  "install/exe-dev",
+                  "install/fly",
+                  "install/gcp",
+                  "install/hetzner",
+                  "install/kubernetes",
+                  "vps",
+                  "install/macos-vm",
+                  "install/northflank",
+                  "install/oracle",
+                  "install/railway",
+                  "install/raspberry-pi",
+                  "install/render"
                 ]
               },
               {
@@ -889,29 +926,7 @@
                 "pages": [
                   "install/updating",
                   "install/migrating",
-                  "install/uninstall"
-                ]
-              },
-              {
-                "group": "Hosting and deployment",
-                "pages": [
-                  "vps",
-                  "install/docker-vm-runtime",
-                  "install/kubernetes",
-                  "install/fly",
-                  "install/hetzner",
-                  "install/gcp",
-                  "install/azure",
-                  "install/macos-vm",
-                  "install/exe-dev",
-                  "install/railway",
-                  "install/render",
-                  "install/northflank"
-                ]
-              },
-              {
-                "group": "Advanced",
-                "pages": [
+                  "install/uninstall",
                   "install/development-channels"
                 ]
               }
@@ -1186,10 +1201,7 @@
                   "platforms/linux",
                   "platforms/windows",
                   "platforms/android",
-                  "platforms/ios",
-                  "platforms/digitalocean",
-                  "platforms/oracle",
-                  "platforms/raspberry-pi"
+                  "platforms/ios"
                 ]
               },
               {
@@ -2209,13 +2221,33 @@
                 ]
               },
               {
-                "group": "Other install methods",
+                "group": "Conteneurs",
                 "pages": [
-                  "fr/install/docker",
-                  "fr/install/podman",
-                  "fr/install/nix",
                   "fr/install/ansible",
-                  "fr/install/bun"
+                  "fr/install/bun",
+                  "fr/install/docker",
+                  "fr/install/nix",
+                  "fr/install/podman"
+                ]
+              },
+              {
+                "group": "Hosting",
+                "pages": [
+                  "fr/install/azure",
+                  "fr/install/digitalocean",
+                  "fr/install/docker-vm-runtime",
+                  "fr/install/exe-dev",
+                  "fr/install/fly",
+                  "fr/install/gcp",
+                  "fr/install/hetzner",
+                  "fr/install/kubernetes",
+                  "fr/vps",
+                  "fr/install/macos-vm",
+                  "fr/install/northflank",
+                  "fr/install/oracle",
+                  "fr/install/railway",
+                  "fr/install/raspberry-pi",
+                  "fr/install/render"
                 ]
               },
               {
@@ -2223,29 +2255,7 @@
                 "pages": [
                   "fr/install/updating",
                   "fr/install/migrating",
-                  "fr/install/uninstall"
-                ]
-              },
-              {
-                "group": "Hosting and deployment",
-                "pages": [
-                  "fr/vps",
-                  "fr/install/docker-vm-runtime",
-                  "fr/install/kubernetes",
-                  "fr/install/fly",
-                  "fr/install/hetzner",
-                  "fr/install/gcp",
-                  "fr/install/azure",
-                  "fr/install/macos-vm",
-                  "fr/install/exe-dev",
-                  "fr/install/railway",
-                  "fr/install/render",
-                  "fr/install/northflank"
-                ]
-              },
-              {
-                "group": "Avancé",
-                "pages": [
+                  "fr/install/uninstall",
                   "fr/install/development-channels"
                 ]
               }
@@ -2520,10 +2530,7 @@
                   "fr/platforms/linux",
                   "fr/platforms/windows",
                   "fr/platforms/android",
-                  "fr/platforms/ios",
-                  "fr/platforms/digitalocean",
-                  "fr/platforms/oracle",
-                  "fr/platforms/raspberry-pi"
+                  "fr/platforms/ios"
                 ]
               },
               {
