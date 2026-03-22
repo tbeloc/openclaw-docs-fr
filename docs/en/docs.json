@@ -1058,6 +1058,18 @@
                 ]
               },
               {
+                "group": "Plugin SDK",
+                "pages": [
+                  "plugins/sdk-overview",
+                  "plugins/sdk-entrypoints",
+                  "plugins/sdk-runtime",
+                  "plugins/sdk-setup",
+                  "plugins/sdk-channel-plugins",
+                  "plugins/sdk-provider-plugins",
+                  "plugins/sdk-testing"
+                ]
+              },
+              {
                 "group": "Skills",
                 "pages": [
                   "tools/skills",
@@ -2390,6 +2402,18 @@
                   "fr/plugins/manifest",
                   "fr/plugins/sdk-migration",
                   "fr/plugins/architecture"
+                ]
+              },
+              {
+                "group": "Plugin SDK",
+                "pages": [
+                  "fr/plugins/sdk-overview",
+                  "fr/plugins/sdk-entrypoints",
+                  "fr/plugins/sdk-runtime",
+                  "fr/plugins/sdk-setup",
+                  "fr/plugins/sdk-channel-plugins",
+                  "fr/plugins/sdk-provider-plugins",
+                  "fr/plugins/sdk-testing"
                 ]
               },
               {
