@@ -85,6 +85,22 @@
       "destination": "/tools/perplexity-search"
     },
     {
+      "source": "/web-fetch",
+      "destination": "/tools/web-fetch"
+    },
+    {
+      "source": "/gemini-search",
+      "destination": "/tools/gemini-search"
+    },
+    {
+      "source": "/grok-search",
+      "destination": "/tools/grok-search"
+    },
+    {
+      "source": "/kimi-search",
+      "destination": "/tools/kimi-search"
+    },
+    {
       "source": "/tts",
       "destination": "/tools/tts"
     },
@@ -1049,24 +1065,29 @@
                 "group": "Plugins",
                 "pages": [
                   "tools/plugin",
-                  "plugins/building-plugins",
                   "plugins/community",
                   "plugins/bundles",
-                  "plugins/manifest",
-                  "plugins/sdk-migration",
-                  "plugins/architecture"
-                ]
-              },
-              {
-                "group": "Plugin SDK",
-                "pages": [
-                  "plugins/sdk-overview",
-                  "plugins/sdk-entrypoints",
-                  "plugins/sdk-runtime",
-                  "plugins/sdk-setup",
-                  "plugins/sdk-channel-plugins",
-                  "plugins/sdk-provider-plugins",
-                  "plugins/sdk-testing"
+                  {
+                    "group": "Building Plugins",
+                    "pages": [
+                      "plugins/building-plugins",
+                      "plugins/sdk-channel-plugins",
+                      "plugins/sdk-provider-plugins",
+                      "plugins/sdk-migration"
+                    ]
+                  },
+                  {
+                    "group": "SDK Reference",
+                    "pages": [
+                      "plugins/sdk-overview",
+                      "plugins/sdk-entrypoints",
+                      "plugins/sdk-runtime",
+                      "plugins/sdk-setup",
+                      "plugins/sdk-testing",
+                      "plugins/manifest",
+                      "plugins/architecture"
+                    ]
+                  }
                 ]
               },
               {
@@ -1099,12 +1120,26 @@
                 "pages": [
                   "tools/apply-patch",
                   {
-                    "group": "Browser",
+                    "group": "Web Browser",
                     "pages": [
                       "tools/browser",
                       "tools/browser-login",
                       "tools/browser-linux-troubleshooting",
                       "tools/browser-wsl2-windows-remote-cdp-troubleshooting"
+                    ]
+                  },
+                  {
+                    "group": "Web Tools",
+                    "pages": [
+                      "tools/web-fetch",
+                      "tools/web",
+                      "tools/brave-search",
+                      "tools/firecrawl",
+                      "tools/gemini-search",
+                      "tools/grok-search",
+                      "tools/kimi-search",
+                      "tools/perplexity-search",
+                      "tools/tavily"
                     ]
                   },
                   "tools/btw",
@@ -1117,17 +1152,7 @@
                   "tools/loop-detection",
                   "tools/pdf",
                   "tools/reactions",
-                  "tools/thinking",
-                  {
-                    "group": "Web and search",
-                    "pages": [
-                      "tools/web",
-                      "tools/brave-search",
-                      "tools/firecrawl",
-                      "tools/perplexity-search",
-                      "tools/tavily"
-                    ]
-                  }
+                  "tools/thinking"
                 ]
               },
               {
@@ -2396,24 +2421,29 @@
                 "group": "Plugins",
                 "pages": [
                   "fr/tools/plugin",
-                  "fr/plugins/building-plugins",
                   "fr/plugins/community",
                   "fr/plugins/bundles",
-                  "fr/plugins/manifest",
-                  "fr/plugins/sdk-migration",
-                  "fr/plugins/architecture"
-                ]
-              },
-              {
-                "group": "Plugin SDK",
-                "pages": [
-                  "fr/plugins/sdk-overview",
-                  "fr/plugins/sdk-entrypoints",
-                  "fr/plugins/sdk-runtime",
-                  "fr/plugins/sdk-setup",
-                  "fr/plugins/sdk-channel-plugins",
-                  "fr/plugins/sdk-provider-plugins",
-                  "fr/plugins/sdk-testing"
+                  {
+                    "group": "Building Plugins",
+                    "pages": [
+                      "fr/plugins/building-plugins",
+                      "fr/plugins/sdk-channel-plugins",
+                      "fr/plugins/sdk-provider-plugins",
+                      "fr/plugins/sdk-migration"
+                    ]
+                  },
+                  {
+                    "group": "SDK Reference",
+                    "pages": [
+                      "fr/plugins/sdk-overview",
+                      "fr/plugins/sdk-entrypoints",
+                      "fr/plugins/sdk-runtime",
+                      "fr/plugins/sdk-setup",
+                      "fr/plugins/sdk-testing",
+                      "fr/plugins/manifest",
+                      "fr/plugins/architecture"
+                    ]
+                  }
                 ]
               },
               {
@@ -2446,12 +2476,26 @@
                 "pages": [
                   "fr/tools/apply-patch",
                   {
-                    "group": "Browser",
+                    "group": "Web Browser",
                     "pages": [
                       "fr/tools/browser",
                       "fr/tools/browser-login",
                       "fr/tools/browser-linux-troubleshooting",
                       "fr/tools/browser-wsl2-windows-remote-cdp-troubleshooting"
+                    ]
+                  },
+                  {
+                    "group": "Web Tools",
+                    "pages": [
+                      "fr/tools/web-fetch",
+                      "fr/tools/web",
+                      "fr/tools/brave-search",
+                      "fr/tools/firecrawl",
+                      "fr/tools/gemini-search",
+                      "fr/tools/grok-search",
+                      "fr/tools/kimi-search",
+                      "fr/tools/perplexity-search",
+                      "fr/tools/tavily"
                     ]
                   },
                   "fr/tools/btw",
@@ -2464,17 +2508,7 @@
                   "fr/tools/loop-detection",
                   "fr/tools/pdf",
                   "fr/tools/reactions",
-                  "fr/tools/thinking",
-                  {
-                    "group": "Web and search",
-                    "pages": [
-                      "fr/tools/web",
-                      "fr/tools/brave-search",
-                      "fr/tools/firecrawl",
-                      "fr/tools/perplexity-search",
-                      "fr/tools/tavily"
-                    ]
-                  }
+                  "fr/tools/thinking"
                 ]
               },
               {
