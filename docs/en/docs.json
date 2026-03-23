@@ -89,6 +89,14 @@
       "destination": "/tools/web-fetch"
     },
     {
+      "source": "/duckduckgo-search",
+      "destination": "/tools/duckduckgo-search"
+    },
+    {
+      "source": "/exa-search",
+      "destination": "/tools/exa-search"
+    },
+    {
       "source": "/gemini-search",
       "destination": "/tools/gemini-search"
     },
@@ -1134,6 +1142,8 @@
                       "tools/web-fetch",
                       "tools/web",
                       "tools/brave-search",
+                      "tools/duckduckgo-search",
+                      "tools/exa-search",
                       "tools/firecrawl",
                       "tools/gemini-search",
                       "tools/grok-search",
@@ -2490,6 +2500,8 @@
                       "fr/tools/web-fetch",
                       "fr/tools/web",
                       "fr/tools/brave-search",
+                      "fr/tools/duckduckgo-search",
+                      "fr/tools/exa-search",
                       "fr/tools/firecrawl",
                       "fr/tools/gemini-search",
                       "fr/tools/grok-search",
