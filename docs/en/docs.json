@@ -1475,7 +1475,8 @@
                       "cli/clawbot",
                       "cli/completion",
                       "cli/dns",
-                      "cli/docs"
+                      "cli/docs",
+                      "cli/mcp"
                     ]
                   }
                 ]
@@ -2834,7 +2835,8 @@
                       "fr/cli/clawbot",
                       "fr/cli/completion",
                       "fr/cli/dns",
-                      "fr/cli/docs"
+                      "fr/cli/docs",
+                      "fr/cli/mcp"
                     ]
                   }
                 ]
