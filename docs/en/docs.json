@@ -1158,6 +1158,7 @@
                     ]
                   },
                   "tools/btw",
+                  "tools/code-execution",
                   "tools/diffs",
                   "tools/elevated",
                   "tools/exec",
@@ -2518,6 +2519,7 @@
                     ]
                   },
                   "fr/tools/btw",
+                  "fr/tools/code-execution",
                   "fr/tools/diffs",
                   "fr/tools/elevated",
                   "fr/tools/exec",
