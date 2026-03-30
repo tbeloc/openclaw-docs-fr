@@ -932,6 +932,7 @@
                 "pages": [
                   "install/ansible",
                   "install/bun",
+                  "install/clawdock",
                   "install/docker",
                   "install/nix",
                   "install/podman"
@@ -999,7 +1000,6 @@
                   "channels/telegram",
                   "channels/tlon",
                   "channels/twitch",
-                  "plugins/voice-call",
                   "channels/whatsapp",
                   "channels/zalo",
                   "channels/zalouser"
@@ -1089,6 +1089,7 @@
                   "tools/plugin",
                   "plugins/community",
                   "plugins/bundles",
+                  "plugins/voice-call",
                   {
                     "group": "Building Plugins",
                     "pages": [
@@ -1126,10 +1127,12 @@
               {
                 "group": "Automation",
                 "pages": [
+                  "automation/index",
                   "automation/hooks",
                   "automation/standing-orders",
                   "automation/cron-jobs",
                   "automation/cron-vs-heartbeat",
+                  "automation/tasks",
                   "automation/troubleshooting",
                   "automation/webhook",
                   "automation/gmail-pubsub",
@@ -1172,6 +1175,7 @@
                   "tools/elevated",
                   "tools/exec",
                   "tools/exec-approvals",
+                  "tools/image-generation",
                   "tools/llm-task",
                   "tools/lobster",
                   "tools/loop-detection",
@@ -1369,18 +1373,28 @@
                 ]
               },
               {
-                "group": "Nodes and devices",
+                "group": "Nodes and media",
                 "pages": [
                   "nodes/index",
                   "nodes/troubleshooting",
-                  "nodes/media-understanding",
-                  "nodes/images",
-                  "nodes/audio",
-                  "nodes/camera",
-                  "nodes/talk",
-                  "nodes/voicewake",
-                  "nodes/location-command",
-                  "tools/tts"
+                  {
+                    "group": "Media capabilities",
+                    "pages": [
+                      "nodes/media-understanding",
+                      "nodes/images",
+                      "nodes/audio",
+                      "nodes/camera",
+                      "tools/tts"
+                    ]
+                  },
+                  {
+                    "group": "Node features",
+                    "pages": [
+                      "nodes/talk",
+                      "nodes/voicewake",
+                      "nodes/location-command"
+                    ]
+                  }
                 ]
               },
               {
@@ -2302,6 +2316,7 @@
                 "pages": [
                   "fr/install/ansible",
                   "fr/install/bun",
+                  "fr/install/clawdock",
                   "fr/install/docker",
                   "fr/install/nix",
                   "fr/install/podman"
@@ -2369,7 +2384,6 @@
                   "fr/channels/telegram",
                   "fr/channels/tlon",
                   "fr/channels/twitch",
-                  "fr/plugins/voice-call",
                   "fr/channels/whatsapp",
                   "fr/channels/zalo",
                   "fr/channels/zalouser"
@@ -2459,6 +2473,7 @@
                   "fr/tools/plugin",
                   "fr/plugins/community",
                   "fr/plugins/bundles",
+                  "fr/plugins/voice-call",
                   {
                     "group": "Building Plugins",
                     "pages": [
@@ -2496,10 +2511,12 @@
               {
                 "group": "Automatisation",
                 "pages": [
+                  "fr/automation/index",
                   "fr/automation/hooks",
                   "fr/automation/standing-orders",
                   "fr/automation/cron-jobs",
                   "fr/automation/cron-vs-heartbeat",
+                  "fr/automation/tasks",
                   "fr/automation/troubleshooting",
                   "fr/automation/webhook",
                   "fr/automation/gmail-pubsub",
@@ -2542,6 +2559,7 @@
                   "fr/tools/elevated",
                   "fr/tools/exec",
                   "fr/tools/exec-approvals",
+                  "fr/tools/image-generation",
                   "fr/tools/llm-task",
                   "fr/tools/lobster",
                   "fr/tools/loop-detection",
@@ -2739,18 +2757,28 @@
                 ]
               },
               {
-                "group": "Nodes and devices",
+                "group": "Nodes and media",
                 "pages": [
                   "fr/nodes/index",
                   "fr/nodes/troubleshooting",
-                  "fr/nodes/media-understanding",
-                  "fr/nodes/images",
-                  "fr/nodes/audio",
-                  "fr/nodes/camera",
-                  "fr/nodes/talk",
-                  "fr/nodes/voicewake",
-                  "fr/nodes/location-command",
-                  "fr/tools/tts"
+                  {
+                    "group": "Media capabilities",
+                    "pages": [
+                      "fr/nodes/media-understanding",
+                      "fr/nodes/images",
+                      "fr/nodes/audio",
+                      "fr/nodes/camera",
+                      "fr/tools/tts"
+                    ]
+                  },
+                  {
+                    "group": "Node features",
+                    "pages": [
+                      "fr/nodes/talk",
+                      "fr/nodes/voicewake",
+                      "fr/nodes/location-command"
+                    ]
+                  }
                 ]
               },
               {
