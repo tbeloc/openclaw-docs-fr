@@ -1042,7 +1042,16 @@
                   "concepts/session",
                   "concepts/session-pruning",
                   "concepts/session-tool",
-                  "concepts/memory",
+                  {
+                    "group": "Memory",
+                    "pages": [
+                      "concepts/memory",
+                      "concepts/memory-builtin",
+                      "concepts/memory-qmd",
+                      "concepts/memory-honcho",
+                      "concepts/memory-search"
+                    ]
+                  },
                   "concepts/compaction"
                 ]
               },
@@ -2403,7 +2412,16 @@
                   "fr/concepts/session",
                   "fr/concepts/session-pruning",
                   "fr/concepts/session-tool",
-                  "fr/concepts/memory",
+                  {
+                    "group": "Memory",
+                    "pages": [
+                      "fr/concepts/memory",
+                      "fr/concepts/memory-builtin",
+                      "fr/concepts/memory-qmd",
+                      "fr/concepts/memory-honcho",
+                      "fr/concepts/memory-search"
+                    ]
+                  },
                   "fr/concepts/compaction"
                 ]
               },
