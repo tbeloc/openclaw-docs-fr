@@ -1168,6 +1168,7 @@
                       "tools/grok-search",
                       "tools/kimi-search",
                       "tools/perplexity-search",
+                      "tools/searxng-search",
                       "tools/tavily"
                     ]
                   },
@@ -2555,6 +2556,7 @@
                       "fr/tools/grok-search",
                       "fr/tools/kimi-search",
                       "fr/tools/perplexity-search",
+                      "fr/tools/searxng-search",
                       "fr/tools/tavily"
                     ]
                   },
