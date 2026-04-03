@@ -1157,11 +1157,11 @@
                 "group": "Automation & Tasks",
                 "pages": [
                   "automation/index",
-                  "automation/tasks",
                   "automation/cron-jobs",
+                  "automation/tasks",
                   "automation/taskflow",
-                  "automation/hooks",
-                  "automation/standing-orders"
+                  "automation/standing-orders",
+                  "automation/hooks"
                 ]
               },
               {
@@ -2533,11 +2533,11 @@
                 "group": "Automation & Tasks",
                 "pages": [
                   "fr/automation/index",
-                  "fr/automation/tasks",
                   "fr/automation/cron-jobs",
+                  "fr/automation/tasks",
                   "fr/automation/taskflow",
-                  "fr/automation/hooks",
-                  "fr/automation/standing-orders"
+                  "fr/automation/standing-orders",
+                  "fr/automation/hooks"
                 ]
               },
               {
