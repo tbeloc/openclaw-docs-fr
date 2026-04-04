@@ -1189,6 +1189,7 @@
                       "tools/gemini-search",
                       "tools/grok-search",
                       "tools/kimi-search",
+                      "tools/ollama-search",
                       "tools/perplexity-search",
                       "tools/searxng-search",
                       "tools/tavily"
@@ -2566,6 +2567,7 @@
                       "fr/tools/gemini-search",
                       "fr/tools/grok-search",
                       "fr/tools/kimi-search",
+                      "fr/tools/ollama-search",
                       "fr/tools/perplexity-search",
                       "fr/tools/searxng-search",
                       "fr/tools/tavily"
