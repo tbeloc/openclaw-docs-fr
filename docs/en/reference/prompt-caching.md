@@ -11,6 +11,11 @@ read_when:
 
 Prompt caching means the model provider can reuse unchanged prompt prefixes (usually system/developer instructions and other stable context) across turns instead of re-processing them every time. OpenClaw normalizes provider usage into `cacheRead` and `cacheWrite` where the upstream API exposes those counters directly.
 
+Status surfaces can also recover cache counters from the most recent transcript
+usage log when the live session snapshot is missing them, so `/status` can keep
+showing a cache line after partial session metadata loss. Existing nonzero live
+cache values still take precedence over transcript fallback values.
+
 Why this matters: lower token cost, faster responses, and more predictable performance for long-running sessions. Without caching, repeated prompts pay the full prompt cost on every turn even when most input did not change.
 
 This page covers all cache-related knobs that affect prompt reuse and token cost.
@@ -61,15 +66,6 @@ Config merge order:
 1. `agents.defaults.params` (global default — applies to all models)
 2. `agents.defaults.models["provider/model"].params` (per-model override)
 3. `agents.list[].params` (matching agent id; overrides by key)
-
-### Legacy `cacheControlTtl`
-
-Legacy values are still accepted and mapped:
-
-- `5m` -> `short`
-- `1h` -> `long`
-
-Prefer `cacheRetention` for new config.
 
 ### `contextPruning.mode: "cache-ttl"`
 
@@ -123,11 +119,51 @@ Per-agent heartbeat is supported at `agents.list[].heartbeat`.
 
 ### OpenRouter Anthropic models
 
-For `openrouter/anthropic/*` model refs, OpenClaw injects Anthropic `cache_control` on system/developer prompt blocks to improve prompt-cache reuse.
+For `openrouter/anthropic/*` model refs, OpenClaw injects Anthropic
+`cache_control` on system/developer prompt blocks to improve prompt-cache
+reuse only when the request is still targeting a verified OpenRouter route
+(`openrouter` on its default endpoint, or any provider/base URL that resolves
+to `openrouter.ai`).
+
+If you repoint the model at an arbitrary OpenAI-compatible proxy URL, OpenClaw
+stops injecting those OpenRouter-specific Anthropic cache markers.
 
 ### Other providers
 
 If the provider does not support this cache mode, `cacheRetention` has no effect.
+
+### Google Gemini direct API
+
+- Direct Gemini transport (`api: "google-generative-ai"`) reports cache hits
+  through upstream `cachedContentTokenCount`; OpenClaw maps that to `cacheRead`.
+- If you already have a Gemini cached-content handle, you can pass it through as
+  `params.cachedContent` (or legacy `params.cached_content`) on the configured
+  model.
+- This is separate from Anthropic/OpenAI prompt-prefix caching. OpenClaw is
+  forwarding a provider-native cached-content reference, not synthesizing cache
+  markers.
+
+### Gemini CLI JSON usage
+
+- Gemini CLI JSON output can also surface cache hits through `stats.cached`;
+  OpenClaw maps that to `cacheRead`.
+- If the CLI omits a direct `stats.input` value, OpenClaw derives input tokens
+  from `stats.input_tokens - stats.cached`.
+- This is usage normalization only. It does not mean OpenClaw is creating
+  Anthropic/OpenAI-style prompt-cache markers for Gemini CLI.
+
+## OpenClaw cache-stability guards
+
+OpenClaw also keeps several cache-sensitive payload shapes deterministic before
+the request reaches the provider:
+
+- Bundle MCP tool catalogs are sorted deterministically before tool
+  registration, so `listTools()` order changes do not churn the tools block and
+  bust prompt-cache prefixes.
+- Legacy sessions with persisted image blocks keep the **3 most recent
+  completed turns** intact; older already-processed image blocks may be
+  replaced with a marker so image-heavy follow-ups do not keep re-sending large
+  stale payloads.
 
 ## Tuning patterns
 
@@ -164,12 +200,25 @@ agents:
 
 OpenClaw exposes dedicated cache-trace diagnostics for embedded agent runs.
 
+For normal user-facing diagnostics, `/status` and other usage summaries can use
+the latest transcript usage entry as a fallback source for `cacheRead` /
+`cacheWrite` when the live session entry does not have those counters.
+
 ## Live regression tests
 
-OpenClaw keeps provider-specific live cache probes for repeated prefixes, tool turns, image turns, and MCP-style tool transcripts.
+OpenClaw keeps one combined live cache regression gate for repeated prefixes, tool turns, image turns, MCP-style tool transcripts, and an Anthropic no-cache control.
 
-- `src/agents/pi-embedded-runner.cache.live.test.ts`
-- `src/agents/pi-mcp-style.cache.live.test.ts`
+- `src/agents/live-cache-regression.live.test.ts`
+- `src/agents/live-cache-regression-baseline.ts`
+
+Run the narrow live gate with:
+
+```sh
+OPENCLAW_LIVE_TEST=1 OPENCLAW_LIVE_CACHE_TEST=1 pnpm test:live:cache
+```
+
+The baseline file stores the most recent observed live numbers plus the provider-specific regression floors used by the test.
+The runner also uses fresh per-run session IDs and prompt namespaces so previous cache state does not pollute the current regression sample.
 
 These tests intentionally do not use identical success criteria across providers.
 
@@ -189,12 +238,14 @@ These tests intentionally do not use identical success criteria across providers
   - image transcript: `cacheRead >= 3840`, hit rate `>= 0.82`
   - MCP-style transcript: `cacheRead >= 4096`, hit rate `>= 0.85`
 
-Fresh OpenAI verification on 2026-04-04 landed at:
+Fresh combined live verification on 2026-04-04 landed at:
 
-- stable prefix: `cacheRead=4864`, hit rate `0.971`
-- tool transcript: `cacheRead=4608`, hit rate `0.900`
-- image transcript: `cacheRead=4864`, hit rate `0.959`
-- MCP-style transcript: `cacheRead=4608`, hit rate `0.895`
+- stable prefix: `cacheRead=4864`, hit rate `0.966`
+- tool transcript: `cacheRead=4608`, hit rate `0.896`
+- image transcript: `cacheRead=4864`, hit rate `0.954`
+- MCP-style transcript: `cacheRead=4608`, hit rate `0.891`
+
+Recent local wall-clock time for the combined gate was about `88s`.
 
 Why the assertions differ:
 
