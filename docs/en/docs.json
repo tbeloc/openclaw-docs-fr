@@ -1061,6 +1061,7 @@
                   "concepts/context",
                   "concepts/context-engine",
                   "concepts/agent-workspace",
+                  "concepts/soul",
                   "concepts/oauth",
                   "start/bootstrapping"
                 ]
@@ -1078,7 +1079,8 @@
                       "concepts/memory-builtin",
                       "concepts/memory-qmd",
                       "concepts/memory-honcho",
-                      "concepts/memory-search"
+                      "concepts/memory-search",
+                      "concepts/memory-dreaming"
                     ]
                   },
                   "concepts/compaction"
@@ -1244,6 +1246,7 @@
                 "pages": [
                   "providers/anthropic",
                   "providers/bedrock",
+                  "providers/chutes",
                   "providers/claude-max-api-proxy",
                   "providers/cloudflare-ai-gateway",
                   "providers/deepgram",
@@ -2439,6 +2442,7 @@
                   "fr/concepts/context",
                   "fr/concepts/context-engine",
                   "fr/concepts/agent-workspace",
+                  "fr/concepts/soul",
                   "fr/concepts/oauth",
                   "fr/start/bootstrapping"
                 ]
@@ -2456,7 +2460,8 @@
                       "fr/concepts/memory-builtin",
                       "fr/concepts/memory-qmd",
                       "fr/concepts/memory-honcho",
-                      "fr/concepts/memory-search"
+                      "fr/concepts/memory-search",
+                      "fr/concepts/memory-dreaming"
                     ]
                   },
                   "fr/concepts/compaction"
@@ -2622,6 +2627,7 @@
                 "pages": [
                   "fr/providers/anthropic",
                   "fr/providers/bedrock",
+                  "fr/providers/chutes",
                   "fr/providers/claude-max-api-proxy",
                   "fr/providers/cloudflare-ai-gateway",
                   "fr/providers/deepgram",

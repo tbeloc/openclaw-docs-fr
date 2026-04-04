@@ -559,11 +559,19 @@ Quick answers plus deeper troubleshooting for real-world setups (local dev, VPS,
     **local-only models** so your data stays on your device. Subscriptions (Claude
     Pro/Max or OpenAI Codex) are optional ways to authenticate those providers.
 
-    If you choose Anthropic subscription auth, decide for yourself whether to use it:
-    Anthropic has blocked some subscription usage outside Claude Code in the past.
-    OpenAI Codex OAuth is explicitly supported for external tools like OpenClaw.
+    Anthropic changed third-party harness billing on **April 4, 2026 at 12:00 PM
+    PT / 8:00 PM BST**. Anthropic says Claude subscription limits no longer cover
+    OpenClaw, and Anthropic subscription auth in OpenClaw now requires **Extra
+    Usage** billed separately from the subscription. OpenAI Codex OAuth is
+    explicitly supported for external tools like OpenClaw.
+
+    OpenClaw also supports other hosted subscription-style options including
+    **Alibaba Cloud Model Studio Coding Plan**, **MiniMax Coding Plan**, and
+    **Z.AI / GLM Coding Plan**.
 
     Docs: [Anthropic](/providers/anthropic), [OpenAI](/providers/openai),
+    [Qwen / Model Studio](/providers/qwen_modelstudio),
+    [MiniMax](/providers/minimax), [GLM Models](/providers/glm),
     [Local models](/gateway/local-models), [Models](/concepts/models).
 
   </Accordion>
@@ -573,14 +581,16 @@ Quick answers plus deeper troubleshooting for real-world setups (local dev, VPS,
     login on the gateway host.
 
     Claude Pro/Max subscriptions **do not include an API key**, so this is the
-    technical path for subscription accounts. But this is your decision: Anthropic
-    has blocked some subscription usage outside Claude Code in the past.
-    If you want the clearest and safest supported path for production, use an Anthropic API key.
+    technical path for subscription accounts. But Anthropic changed third-party
+    harness billing on **April 4, 2026 at 12:00 PM PT / 8:00 PM BST**:
+    Anthropic says OpenClaw now requires **Extra Usage** billed separately from
+    the subscription for this path. If you want the clearest and safest
+    supported path for production, use an Anthropic API key.
 
   </Accordion>
 
   <Accordion title="How does Anthropic setup-token auth work?">
-    `claude setup-token` generates a **token string** via the Claude Code CLI (it is not available in the web console). You can run it on **any machine**. Choose **Anthropic token (paste setup-token)** in onboarding or paste it with `openclaw models auth paste-token --provider anthropic`. The token is stored as an auth profile for the **anthropic** provider and used like an API key (no auto-refresh). More detail: [OAuth](/concepts/oauth).
+    `claude setup-token` generates a **token string** via the Claude Code CLI (it is not available in the web console). You can run it on **any machine**. Interactive onboarding/configure no longer shows setup-token as an assistant choice; use `openclaw models auth setup-token --provider anthropic` or paste an existing token with `openclaw models auth paste-token --provider anthropic`. The token is stored as an auth profile for the **anthropic** provider and used like an API key (no auto-refresh). More detail: [OAuth](/concepts/oauth).
   </Accordion>
 
   <Accordion title="Where do I find an Anthropic setup-token?">
@@ -590,22 +600,29 @@ Quick answers plus deeper troubleshooting for real-world setups (local dev, VPS,
     claude setup-token
     ```
 
-    Copy the token it prints, then choose **Anthropic token (paste setup-token)** in onboarding. If you want to run it on the gateway host, use `openclaw models auth setup-token --provider anthropic`. If you ran `claude setup-token` elsewhere, paste it on the gateway host with `openclaw models auth paste-token --provider anthropic`. See [Anthropic](/providers/anthropic).
+    Copy the token it prints, then either run `openclaw models auth setup-token --provider anthropic` on the gateway host or paste it there with `openclaw models auth paste-token --provider anthropic`. See [Anthropic](/providers/anthropic).
 
   </Accordion>
 
   <Accordion title="Do you support Claude subscription auth (Claude Pro or Max)?">
     Yes. You can either:
 
-    - use a **setup-token**
     - reuse a local **Claude CLI** login on the gateway host with `openclaw models auth login --provider anthropic --method cli --set-default`
+    - use a **setup-token** manually with `openclaw models auth setup-token --provider anthropic`
 
-    Setup-token is still supported. Claude CLI migration is simpler when the gateway host already runs Claude Code. See [Anthropic](/providers/anthropic) and [OAuth](/concepts/oauth).
+    Claude CLI is the preferred interactive Anthropic path. Setup-token is still supported for manual config. See [Anthropic](/providers/anthropic) and [OAuth](/concepts/oauth).
 
-    Important: this is technical compatibility, not a policy guarantee. Anthropic
-    has blocked some subscription usage outside Claude Code in the past.
-    You need to decide whether to use it and verify Anthropic's current terms.
-    For production or multi-user workloads, Anthropic API key auth is the safer, recommended choice.
+    Important: Anthropic changed third-party harness billing on **April 4, 2026
+    at 12:00 PM PT / 8:00 PM BST**. Anthropic says Claude subscription limits no
+    longer cover OpenClaw, and Anthropic now requires **Extra Usage** billed
+    separately from the subscription for setup-token or Claude CLI traffic
+    through OpenClaw.
+
+    For production or multi-user workloads, Anthropic API key auth is the
+    safer, recommended choice. If you want other subscription-style hosted
+    options in OpenClaw, see [OpenAI](/providers/openai), [Qwen / Model
+    Studio](/providers/qwen_modelstudio), [MiniMax](/providers/minimax), and
+    [GLM Models](/providers/glm).
 
   </Accordion>
 
