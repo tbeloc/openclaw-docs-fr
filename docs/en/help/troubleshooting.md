@@ -31,7 +31,9 @@ Good output in one line:
 - `openclaw gateway probe` → expected gateway target is reachable (`Reachable: yes`). `RPC: limited - missing scope: operator.read` is degraded diagnostics, not a connect failure.
 - `openclaw gateway status` → `Runtime: running` and `RPC probe: ok`.
 - `openclaw doctor` → no blocking config/service errors.
-- `openclaw channels status --probe` → channels report `connected` or `ready`.
+- `openclaw channels status --probe` → reachable gateway returns live per-account
+  transport state plus probe/audit results such as `works` or `audit ok`; if the
+  gateway is unreachable, the command falls back to config-only summaries.
 - `openclaw logs --follow` → steady activity, no repeating fatal errors.
 
 ## Anthropic long context 429
@@ -101,7 +103,7 @@ flowchart TD
 
     - `Runtime: running`
     - `RPC probe: ok`
-    - Your channel shows connected/ready in `channels status --probe`
+    - Your channel shows transport connected and, where supported, `works` or `audit ok` in `channels status --probe`
     - Sender appears approved (or DM policy is open/allowlist)
 
     Common log signatures:
@@ -139,6 +141,12 @@ flowchart TD
     - `origin not allowed` → browser `Origin` is not allowed for the Control UI
       gateway target.
     - `AUTH_TOKEN_MISMATCH` with retry hints (`canRetryWithDeviceToken=true`) → one trusted device-token retry may occur automatically.
+    - That cached-token retry reuses the cached scope set stored with the paired
+      device token. Explicit `deviceToken` / explicit `scopes` callers keep
+      their requested scope set instead.
+    - On the async Tailscale Serve Control UI path, failed attempts for the same
+      `{scope, ip}` are serialized before the limiter records the failure, so a
+      second concurrent bad retry can already show `retry later`.
     - `too many failed authentication attempts (retry later)` from a localhost
       browser origin → repeated failures from that same `Origin` are temporarily
       locked out; another localhost origin uses a separate bucket.
@@ -171,7 +179,7 @@ flowchart TD
     Common log signatures:
 
     - `Gateway start blocked: set gateway.mode=local` or `existing config is missing gateway.mode` → gateway mode is remote, or the config file is missing the local-mode stamp and should be repaired.
-    - `refusing to bind gateway ... without auth` → non-loopback bind without token/password.
+    - `refusing to bind gateway ... without auth` → non-loopback bind without a valid gateway auth path (token/password, or trusted-proxy where configured).
     - `another gateway instance is already listening` or `EADDRINUSE` → port already taken.
 
     Deep pages:

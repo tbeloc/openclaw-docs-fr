@@ -157,21 +157,23 @@ Current bundled provider examples:
   | --- | --- | --- |
   | `plugin-sdk/plugin-entry` | Canonical plugin entry helper | `definePluginEntry` |
   | `plugin-sdk/core` | Legacy umbrella re-export for channel entry definitions/builders | `defineChannelPluginEntry`, `createChatChannelPlugin` |
+  | `plugin-sdk/config-schema` | Root config schema export | `OpenClawSchema` |
   | `plugin-sdk/provider-entry` | Single-provider entry helper | `defineSingleProviderPluginEntry` |
   | `plugin-sdk/channel-core` | Focused channel entry definitions and builders | `defineChannelPluginEntry`, `defineSetupPluginEntry`, `createChatChannelPlugin`, `createChannelPluginBase` |
   | `plugin-sdk/setup` | Shared setup wizard helpers | Allowlist prompts, setup status builders |
-  | `plugin-sdk/setup-runtime` | Setup-time runtime helpers | Account-scoped setup runtime helpers, delegated setup proxies |
+  | `plugin-sdk/setup-runtime` | Setup-time runtime helpers | Import-safe setup patch adapters, lookup-note helpers, `promptResolvedAllowFrom`, `splitSetupEntries`, delegated setup proxies |
   | `plugin-sdk/setup-adapter-runtime` | Setup adapter helpers | `createEnvPatchedAccountSetupAdapter` |
-  | `plugin-sdk/setup-tools` | Setup tooling helpers | CLI/archive/docs helpers for setup/install flows |
+  | `plugin-sdk/setup-tools` | Setup tooling helpers | `formatCliCommand`, `detectBinary`, `extractArchive`, `resolveBrewExecutable`, `formatDocsLink`, `CONFIG_DIR` |
   | `plugin-sdk/account-core` | Multi-account helpers | Account list/config/action-gate helpers |
   | `plugin-sdk/account-id` | Account-id helpers | `DEFAULT_ACCOUNT_ID`, account-id normalization |
   | `plugin-sdk/account-resolution` | Account lookup helpers | Account lookup + default-fallback helpers |
   | `plugin-sdk/account-helpers` | Narrow account helpers | Account list/account-action helpers |
-  | `plugin-sdk/channel-setup` | Setup wizard adapters | `createOptionalChannelSetupSurface` |
+  | `plugin-sdk/channel-setup` | Setup wizard adapters | `createOptionalChannelSetupSurface`, `createOptionalChannelSetupAdapter`, `createOptionalChannelSetupWizard`, plus `DEFAULT_ACCOUNT_ID`, `createTopLevelChannelDmPolicy`, `setSetupChannelEnabled`, `splitSetupEntries` |
   | `plugin-sdk/channel-pairing` | DM pairing primitives | `createChannelPairingController` |
   | `plugin-sdk/channel-reply-pipeline` | Reply prefix + typing wiring | `createChannelReplyPipeline` |
   | `plugin-sdk/channel-config-helpers` | Config adapter factories | `createHybridChannelConfigAdapter` |
   | `plugin-sdk/channel-config-schema` | Config schema builders | Channel config schema types |
+  | `plugin-sdk/telegram-command-config` | Telegram command config helpers | Command-name normalization, description trimming, duplicate/conflict validation |
   | `plugin-sdk/channel-policy` | Group/DM policy resolution | `resolveChannelGroupRequireMention` |
   | `plugin-sdk/channel-lifecycle` | Account status tracking | `createAccountStatusSink` |
   | `plugin-sdk/inbound-envelope` | Inbound envelope helpers | Shared route + envelope builder helpers |
@@ -188,9 +190,12 @@ Current bundled provider examples:
   | `plugin-sdk/runtime-env` | Narrow runtime env helpers | Logger/runtime env, timeout, retry, and backoff helpers |
   | `plugin-sdk/plugin-runtime` | Shared plugin runtime helpers | Plugin commands/hooks/http/interactive helpers |
   | `plugin-sdk/hook-runtime` | Hook pipeline helpers | Shared webhook/internal hook pipeline helpers |
+  | `plugin-sdk/lazy-runtime` | Lazy runtime helpers | `createLazyRuntimeModule`, `createLazyRuntimeMethod`, `createLazyRuntimeMethodBinder`, `createLazyRuntimeNamedExport`, `createLazyRuntimeSurface` |
   | `plugin-sdk/process-runtime` | Process helpers | Shared exec helpers |
   | `plugin-sdk/cli-runtime` | CLI runtime helpers | Command formatting, waits, version helpers |
   | `plugin-sdk/gateway-runtime` | Gateway helpers | Gateway client and channel-status patch helpers |
+  | `plugin-sdk/config-runtime` | Config helpers | Config load/write helpers |
+  | `plugin-sdk/telegram-command-config` | Telegram command helpers | Fallback-stable Telegram command validation helpers when the bundled Telegram contract surface is unavailable |
   | `plugin-sdk/approval-runtime` | Approval prompt helpers | Exec/plugin approval payload, approval capability/profile helpers, native approval routing/runtime helpers |
   | `plugin-sdk/approval-auth-runtime` | Approval auth helpers | Approver resolution, same-chat action auth |
   | `plugin-sdk/approval-client-runtime` | Approval client helpers | Native exec approval profile/filter helpers |
@@ -202,7 +207,7 @@ Current bundled provider examples:
   | `plugin-sdk/ssrf-runtime` | SSRF runtime helpers | Pinned-dispatcher, guarded fetch, SSRF policy helpers |
   | `plugin-sdk/collection-runtime` | Bounded cache helpers | `pruneMapToMaxSize` |
   | `plugin-sdk/diagnostic-runtime` | Diagnostic gating helpers | `isDiagnosticFlagEnabled`, `isDiagnosticsEnabled` |
-  | `plugin-sdk/error-runtime` | Error formatting helpers | `formatUncaughtError`, error graph helpers |
+  | `plugin-sdk/error-runtime` | Error formatting helpers | `formatUncaughtError`, `isApprovalNotFoundError`, error graph helpers |
   | `plugin-sdk/fetch-runtime` | Wrapped fetch/proxy helpers | `resolveFetch`, proxy helpers |
   | `plugin-sdk/host-runtime` | Host normalization helpers | `normalizeHostname`, `normalizeScpRemoteHost` |
   | `plugin-sdk/retry-runtime` | Retry helpers | `RetryConfig`, `retryAsync`, policy runners |
@@ -214,10 +219,13 @@ Current bundled provider examples:
   | `plugin-sdk/webhook-request-guards` | Webhook body guard helpers | Request body read/limit helpers |
   | `plugin-sdk/reply-runtime` | Shared reply runtime | Inbound dispatch, heartbeat, reply planner, chunking |
   | `plugin-sdk/reply-dispatch-runtime` | Narrow reply dispatch helpers | Finalize + provider dispatch helpers |
+  | `plugin-sdk/reply-history` | Reply-history helpers | `buildHistoryContext`, `buildPendingHistoryContextFromMap`, `recordPendingHistoryEntry`, `clearHistoryEntriesIfEnabled` |
   | `plugin-sdk/reply-reference` | Reply reference planning | `createReplyReferencePlanner` |
   | `plugin-sdk/reply-chunking` | Reply chunk helpers | Text/markdown chunking helpers |
   | `plugin-sdk/session-store-runtime` | Session store helpers | Store path + updated-at helpers |
   | `plugin-sdk/state-paths` | State path helpers | State and OAuth dir helpers |
+  | `plugin-sdk/routing` | Routing/session-key helpers | `resolveAgentRoute`, `buildAgentSessionKey`, `resolveDefaultAgentBoundAccountId`, session-key normalization helpers |
+  | `plugin-sdk/status-helpers` | Channel status helpers | Channel/account status summary builders, runtime-state defaults, issue metadata helpers |
   | `plugin-sdk/target-resolver-runtime` | Target resolver helpers | Shared target resolver helpers |
   | `plugin-sdk/string-normalization-runtime` | String normalization helpers | Slug/string normalization helpers |
   | `plugin-sdk/request-url` | Request URL helpers | Extract string URLs from request-like inputs |
@@ -235,10 +243,15 @@ Current bundled provider examples:
   | `plugin-sdk/provider-auth-result` | Provider auth-result helpers | Standard OAuth auth-result builder |
   | `plugin-sdk/provider-auth-login` | Provider interactive login helpers | Shared interactive login helpers |
   | `plugin-sdk/provider-env-vars` | Provider env-var helpers | Provider auth env-var lookup helpers |
+  | `plugin-sdk/provider-model-shared` | Shared provider model/replay helpers | `ProviderReplayFamily`, `buildProviderReplayFamilyHooks`, `normalizeModelCompat`, shared replay-policy builders, provider-endpoint helpers, and model-id normalization helpers |
+  | `plugin-sdk/provider-catalog-shared` | Shared provider catalog helpers | `findCatalogTemplate`, `buildSingleProviderApiKeyCatalog`, `supportsNativeStreamingUsageCompat`, `applyProviderNativeStreamingUsageCompat` |
   | `plugin-sdk/provider-onboard` | Provider onboarding patches | Onboarding config helpers |
   | `plugin-sdk/provider-http` | Provider HTTP helpers | Generic provider HTTP/endpoint capability helpers |
   | `plugin-sdk/provider-web-fetch` | Provider web-fetch helpers | Web-fetch provider registration/cache helpers |
   | `plugin-sdk/provider-web-search` | Provider web-search helpers | Web-search provider registration/cache/config helpers |
+  | `plugin-sdk/provider-tools` | Provider tool/schema compat helpers | `ProviderToolCompatFamily`, `buildProviderToolCompatFamilyHooks`, Gemini schema cleanup + diagnostics, and xAI compat helpers such as `resolveXaiModelCompatPatch` / `applyXaiModelCompat` |
+  | `plugin-sdk/provider-usage` | Provider usage helpers | `fetchClaudeUsage`, `fetchGeminiUsage`, `fetchGithubCopilotUsage`, and other provider usage helpers |
+  | `plugin-sdk/provider-stream` | Provider stream wrapper helpers | `ProviderStreamFamily`, `buildProviderStreamFamilyHooks`, `composeProviderStreamWrappers`, stream wrapper types, and shared Anthropic/Bedrock/Google/Kilocode/Moonshot/OpenAI/OpenRouter/Z.A.I/MiniMax/Copilot wrapper helpers |
   | `plugin-sdk/keyed-async-queue` | Ordered async queue | `KeyedAsyncQueue` |
   | `plugin-sdk/media-runtime` | Shared media helpers | Media fetch/transform/store helpers plus media payload builders |
   | `plugin-sdk/media-understanding-runtime` | Media-understanding runtime facade | Media-understanding runner facade and typed result helpers |
@@ -262,6 +275,20 @@ Current bundled provider examples:
   | `plugin-sdk/webhook-path` | Webhook path helpers | Webhook path normalization helpers |
   | `plugin-sdk/web-media` | Shared web media helpers | Remote/local media loading helpers |
   | `plugin-sdk/zod` | Zod re-export | Re-exported `zod` for plugin SDK consumers |
+  | `plugin-sdk/memory-core` | Bundled memory-core helpers | Memory manager/config/file/CLI helper surface |
+  | `plugin-sdk/memory-core-engine-runtime` | Memory engine runtime facade | Memory index/search runtime facade |
+  | `plugin-sdk/memory-core-host-engine-foundation` | Memory host foundation engine | Memory host foundation engine exports |
+  | `plugin-sdk/memory-core-host-engine-embeddings` | Memory host embedding engine | Memory host embedding engine exports |
+  | `plugin-sdk/memory-core-host-engine-qmd` | Memory host QMD engine | Memory host QMD engine exports |
+  | `plugin-sdk/memory-core-host-engine-storage` | Memory host storage engine | Memory host storage engine exports |
+  | `plugin-sdk/memory-core-host-multimodal` | Memory host multimodal helpers | Memory host multimodal helpers |
+  | `plugin-sdk/memory-core-host-query` | Memory host query helpers | Memory host query helpers |
+  | `plugin-sdk/memory-core-host-secret` | Memory host secret helpers | Memory host secret helpers |
+  | `plugin-sdk/memory-core-host-status` | Memory host status helpers | Memory host status helpers |
+  | `plugin-sdk/memory-core-host-runtime-cli` | Memory host CLI runtime | Memory host CLI runtime helpers |
+  | `plugin-sdk/memory-core-host-runtime-core` | Memory host core runtime | Memory host core runtime helpers |
+  | `plugin-sdk/memory-core-host-runtime-files` | Memory host file/runtime helpers | Memory host file/runtime helpers |
+  | `plugin-sdk/memory-lancedb` | Bundled memory-lancedb helpers | Memory-lancedb helper surface |
   | `plugin-sdk/testing` | Test utilities | Test helpers and mocks |
 </Accordion>
 
@@ -275,6 +302,30 @@ That generated list still includes some bundled-plugin helper seams such as
 bundled-plugin maintenance and compatibility, but they are intentionally
 omitted from the common migration table and are not the recommended target for
 new plugin code.
+
+The same rule applies to other generated bundled-helper families such as:
+
+- browser: `plugin-sdk/browser*`
+- Matrix: `plugin-sdk/matrix*`
+- LINE: `plugin-sdk/line*`
+- IRC: `plugin-sdk/irc*`
+- bundled helper/plugin surfaces like `plugin-sdk/googlechat`,
+  `plugin-sdk/zalouser`, `plugin-sdk/bluebubbles*`,
+  `plugin-sdk/mattermost*`, `plugin-sdk/msteams`,
+  `plugin-sdk/nextcloud-talk`, `plugin-sdk/nostr`, `plugin-sdk/tlon`,
+  `plugin-sdk/twitch`, `plugin-sdk/openai`, `plugin-sdk/moonshot`,
+  `plugin-sdk/modelstudio*`, `plugin-sdk/provider-moonshot`,
+  `plugin-sdk/cloudflare-ai-gateway`, `plugin-sdk/byteplus`,
+  `plugin-sdk/chutes`, `plugin-sdk/deepseek`, `plugin-sdk/google`,
+  `plugin-sdk/huggingface`, `plugin-sdk/kimi-coding`,
+  `plugin-sdk/kilocode`, `plugin-sdk/minimax`, `plugin-sdk/mistral`,
+  `plugin-sdk/nvidia`, `plugin-sdk/ollama*`, `plugin-sdk/opencode`,
+  `plugin-sdk/opencode-go`, `plugin-sdk/qianfan`, `plugin-sdk/sglang`,
+  `plugin-sdk/synthetic`, `plugin-sdk/venice`, `plugin-sdk/vllm`,
+  `plugin-sdk/xai`, `plugin-sdk/volcengine`,
+  `plugin-sdk/github-copilot-login`, `plugin-sdk/github-copilot-token`,
+  `plugin-sdk/diagnostics-otel`, `plugin-sdk/diffs`, `plugin-sdk/llm-task`,
+  `plugin-sdk/thread-ownership`, and `plugin-sdk/voice-call`
 
 Use the narrowest import that matches the job. If you cannot find an export,
 check the source at `src/plugin-sdk/` or ask in Discord.

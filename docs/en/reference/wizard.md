@@ -123,7 +123,7 @@ For a high-level overview, see [Onboarding (CLI)](/start/wizard).
   </Step>
   <Step title="Health check">
     - Starts the Gateway (if needed) and runs `openclaw health`.
-    - Tip: `openclaw status --deep` adds gateway health probes to status output (requires a reachable gateway).
+    - Tip: `openclaw status --deep` adds the live gateway health probe to status output, including channel probes when supported (requires a reachable gateway).
   </Step>
   <Step title="Skills (recommended)">
     - Reads the available skills and checks requirements.
@@ -220,6 +220,8 @@ Typical fields in `~/.openclaw/openclaw.json`:
 - `channels.telegram.botToken`, `channels.discord.token`, `channels.matrix.*`, `channels.signal.*`, `channels.imessage.*`
 - Channel allowlists (Slack/Discord/Matrix/Microsoft Teams) when you opt in during the prompts (names resolve to IDs when possible).
 - `skills.install.nodeManager`
+  - `setup --node-manager` accepts `npm`, `pnpm`, or `bun`.
+  - Manual config can still use `yarn` by setting `skills.install.nodeManager` directly.
 - `wizard.lastRunAt`
 - `wizard.lastRunVersion`
 - `wizard.lastRunCommit`
