@@ -1252,6 +1252,7 @@
               {
                 "group": "Providers",
                 "pages": [
+                  "providers/alibaba",
                   "providers/anthropic",
                   "providers/bedrock",
                   "providers/bedrock-mantle",
@@ -1260,6 +1261,7 @@
                   "providers/cloudflare-ai-gateway",
                   "providers/deepgram",
                   "providers/deepseek",
+                  "providers/fal",
                   "providers/github-copilot",
                   "providers/glm",
                   "providers/google",
@@ -1278,8 +1280,8 @@
                   "providers/openrouter",
                   "providers/perplexity-provider",
                   "providers/qianfan",
-                  "providers/qwen_modelstudio",
                   "providers/qwen",
+                  "providers/runway",
                   "providers/sglang",
                   "providers/stepfun",
                   "providers/synthetic",
@@ -1995,6 +1997,7 @@
               {
                 "group": "Fournisseurs",
                 "pages": [
+                  "fr/providers/alibaba",
                   "fr/providers/anthropic",
                   "fr/providers/bedrock",
                   "fr/providers/bedrock-mantle",
@@ -2003,6 +2006,7 @@
                   "fr/providers/cloudflare-ai-gateway",
                   "fr/providers/deepgram",
                   "fr/providers/deepseek",
+                  "fr/providers/fal",
                   "fr/providers/github-copilot",
                   "fr/providers/glm",
                   "fr/providers/google",
@@ -2021,8 +2025,8 @@
                   "fr/providers/openrouter",
                   "fr/providers/perplexity-provider",
                   "fr/providers/qianfan",
-                  "fr/providers/qwen_modelstudio",
                   "fr/providers/qwen",
+                  "fr/providers/runway",
                   "fr/providers/sglang",
                   "fr/providers/stepfun",
                   "fr/providers/synthetic",
