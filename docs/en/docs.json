@@ -1212,12 +1212,14 @@
                   "tools/exec",
                   "tools/exec-approvals",
                   "tools/image-generation",
+                  "tools/music-generation",
                   "tools/llm-task",
                   "tools/lobster",
                   "tools/loop-detection",
                   "tools/pdf",
                   "tools/reactions",
-                  "tools/thinking"
+                  "tools/thinking",
+                  "tools/video-generation"
                 ]
               },
               {
@@ -1257,6 +1259,7 @@
                   "providers/bedrock",
                   "providers/bedrock-mantle",
                   "providers/chutes",
+                  "providers/comfy",
                   "providers/claude-max-api-proxy",
                   "providers/cloudflare-ai-gateway",
                   "providers/deepgram",
@@ -1288,6 +1291,7 @@
                   "providers/together",
                   "providers/venice",
                   "providers/vercel-ai-gateway",
+                  "providers/vydra",
                   "providers/vllm",
                   "providers/volcengine",
                   "providers/xai",
@@ -1957,12 +1961,14 @@
                   "fr/tools/exec",
                   "fr/tools/exec-approvals",
                   "fr/tools/image-generation",
+                  "fr/tools/music-generation",
                   "fr/tools/llm-task",
                   "fr/tools/lobster",
                   "fr/tools/loop-detection",
                   "fr/tools/pdf",
                   "fr/tools/reactions",
-                  "fr/tools/thinking"
+                  "fr/tools/thinking",
+                  "fr/tools/video-generation"
                 ]
               },
               {
@@ -2002,6 +2008,7 @@
                   "fr/providers/bedrock",
                   "fr/providers/bedrock-mantle",
                   "fr/providers/chutes",
+                  "fr/providers/comfy",
                   "fr/providers/claude-max-api-proxy",
                   "fr/providers/cloudflare-ai-gateway",
                   "fr/providers/deepgram",
@@ -2033,6 +2040,7 @@
                   "fr/providers/together",
                   "fr/providers/venice",
                   "fr/providers/vercel-ai-gateway",
+                  "fr/providers/vydra",
                   "fr/providers/vllm",
                   "fr/providers/volcengine",
                   "fr/providers/xai",
