@@ -1084,6 +1084,7 @@
                       "concepts/memory-qmd",
                       "concepts/memory-honcho",
                       "concepts/memory-search",
+                      "concepts/active-memory",
                       "concepts/dreaming"
                     ]
                   },
@@ -1837,6 +1838,7 @@
                       "fr/concepts/memory-qmd",
                       "fr/concepts/memory-honcho",
                       "fr/concepts/memory-search",
+                      "fr/concepts/active-memory",
                       "fr/concepts/dreaming"
                     ]
                   },
