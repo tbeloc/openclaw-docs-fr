@@ -1125,6 +1125,7 @@
                   "tools/plugin",
                   "plugins/community",
                   "plugins/bundles",
+                  "plugins/codex-harness",
                   "plugins/webhooks",
                   "plugins/voice-call",
                   {
@@ -1142,6 +1143,7 @@
                       "plugins/sdk-overview",
                       "plugins/sdk-entrypoints",
                       "plugins/sdk-runtime",
+                      "plugins/sdk-agent-harness",
                       "plugins/sdk-setup",
                       "plugins/sdk-testing",
                       "plugins/manifest",
@@ -1879,6 +1881,7 @@
                   "fr/tools/plugin",
                   "fr/plugins/community",
                   "fr/plugins/bundles",
+                  "fr/plugins/codex-harness",
                   "fr/plugins/webhooks",
                   "fr/plugins/voice-call",
                   {
@@ -1896,6 +1899,7 @@
                       "fr/plugins/sdk-overview",
                       "fr/plugins/sdk-entrypoints",
                       "fr/plugins/sdk-runtime",
+                      "fr/plugins/sdk-agent-harness",
                       "fr/plugins/sdk-setup",
                       "fr/plugins/sdk-testing",
                       "fr/plugins/manifest",
