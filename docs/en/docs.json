@@ -457,6 +457,14 @@
       "destination": "/channels/telegram"
     },
     {
+      "source": "/channels/openclaw-weixin",
+      "destination": "/channels/wechat"
+    },
+    {
+      "source": "/channels/weixin",
+      "destination": "/channels/wechat"
+    },
+    {
       "source": "/group-messages",
       "destination": "/channels/group-messages"
     },
@@ -1038,6 +1046,7 @@
                   "channels/telegram",
                   "channels/tlon",
                   "channels/twitch",
+                  "channels/wechat",
                   "channels/whatsapp",
                   "channels/zalo",
                   "channels/zalouser"
@@ -1805,6 +1814,7 @@
                   "fr/channels/telegram",
                   "fr/channels/tlon",
                   "fr/channels/twitch",
+                  "fr/channels/wechat",
                   "fr/channels/whatsapp",
                   "fr/channels/zalo",
                   "fr/channels/zalouser"
