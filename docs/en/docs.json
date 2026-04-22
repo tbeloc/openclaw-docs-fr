@@ -1238,6 +1238,7 @@
                   "tools/pdf",
                   "tools/reactions",
                   "tools/thinking",
+                  "tools/tokenjuice",
                   "tools/video-generation"
                 ]
               },
@@ -2007,6 +2008,7 @@
                   "fr/tools/pdf",
                   "fr/tools/reactions",
                   "fr/tools/thinking",
+                  "fr/tools/tokenjuice",
                   "fr/tools/video-generation"
                 ]
               },
