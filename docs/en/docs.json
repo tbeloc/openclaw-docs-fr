@@ -1227,6 +1227,7 @@
                   "tools/btw",
                   "tools/code-execution",
                   "tools/diffs",
+                  "tools/trajectory",
                   "tools/elevated",
                   "tools/exec",
                   "tools/exec-approvals",
@@ -1398,6 +1399,7 @@
                     "group": "Security and sandboxing",
                     "pages": [
                       "gateway/security/index",
+                      "gateway/security/audit-checks",
                       "gateway/sandboxing",
                       "gateway/openshell",
                       "gateway/sandbox-vs-tool-policy-vs-elevated"
@@ -1999,6 +2001,7 @@
                   "fr/tools/btw",
                   "fr/tools/code-execution",
                   "fr/tools/diffs",
+                  "fr/tools/trajectory",
                   "fr/tools/elevated",
                   "fr/tools/exec",
                   "fr/tools/exec-approvals",
@@ -2170,6 +2173,7 @@
                     "group": "Security and sandboxing",
                     "pages": [
                       "fr/gateway/security/index",
+                      "fr/gateway/security/audit-checks",
                       "fr/gateway/sandboxing",
                       "fr/gateway/openshell",
                       "fr/gateway/sandbox-vs-tool-policy-vs-elevated"
