@@ -13,7 +13,7 @@ host configuration.
 
 ## Key terms
 
-- **Channel**: `telegram`, `whatsapp`, `discord`, `irc`, `googlechat`, `slack`, `signal`, `imessage`, `line`, plus extension channels. `webchat` is the internal WebChat UI channel and is not a configurable outbound channel.
+- **Channel**: `telegram`, `whatsapp`, `discord`, `irc`, `googlechat`, `slack`, `signal`, `imessage`, `line`, plus plugin channels. `webchat` is the internal WebChat UI channel and is not a configurable outbound channel.
 - **AccountId**: per‑channel account instance (when supported).
 - Optional channel default account: `channels.<channel>.defaultAccount` chooses
   which account is used when an outbound path does not specify `accountId`.
@@ -23,15 +23,13 @@ host configuration.
 
 ## Session key shapes (examples)
 
-Most direct messages collapse to the agent’s **main** session:
+Direct messages collapse to the agent’s **main** session by default:
 
 - `agent:<agentId>:<mainKey>` (default: `agent:main:main`)
 
-Telegram bot direct messages are isolated per bot account and sender even when
-`session.dmScope` is `main`, so sandbox and tool policy decisions can distinguish
-channel-originated DMs from the agent main session:
-
-- `agent:<agentId>:telegram:<accountId>:direct:<senderId>`
+Even when direct-message conversation history is shared with main, sandbox and
+tool policy use a derived per-account direct-chat runtime key for external DMs
+so channel-originated messages are not treated like local main-session runs.
 
 Groups and channels remain isolated per channel:
 

@@ -1285,6 +1285,7 @@
                   "providers/comfy",
                   "providers/deepgram",
                   "providers/deepseek",
+                  "providers/elevenlabs",
                   "providers/fal",
                   "providers/fireworks",
                   "providers/github-copilot",
@@ -1516,7 +1517,8 @@
                       "cli/message",
                       "cli/models",
                       "cli/sessions",
-                      "cli/system"
+                      "cli/system",
+                      "cli/tasks"
                     ]
                   },
                   {
@@ -2055,6 +2057,7 @@
                   "fr/providers/comfy",
                   "fr/providers/deepgram",
                   "fr/providers/deepseek",
+                  "fr/providers/elevenlabs",
                   "fr/providers/fal",
                   "fr/providers/fireworks",
                   "fr/providers/github-copilot",
@@ -2286,7 +2289,8 @@
                       "fr/cli/message",
                       "fr/cli/models",
                       "fr/cli/sessions",
-                      "fr/cli/system"
+                      "fr/cli/system",
+                      "fr/cli/tasks"
                     ]
                   },
                   {
