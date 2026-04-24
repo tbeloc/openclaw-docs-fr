@@ -1105,7 +1105,8 @@
                   "concepts/soul",
                   "concepts/oauth",
                   "start/bootstrapping",
-                  "concepts/experimental-features"
+                  "concepts/experimental-features",
+                  "concepts/qa-e2e-automation"
                 ]
               },
               {
@@ -1168,11 +1169,14 @@
                   "plugins/webhooks",
                   "plugins/voice-call",
                   "plugins/memory-wiki",
+                  "plugins/message-presentation",
+                  "plugins/skill-workshop",
                   "plugins/zalouser",
                   {
                     "group": "Building plugins",
                     "pages": [
                       "plugins/building-plugins",
+                      "plugins/hooks",
                       "plugins/sdk-channel-plugins",
                       "plugins/sdk-provider-plugins",
                       "plugins/sdk-migration"
@@ -1321,6 +1325,7 @@
                   "providers/github-copilot",
                   "providers/glm",
                   "providers/google",
+                  "providers/gradium",
                   "providers/groq",
                   "providers/huggingface",
                   "providers/inferrs",
@@ -1640,6 +1645,7 @@
                       "cli/dns",
                       "cli/docs",
                       "cli/mcp",
+                      "cli/proxy",
                       "cli/wiki"
                     ]
                   }
@@ -1689,7 +1695,9 @@
                   "concepts/markdown-formatting",
                   "concepts/typing-indicators",
                   "concepts/usage-tracking",
-                  "concepts/timezone"
+                  "concepts/timezone",
+                  "help/gpt54-codex-agentic-parity",
+                  "help/gpt54-codex-agentic-parity-maintainers"
                 ]
               },
               {
@@ -1929,7 +1937,8 @@
                   "fr/concepts/soul",
                   "fr/concepts/oauth",
                   "fr/start/bootstrapping",
-                  "fr/concepts/experimental-features"
+                  "fr/concepts/experimental-features",
+                  "fr/concepts/qa-e2e-automation"
                 ]
               },
               {
@@ -1992,11 +2001,14 @@
                   "fr/plugins/webhooks",
                   "fr/plugins/voice-call",
                   "fr/plugins/memory-wiki",
+                  "fr/plugins/message-presentation",
+                  "fr/plugins/skill-workshop",
                   "fr/plugins/zalouser",
                   {
                     "group": "Building plugins",
                     "pages": [
                       "fr/plugins/building-plugins",
+                      "fr/plugins/hooks",
                       "fr/plugins/sdk-channel-plugins",
                       "fr/plugins/sdk-provider-plugins",
                       "fr/plugins/sdk-migration"
@@ -2145,6 +2157,7 @@
                   "fr/providers/github-copilot",
                   "fr/providers/glm",
                   "fr/providers/google",
+                  "fr/providers/gradium",
                   "fr/providers/groq",
                   "fr/providers/huggingface",
                   "fr/providers/inferrs",
@@ -2464,6 +2477,7 @@
                       "fr/cli/dns",
                       "fr/cli/docs",
                       "fr/cli/mcp",
+                      "fr/cli/proxy",
                       "fr/cli/wiki"
                     ]
                   }
@@ -2512,7 +2526,9 @@
                   "fr/concepts/markdown-formatting",
                   "fr/concepts/typing-indicators",
                   "fr/concepts/usage-tracking",
-                  "fr/concepts/timezone"
+                  "fr/concepts/timezone",
+                  "fr/help/gpt54-codex-agentic-parity",
+                  "fr/help/gpt54-codex-agentic-parity-maintainers"
                 ]
               },
               {
