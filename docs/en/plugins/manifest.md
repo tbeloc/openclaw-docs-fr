@@ -6,8 +6,6 @@ read_when:
 title: "Plugin manifest"
 ---
 
-# Plugin manifest (openclaw.plugin.json)
-
 This page is for the **native OpenClaw plugin manifest** only.
 
 For compatible bundle layouts, see [Plugin bundles](/plugins/bundles).
@@ -483,7 +481,7 @@ Each channel entry can include:
 ## modelSupport reference
 
 Use `modelSupport` when OpenClaw should infer your provider plugin from
-shorthand model ids like `gpt-5.4` or `claude-sonnet-4.6` before plugin runtime
+shorthand model ids like `gpt-5.5` or `claude-sonnet-4.6` before plugin runtime
 loads.
 
 ```json
