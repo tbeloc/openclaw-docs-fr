@@ -159,6 +159,9 @@ Use the phase-specific hooks for new plugins:
 `before_agent_start` remains for compatibility. Prefer the explicit hooks above
 so your plugin does not depend on a legacy combined phase.
 
+`before_agent_start` and `agent_end` include `event.runId` when OpenClaw can
+identify the active run. The same value is also available on `ctx.runId`.
+
 Non-bundled plugins that need `llm_input`, `llm_output`, or `agent_end` must set:
 
 ```json
@@ -182,9 +185,15 @@ Prompt-mutating hooks can be disabled per plugin with
 
 Use message hooks for channel-level routing and delivery policy:
 
-- `message_received`: observe inbound content, sender, `threadId`, and metadata.
+- `message_received`: observe inbound content, sender, `threadId`, `messageId`,
+  `senderId`, optional run/session correlation, and metadata.
 - `message_sending`: rewrite `content` or return `{ cancel: true }`.
 - `message_sent`: observe final success or failure.
+
+Message hook contexts expose stable correlation fields when available:
+`ctx.sessionKey`, `ctx.runId`, `ctx.messageId`, `ctx.senderId`, `ctx.trace`,
+`ctx.traceId`, `ctx.spanId`, `ctx.parentSpanId`, and `ctx.callDepth`. Prefer
+these first-class fields before reading legacy metadata.
 
 Prefer typed `threadId` and `replyToId` fields before using channel-specific
 metadata.
@@ -214,8 +223,30 @@ resources.
 Do not rely on the internal `gateway:startup` hook for plugin-owned runtime
 services.
 
+## Upcoming deprecations
+
+A few hook-adjacent surfaces are deprecated but still supported. Migrate
+before the next major release:
+
+- **Plaintext channel envelopes** in `inbound_claim` and `message_received`
+  handlers. Read `BodyForAgent` and the structured user-context blocks
+  instead of parsing flat envelope text. See
+  [Plaintext channel envelopes → BodyForAgent](/plugins/sdk-migration#active-deprecations).
+- **`before_agent_start`** remains for compatibility. New plugins should use
+  `before_model_resolve` and `before_prompt_build` instead of the combined
+  phase.
+- **`onResolution` in `before_tool_call`** now uses the typed
+  `PluginApprovalResolution` union (`allow-once` / `allow-always` / `deny` /
+  `timeout` / `cancelled`) instead of a free-form `string`.
+
+For the full list — memory capability registration, provider thinking
+profile, external auth providers, provider discovery types, task runtime
+accessors, and the `command-auth` → `command-status` rename — see
+[Plugin SDK migration → Active deprecations](/plugins/sdk-migration#active-deprecations).
+
 ## Related
 
+- [Plugin SDK migration](/plugins/sdk-migration) — active deprecations and removal timeline
 - [Building plugins](/plugins/building-plugins)
 - [Plugin SDK overview](/plugins/sdk-overview)
 - [Plugin entry points](/plugins/sdk-entrypoints)
