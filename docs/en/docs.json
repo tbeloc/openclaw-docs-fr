@@ -1098,6 +1098,7 @@
                   "concepts/architecture",
                   "concepts/agent",
                   "concepts/agent-loop",
+                  "concepts/agent-runtimes",
                   "concepts/system-prompt",
                   "concepts/context",
                   "concepts/context-engine",
@@ -1179,6 +1180,7 @@
                       "plugins/hooks",
                       "plugins/sdk-channel-plugins",
                       "plugins/sdk-provider-plugins",
+                      "plugins/compatibility",
                       "plugins/sdk-migration"
                     ]
                   },
@@ -1930,6 +1932,7 @@
                   "fr/concepts/architecture",
                   "fr/concepts/agent",
                   "fr/concepts/agent-loop",
+                  "fr/concepts/agent-runtimes",
                   "fr/concepts/system-prompt",
                   "fr/concepts/context",
                   "fr/concepts/context-engine",
@@ -2011,6 +2014,7 @@
                       "fr/plugins/hooks",
                       "fr/plugins/sdk-channel-plugins",
                       "fr/plugins/sdk-provider-plugins",
+                      "fr/plugins/compatibility",
                       "fr/plugins/sdk-migration"
                     ]
                   },
