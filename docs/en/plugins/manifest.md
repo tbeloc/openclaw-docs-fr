@@ -169,8 +169,8 @@ or npm install metadata. Those belong in your plugin code and `package.json`.
 
 Each `providerAuthChoices` entry describes one onboarding or auth choice.
 OpenClaw reads this before provider runtime loads.
-Provider setup flow prefers these manifest choices, then falls back to runtime
-wizard metadata and install-catalog choices for compatibility.
+Provider setup lists use these manifest choices, descriptor-derived setup
+choices, and install-catalog metadata without loading provider runtime.
 
 | Field                 | Required | Type                                            | What it means                                                                                            |
 | --------------------- | -------- | ----------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
@@ -708,7 +708,7 @@ Model fields:
 | `api`           | `ModelApi`                                                     | Optional per-model API override.                                            |
 | `baseUrl`       | `string`                                                       | Optional per-model base URL override.                                       |
 | `headers`       | `Record<string, string>`                                       | Optional per-model static headers.                                          |
-| `input`         | `Array<"text" \| "image" \| "document">`                       | Modalities the model accepts.                                               |
+| `input`         | `Array<"text" \| "image" \| "document" \| "audio" \| "video">` | Modalities the model accepts.                                               |
 | `reasoning`     | `boolean`                                                      | Whether the model exposes reasoning behavior.                               |
 | `contextWindow` | `number`                                                       | Native provider context window.                                             |
 | `contextTokens` | `number`                                                       | Optional effective runtime context cap when different from `contextWindow`. |
@@ -724,6 +724,37 @@ Model fields:
 Do not put runtime-only data in `modelCatalog`. If a provider needs account
 state, an API request, or local process discovery to know the complete model
 set, declare that provider as `refreshable` or `runtime` in `discovery`.
+
+### OpenClaw Provider Index
+
+The OpenClaw Provider Index is OpenClaw-owned preview metadata for providers
+whose plugins may not be installed yet. It is not part of a plugin manifest.
+Plugin manifests remain the installed-plugin authority. The Provider Index is
+the internal fallback contract that future installable-provider and pre-install
+model picker surfaces will consume when a provider plugin is not installed.
+
+Catalog authority order:
+
+1. User config.
+2. Installed plugin manifest `modelCatalog`.
+3. Model catalog cache from explicit refresh.
+4. OpenClaw Provider Index preview rows.
+
+The Provider Index must not contain secrets, enabled state, runtime hooks, or
+live account-specific model data. Its preview catalogs use the same
+`modelCatalog` provider row shape as plugin manifests, but should stay limited
+to stable display metadata unless runtime adapter fields such as `api`,
+`baseUrl`, pricing, or compatibility flags are intentionally kept aligned with
+the installed plugin manifest. Providers with live `/models` discovery should
+write refreshed rows through the explicit model catalog cache path instead of
+making normal listing or onboarding call provider APIs.
+
+Provider Index entries may also carry installable-plugin metadata for providers
+whose plugin has moved out of core or is otherwise not installed yet. This
+metadata mirrors the channel catalog pattern: package name, npm install spec,
+expected integrity, and cheap auth-choice labels are enough to show an
+installable setup option. Once the plugin is installed, its manifest wins and
+the Provider Index entry is ignored for that provider.
 
 Legacy top-level capability keys are deprecated. Use `openclaw doctor --fix` to
 move `speechProviders`, `realtimeTranscriptionProviders`,

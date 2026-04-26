@@ -65,6 +65,8 @@ Packaged OpenClaw installs do not eagerly install every bundled plugin's
 runtime dependency tree. When a bundled OpenClaw-owned plugin is active from
 plugin config, legacy channel config, or a default-enabled manifest, startup
 repairs only that plugin's declared runtime dependencies before importing it.
+Persisted channel auth state alone does not activate a bundled channel for
+Gateway startup runtime-dependency repair.
 Explicit disablement still wins: `plugins.entries.<id>.enabled: false`,
 `plugins.deny`, `plugins.enabled: false`, and `channels.<id>.enabled: false`
 prevent automatic bundled runtime-dependency repair for that plugin/channel.
@@ -178,7 +180,9 @@ OpenClaw scans for plugins in this order (first match wins):
 
 <Steps>
   <Step title="Config paths">
-    `plugins.load.paths` — explicit file or directory paths.
+    `plugins.load.paths` — explicit file or directory paths. Paths that point
+    back at OpenClaw's own packaged bundled plugin directories are ignored;
+    run `openclaw doctor --fix` to remove those stale aliases.
   </Step>
 
   <Step title="Workspace plugins">
@@ -223,7 +227,7 @@ do not run in live chat traffic, check these first:
   `openclaw gateway run` process.
 - Use `openclaw plugins inspect <id> --json` to confirm hook registrations and
   diagnostics. Non-bundled conversation hooks such as `llm_input`,
-  `llm_output`, and `agent_end` need
+  `llm_output`, `before_agent_finalize`, and `agent_end` need
   `plugins.entries.<id>.hooks.allowConversationAccess=true`.
 - For model switching, prefer `before_model_resolve`. It runs before model
   resolution for agent turns; `llm_output` only runs after a model attempt

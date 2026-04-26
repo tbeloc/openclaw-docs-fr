@@ -1253,6 +1253,7 @@
                   "tools/tokenjuice",
                   "tools/loop-detection",
                   "tools/trajectory",
+                  "tools/tts",
                   "tools/video-generation",
                   {
                     "group": "Web browser",
@@ -1323,6 +1324,7 @@
                   "providers/bedrock-mantle",
                   "providers/anthropic",
                   "providers/arcee",
+                  "providers/azure-speech",
                   "providers/chutes",
                   "providers/claude-max-api-proxy",
                   "providers/cloudflare-ai-gateway",
@@ -2089,6 +2091,7 @@
                   "fr/tools/tokenjuice",
                   "fr/tools/loop-detection",
                   "fr/tools/trajectory",
+                  "fr/tools/tts",
                   "fr/tools/video-generation",
                   {
                     "group": "Web browser",
@@ -2159,6 +2162,7 @@
                   "fr/providers/bedrock-mantle",
                   "fr/providers/anthropic",
                   "fr/providers/arcee",
+                  "fr/providers/azure-speech",
                   "fr/providers/chutes",
                   "fr/providers/claude-max-api-proxy",
                   "fr/providers/cloudflare-ai-gateway",
