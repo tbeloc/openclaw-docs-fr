@@ -1339,6 +1339,7 @@
                   "providers/groq",
                   "providers/huggingface",
                   "providers/inferrs",
+                  "providers/inworld",
                   "providers/kilocode",
                   "providers/litellm",
                   "providers/lmstudio",
@@ -1457,11 +1458,12 @@
                     "group": "Health and diagnostics",
                     "pages": [
                       "gateway/health",
-                      "gateway/diagnostics",
                       "gateway/heartbeat",
                       "gateway/doctor",
-                      "gateway/logging",
                       "logging",
+                      "gateway/opentelemetry",
+                      "gateway/logging",
+                      "gateway/diagnostics",
                       "gateway/troubleshooting"
                     ]
                   },
@@ -2173,6 +2175,7 @@
                   "fr/providers/groq",
                   "fr/providers/huggingface",
                   "fr/providers/inferrs",
+                  "fr/providers/inworld",
                   "fr/providers/kilocode",
                   "fr/providers/litellm",
                   "fr/providers/lmstudio",
@@ -2291,11 +2294,12 @@
                     "group": "Health and diagnostics",
                     "pages": [
                       "fr/gateway/health",
-                      "fr/gateway/diagnostics",
                       "fr/gateway/heartbeat",
                       "fr/gateway/doctor",
-                      "fr/gateway/logging",
                       "fr/logging",
+                      "fr/gateway/opentelemetry",
+                      "fr/gateway/logging",
+                      "fr/gateway/diagnostics",
                       "fr/gateway/troubleshooting"
                     ]
                   },
