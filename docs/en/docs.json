@@ -53,6 +53,10 @@
   },
   "redirects": [
     {
+      "source": "/install/migrating-matrix",
+      "destination": "/channels/matrix-migration"
+    },
+    {
       "source": "/help/gpt54-codex-agentic-parity",
       "destination": "/help/gpt55-codex-agentic-parity"
     },
@@ -984,6 +988,22 @@
                 ]
               },
               {
+                "group": "Maintenance",
+                "pages": [
+                  "install/updating",
+                  {
+                    "group": "Migrating",
+                    "pages": [
+                      "install/migrating",
+                      "install/migrating-claude",
+                      "install/migrating-hermes"
+                    ]
+                  },
+                  "install/uninstall",
+                  "install/development-channels"
+                ]
+              },
+              {
                 "group": "Containers",
                 "pages": [
                   "install/ansible",
@@ -1013,16 +1033,6 @@
                   "install/railway",
                   "install/raspberry-pi",
                   "install/render"
-                ]
-              },
-              {
-                "group": "Maintenance",
-                "pages": [
-                  "install/updating",
-                  "install/migrating",
-                  "install/migrating-matrix",
-                  "install/uninstall",
-                  "install/development-channels"
                 ]
               },
               {
@@ -1056,6 +1066,7 @@
                   "channels/imessage",
                   "channels/bluebubbles",
                   "channels/matrix",
+                  "channels/matrix-migration",
                   "channels/matrix-push-rules"
                 ]
               },
@@ -1581,6 +1592,7 @@
                       "cli/gateway",
                       "cli/health",
                       "cli/logs",
+                      "cli/migrate",
                       "cli/onboard",
                       "cli/reset",
                       "cli/secrets",
@@ -1823,6 +1835,22 @@
                 ]
               },
               {
+                "group": "Maintenance",
+                "pages": [
+                  "fr/install/updating",
+                  {
+                    "group": "Migrating",
+                    "pages": [
+                      "fr/install/migrating",
+                      "fr/install/migrating-claude",
+                      "fr/install/migrating-hermes"
+                    ]
+                  },
+                  "fr/install/uninstall",
+                  "fr/install/development-channels"
+                ]
+              },
+              {
                 "group": "Conteneurs",
                 "pages": [
                   "fr/install/ansible",
@@ -1852,16 +1880,6 @@
                   "fr/install/railway",
                   "fr/install/raspberry-pi",
                   "fr/install/render"
-                ]
-              },
-              {
-                "group": "Maintenance",
-                "pages": [
-                  "fr/install/updating",
-                  "fr/install/migrating",
-                  "fr/install/migrating-matrix",
-                  "fr/install/uninstall",
-                  "fr/install/development-channels"
                 ]
               },
               {
@@ -1895,6 +1913,7 @@
                   "fr/channels/imessage",
                   "fr/channels/bluebubbles",
                   "fr/channels/matrix",
+                  "fr/channels/matrix-migration",
                   "fr/channels/matrix-push-rules"
                 ]
               },
@@ -2420,6 +2439,7 @@
                       "fr/cli/gateway",
                       "fr/cli/health",
                       "fr/cli/logs",
+                      "fr/cli/migrate",
                       "fr/cli/onboard",
                       "fr/cli/reset",
                       "fr/cli/secrets",
