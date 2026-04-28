@@ -1547,6 +1547,7 @@
               {
                 "group": "Security",
                 "pages": [
+                  "security/network-proxy",
                   "security/formal-verification",
                   "security/THREAT-MODEL-ATLAS",
                   "security/CONTRIBUTING-THREAT-MODEL"
@@ -2399,6 +2400,7 @@
               {
                 "group": "Sécurité",
                 "pages": [
+                  "fr/security/network-proxy",
                   "fr/security/formal-verification",
                   "fr/security/THREAT-MODEL-ATLAS",
                   "fr/security/CONTRIBUTING-THREAT-MODEL"
