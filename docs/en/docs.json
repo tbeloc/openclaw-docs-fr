@@ -1097,6 +1097,7 @@
                   "channels/wechat",
                   "channels/qqbot",
                   "channels/feishu",
+                  "channels/yuanbao",
                   "channels/zalo",
                   "channels/zalouser"
                 ]
@@ -1950,6 +1951,7 @@
                   "fr/channels/wechat",
                   "fr/channels/qqbot",
                   "fr/channels/feishu",
+                  "fr/channels/yuanbao",
                   "fr/channels/zalo",
                   "fr/channels/zalouser"
                 ]
