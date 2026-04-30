@@ -1127,7 +1127,6 @@
                   "concepts/agent",
                   "concepts/agent-loop",
                   "concepts/agent-runtimes",
-                  "concepts/openclaw-sdk",
                   "concepts/system-prompt",
                   "concepts/context",
                   "concepts/context-engine",
@@ -1177,7 +1176,8 @@
                   "concepts/messages",
                   "concepts/streaming",
                   "concepts/retry",
-                  "concepts/queue"
+                  "concepts/queue",
+                  "concepts/queue-steering"
                 ]
               }
             ]
@@ -1219,12 +1219,13 @@
                     ]
                   },
                   {
-                    "group": "SDK reference",
+                    "group": "Plugin SDK reference",
                     "pages": [
                       "plugins/sdk-overview",
                       "plugins/sdk-subpaths",
                       "plugins/sdk-entrypoints",
                       "plugins/sdk-runtime",
+                      "plugins/sdk-channel-turn",
                       "plugins/sdk-agent-harness",
                       "plugins/sdk-setup",
                       "plugins/sdk-testing",
@@ -1700,6 +1701,7 @@
                 "group": "RPC and API",
                 "pages": [
                   "reference/rpc",
+                  "concepts/openclaw-sdk",
                   "reference/openclaw-sdk-api-design",
                   "reference/device-models"
                 ]
@@ -1985,7 +1987,6 @@
                   "fr/concepts/agent",
                   "fr/concepts/agent-loop",
                   "fr/concepts/agent-runtimes",
-                  "fr/concepts/openclaw-sdk",
                   "fr/concepts/system-prompt",
                   "fr/concepts/context",
                   "fr/concepts/context-engine",
@@ -2035,7 +2036,8 @@
                   "fr/concepts/messages",
                   "fr/concepts/streaming",
                   "fr/concepts/retry",
-                  "fr/concepts/queue"
+                  "fr/concepts/queue",
+                  "fr/concepts/queue-steering"
                 ]
               }
             ]
@@ -2077,12 +2079,13 @@
                     ]
                   },
                   {
-                    "group": "SDK reference",
+                    "group": "Plugin SDK reference",
                     "pages": [
                       "fr/plugins/sdk-overview",
                       "fr/plugins/sdk-subpaths",
                       "fr/plugins/sdk-entrypoints",
                       "fr/plugins/sdk-runtime",
+                      "fr/plugins/sdk-channel-turn",
                       "fr/plugins/sdk-agent-harness",
                       "fr/plugins/sdk-setup",
                       "fr/plugins/sdk-testing",
@@ -2558,6 +2561,7 @@
                 "group": "RPC and API",
                 "pages": [
                   "fr/reference/rpc",
+                  "fr/concepts/openclaw-sdk",
                   "fr/reference/openclaw-sdk-api-design",
                   "fr/reference/device-models"
                 ]
