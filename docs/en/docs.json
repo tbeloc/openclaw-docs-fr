@@ -1127,6 +1127,7 @@
                   "concepts/agent",
                   "concepts/agent-loop",
                   "concepts/agent-runtimes",
+                  "concepts/openclaw-sdk",
                   "concepts/system-prompt",
                   "concepts/context",
                   "concepts/context-engine",
@@ -1155,6 +1156,7 @@
                       "concepts/memory-honcho",
                       "concepts/memory-search",
                       "concepts/active-memory",
+                      "concepts/commitments",
                       "concepts/dreaming"
                     ]
                   },
@@ -1626,6 +1628,7 @@
                       "cli/hooks",
                       "cli/infer",
                       "cli/memory",
+                      "cli/commitments",
                       "cli/message",
                       "cli/models",
                       "cli/sessions",
@@ -1697,6 +1700,7 @@
                 "group": "RPC and API",
                 "pages": [
                   "reference/rpc",
+                  "reference/openclaw-sdk-api-design",
                   "reference/device-models"
                 ]
               },
@@ -1981,6 +1985,7 @@
                   "fr/concepts/agent",
                   "fr/concepts/agent-loop",
                   "fr/concepts/agent-runtimes",
+                  "fr/concepts/openclaw-sdk",
                   "fr/concepts/system-prompt",
                   "fr/concepts/context",
                   "fr/concepts/context-engine",
@@ -2009,6 +2014,7 @@
                       "fr/concepts/memory-honcho",
                       "fr/concepts/memory-search",
                       "fr/concepts/active-memory",
+                      "fr/concepts/commitments",
                       "fr/concepts/dreaming"
                     ]
                   },
@@ -2480,6 +2486,7 @@
                       "fr/cli/hooks",
                       "fr/cli/infer",
                       "fr/cli/memory",
+                      "fr/cli/commitments",
                       "fr/cli/message",
                       "fr/cli/models",
                       "fr/cli/sessions",
@@ -2551,6 +2558,7 @@
                 "group": "RPC and API",
                 "pages": [
                   "fr/reference/rpc",
+                  "fr/reference/openclaw-sdk-api-design",
                   "fr/reference/device-models"
                 ]
               },
