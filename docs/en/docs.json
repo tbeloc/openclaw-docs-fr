@@ -1758,6 +1758,7 @@
                 "group": "Release and CI",
                 "pages": [
                   "reference/RELEASING",
+                  "reference/full-release-validation",
                   "reference/test",
                   "ci",
                   "help/scripts"
@@ -2617,6 +2618,7 @@
                 "group": "Release and CI",
                 "pages": [
                   "fr/reference/RELEASING",
+                  "fr/reference/full-release-validation",
                   "fr/reference/test",
                   "fr/ci",
                   "fr/help/scripts"
