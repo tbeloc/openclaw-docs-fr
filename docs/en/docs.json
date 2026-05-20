@@ -1220,6 +1220,7 @@
                 "group": "Bundled plugin guides",
                 "pages": [
                   "plugins/codex-harness",
+                  "plugins/codex-native-plugins",
                   "plugins/codex-computer-use",
                   "plugins/google-meet",
                   "plugins/webhooks",
@@ -1760,8 +1761,7 @@
                 "group": "Codex harness",
                 "pages": [
                   "plugins/codex-harness-reference",
-                  "plugins/codex-harness-runtime",
-                  "plugins/codex-native-plugins"
+                  "plugins/codex-harness-runtime"
                 ]
               },
               {
@@ -2168,6 +2168,7 @@
                 "group": "Bundled plugin guides",
                 "pages": [
                   "fr/plugins/codex-harness",
+                  "fr/plugins/codex-native-plugins",
                   "fr/plugins/codex-computer-use",
                   "fr/plugins/google-meet",
                   "fr/plugins/webhooks",
@@ -2686,8 +2687,7 @@
                 "group": "Codex harness",
                 "pages": [
                   "fr/plugins/codex-harness-reference",
-                  "fr/plugins/codex-harness-runtime",
-                  "fr/plugins/codex-native-plugins"
+                  "fr/plugins/codex-harness-runtime"
                 ]
               },
               {
