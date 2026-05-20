@@ -1722,6 +1722,7 @@
                     "pages": [
                       "cli/plugins",
                       "cli/path",
+                      "cli/policy",
                       "cli/skills"
                     ]
                   },
@@ -2648,6 +2649,7 @@
                     "pages": [
                       "fr/cli/plugins",
                       "fr/cli/path",
+                      "fr/cli/policy",
                       "fr/cli/skills"
                     ]
                   },
