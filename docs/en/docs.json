@@ -226,10 +226,14 @@
     },
     {
       "source": "/glm",
-      "destination": "/providers/glm"
+      "destination": "/providers/zai"
     },
     {
       "source": "/zai",
+      "destination": "/providers/zai"
+    },
+    {
+      "source": "/providers/glm",
       "destination": "/providers/zai"
     },
     {
@@ -1048,7 +1052,8 @@
                   "install/oracle",
                   "install/railway",
                   "install/raspberry-pi",
-                  "install/render"
+                  "install/render",
+                  "install/upstash"
                 ]
               },
               {
@@ -1408,7 +1413,6 @@
                   "providers/fal",
                   "providers/fireworks",
                   "providers/github-copilot",
-                  "providers/glm",
                   "providers/google",
                   "providers/gradium",
                   "providers/groq",
@@ -1460,7 +1464,8 @@
                   "platforms/linux",
                   "platforms/windows",
                   "platforms/android",
-                  "platforms/ios"
+                  "platforms/ios",
+                  "platforms/easyrunner"
                 ]
               },
               {
@@ -1556,6 +1561,7 @@
                     "group": "Security and sandboxing",
                     "pages": [
                       "gateway/security/index",
+                      "gateway/security/exposure-runbook",
                       "gateway/security/secure-file-operations",
                       "gateway/security/audit-checks",
                       "gateway/operator-scopes",
@@ -1997,7 +2003,8 @@
                   "fr/install/oracle",
                   "fr/install/railway",
                   "fr/install/raspberry-pi",
-                  "fr/install/render"
+                  "fr/install/render",
+                  "fr/install/upstash"
                 ]
               },
               {
@@ -2335,7 +2342,6 @@
                   "fr/providers/fal",
                   "fr/providers/fireworks",
                   "fr/providers/github-copilot",
-                  "fr/providers/glm",
                   "fr/providers/google",
                   "fr/providers/gradium",
                   "fr/providers/groq",
@@ -2387,7 +2393,8 @@
                   "fr/platforms/linux",
                   "fr/platforms/windows",
                   "fr/platforms/android",
-                  "fr/platforms/ios"
+                  "fr/platforms/ios",
+                  "fr/platforms/easyrunner"
                 ]
               },
               {
@@ -2483,6 +2490,7 @@
                     "group": "Security and sandboxing",
                     "pages": [
                       "fr/gateway/security/index",
+                      "fr/gateway/security/exposure-runbook",
                       "fr/gateway/security/secure-file-operations",
                       "fr/gateway/security/audit-checks",
                       "fr/gateway/operator-scopes",
