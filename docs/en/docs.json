@@ -1433,6 +1433,7 @@
                   "providers/opencode-go",
                   "providers/openrouter",
                   "providers/perplexity-provider",
+                  "providers/pixverse",
                   "providers/qianfan",
                   "providers/qwen",
                   "providers/runway",
@@ -1801,8 +1802,8 @@
                   "plugins/architecture-internals",
                   "plugins/sdk-migration",
                   "plugins/compatibility",
-                  "plugins/sdk-channel-message",
-                  "plugins/sdk-channel-turn",
+                  "plugins/sdk-channel-outbound",
+                  "plugins/sdk-channel-inbound",
                   "plugins/sdk-channel-ingress",
                   "plugins/message-presentation"
                 ]
@@ -2363,6 +2364,7 @@
                   "fr/providers/opencode-go",
                   "fr/providers/openrouter",
                   "fr/providers/perplexity-provider",
+                  "fr/providers/pixverse",
                   "fr/providers/qianfan",
                   "fr/providers/qwen",
                   "fr/providers/runway",
@@ -2731,8 +2733,8 @@
                   "fr/plugins/architecture-internals",
                   "fr/plugins/sdk-migration",
                   "fr/plugins/compatibility",
-                  "fr/plugins/sdk-channel-message",
-                  "fr/plugins/sdk-channel-turn",
+                  "fr/plugins/sdk-channel-outbound",
+                  "fr/plugins/sdk-channel-inbound",
                   "fr/plugins/sdk-channel-ingress",
                   "fr/plugins/message-presentation"
                 ]
