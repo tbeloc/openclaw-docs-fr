@@ -749,6 +749,14 @@
       "destination": "/tools/skills"
     },
     {
+      "source": "/skill-workshop",
+      "destination": "/tools/skill-workshop"
+    },
+    {
+      "source": "/tools/skills-workshop",
+      "destination": "/tools/skill-workshop"
+    },
+    {
       "source": "/skills-config",
       "destination": "/tools/skills-config"
     },
@@ -1271,6 +1279,7 @@
                 "group": "Skills",
                 "pages": [
                   "tools/skills",
+                  "tools/skill-workshop",
                   "tools/creating-skills",
                   "tools/skills-config",
                   "tools/slash-commands",
@@ -1296,6 +1305,7 @@
                   "tools/code-execution",
                   "tools/diffs",
                   "tools/elevated",
+                  "tools/permission-modes",
                   "tools/exec-approvals",
                   "tools/exec-approvals-advanced",
                   "tools/exec",
@@ -1753,7 +1763,8 @@
                       "cli/plugins",
                       "cli/path",
                       "cli/policy",
-                      "cli/skills"
+                      "cli/skills",
+                      "cli/workboard"
                     ]
                   },
                   {
@@ -2229,6 +2240,7 @@
                 "group": "Skills",
                 "pages": [
                   "fr/tools/skills",
+                  "fr/tools/skill-workshop",
                   "fr/tools/creating-skills",
                   "fr/tools/skills-config",
                   "fr/tools/slash-commands",
@@ -2254,6 +2266,7 @@
                   "fr/tools/code-execution",
                   "fr/tools/diffs",
                   "fr/tools/elevated",
+                  "fr/tools/permission-modes",
                   "fr/tools/exec-approvals",
                   "fr/tools/exec-approvals-advanced",
                   "fr/tools/exec",
@@ -2689,7 +2702,8 @@
                       "fr/cli/plugins",
                       "fr/cli/path",
                       "fr/cli/policy",
-                      "fr/cli/skills"
+                      "fr/cli/skills",
+                      "fr/cli/workboard"
                     ]
                   },
                   {
