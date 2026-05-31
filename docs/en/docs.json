@@ -1251,7 +1251,6 @@
                   "plugins/memory-wiki",
                   "plugins/memory-lancedb",
                   "plugins/oc-path",
-                  "plugins/skill-workshop",
                   "plugins/zalouser"
                 ]
               },
@@ -2210,7 +2209,6 @@
                   "fr/plugins/memory-wiki",
                   "fr/plugins/memory-lancedb",
                   "fr/plugins/oc-path",
-                  "fr/plugins/skill-workshop",
                   "fr/plugins/zalouser"
                 ]
               },
