@@ -2335,6 +2335,7 @@
               {
                 "group": "Using ClawHub",
                 "pages": [
+                  "fr/clawhub/cli",
                   "fr/clawhub/publishing"
                 ]
               }
