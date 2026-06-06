@@ -1347,6 +1347,7 @@
                       "tools/kimi-search",
                       "tools/minimax-search",
                       "tools/ollama-search",
+                      "tools/parallel-search",
                       "tools/perplexity-search",
                       "tools/searxng-search",
                       "tools/tavily"
@@ -2308,6 +2309,7 @@
                       "fr/tools/kimi-search",
                       "fr/tools/minimax-search",
                       "fr/tools/ollama-search",
+                      "fr/tools/parallel-search",
                       "fr/tools/perplexity-search",
                       "fr/tools/searxng-search",
                       "fr/tools/tavily"
