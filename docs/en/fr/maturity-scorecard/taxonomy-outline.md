@@ -1,0 +1,338 @@
+---
+title: "Aperçu de la taxonomie de maturité"
+version: 3
+summary: "Aperçu rendu des surfaces de scorecard de maturité OpenClaw actives regroupées par famille."
+---
+
+# Aperçu de la taxonomie de maturité
+
+Ce fichier est généré à partir de
+`.agents/skills/claw-score/taxonomy.yaml`. Modifiez la taxonomie, puis réaffichez ce fichier.
+Seules les surfaces actives soutenues par l'inventaire sont rendues ici ; les surfaces archivées sont
+intentionnellement omises.
+
+## Aperçu de la surface
+
+### Core (15 surfaces)
+
+- [Runtime de passerelle](inventory/gateway-runtime/report.md) (`gateway-runtime`)
+  - [Approbations et exécution à distance](inventory/gateway-runtime/approval-and-execution-safety.md)
+    - Fonctionnalités : Approbations d'exécution ; Approbations de plugin ; Approbations d'exécution de nœud ; Exécution de nœud approuvée ; Sécurité de mutation d'approbation ; Comportement de secours de livraison
+  - [API HTTP](inventory/gateway-runtime/http-apis.md)
+    - Fonctionnalités : API compatibles OpenAI ; API d'invocation d'outil ; Accès à l'API Admin ; Ingestion de hook
+  - [Surface Web hébergée](inventory/gateway-runtime/hosted-web-surface.md)
+    - Fonctionnalités : Interface de contrôle ; Hébergement WebChat ; Routes web de plugin ; Routes Canvas et A2UI
+  - [API RPC de passerelle et événements](inventory/gateway-runtime/core-rpc-coverage.md)
+    - Fonctionnalités : API de santé ; API d'identité et de présence ; API de modèle ; API d'utilisation et de mémoire ; API de session ; API de chat ; API de canal ; API de connexion web et de réveil ; API de configuration et de secrets ; API de mise à jour et de configuration ; API d'agent et d'artefact ; API de tâche et d'automatisation ; API d'outil et de compétence ; Enveloppes de demande et d'événement ; Effets secondaires idempotents ; Découverte de méthode ; Découverte d'événement ; Résultats acceptés puis finaux ; Ordre des événements ; Actualisation d'état après les lacunes
+  - [Authentification d'appareil et appairage](inventory/gateway-runtime/device-identity-auth-and-pairing.md)
+    - Fonctionnalités : Connexion par secret partagé ; Authentification par proxy de confiance ; Mode d'ingestion privée ; Signature de défi d'appareil ; Jetons d'appareil ; Bootstrap de code de configuration ; Récupération d'erreur d'authentification ; Migration d'authentification d'appareil ; Appairage de client ; Appairage de nœud
+  - [Accès réseau et découverte](inventory/gateway-runtime/network-exposure-and-transport-selection.md)
+    - Fonctionnalités : Accès en boucle locale et LAN ; Accès Tailnet ; Tunnels SSH ; Découverte de point de terminaison ; Points de terminaison enregistrés ; Épinglage TLS
+  - [Nœuds et capacités à distance](inventory/gateway-runtime/node-transport-and-capability-relay.md)
+    - Fonctionnalités : Présence de nœud ; Capacités de nœud ; Inventaire de nœud ; Actions de nœud ; Événements de nœud ; Livraison de travail en attente ; Capacités d'appareil à distance ; Commandes d'hôte à distance
+  - [Santé, diagnostics et réparation](inventory/gateway-runtime/observability-health-and-repair.md)
+    - Fonctionnalités : Instantanés de santé ; Disponibilité du canal ; Diagnostics de stabilité ; Diagnostics de charge utile ; Exports de diagnostics ; Vérifications du docteur ; Suivi des journaux
+  - [Compatibilité du protocole](inventory/gateway-runtime/protocol-typing-and-compatibility.md)
+    - Fonctionnalités : Schéma de protocole publié ; Validation de demande d'exécution ; Export JSON Schema ; Modèles de client Swift ; Négociation de version ; Transports par défaut du client ; Évolution rétrocompatible
+  - [Rôles et permissions](inventory/gateway-runtime/roles-scopes-and-operator-policy.md)
+    - Fonctionnalités : Négociation de rôle ; Permissions d'opérateur ; Actions contrôlées par approbation ; Déclarations de nœud non approuvé ; Portée des événements
+  - [Cycle de vie de la passerelle](inventory/gateway-runtime/runtime-lifecycle-and-supervision.md)
+    - Fonctionnalités : Démarrage au premier plan ; Installation de service ; Redémarrage et arrêt ; État du service ; Paramètres de liaison et de port ; Rechargement de configuration ; Isolation multi-passerelle
+  - [Contrôles de sécurité](inventory/gateway-runtime/security-and-hardening-posture.md)
+    - Fonctionnalités : Authentification non-loopback ; Exceptions de proxy de confiance ; Limites de confiance de passerelle et de nœud ; Approbation automatique CIDR de confiance ; Gestion du protocole en cas d'échec fermé ; Garanties d'exécution à distance
+  - [Connexion WebSocket](inventory/gateway-runtime/websocket-handshake-and-session-establishment.md)
+    - Fonctionnalités : Transport WebSocket ; Défi de connexion ; Demande de connexion ; Négociation de version de protocole ; Instantané hello-ok ; Redémarrage au démarrage ; Limites de session ; URL de surface de plugin
+- [CLI](inventory/cli-install-update-onboard-doctor/report.md) (`cli-install-update-onboard-doctor`)
+  - [Configuration CLI](inventory/cli-install-update-onboard-doctor/package-install-and-cli-entrypoints.md)
+    - Fonctionnalités : Scripts d'installation ; Installation de préfixe local ; Installations du gestionnaire de paquets ; Runtime Node pris en charge ; Installation de checkout source ; Point d'entrée CLI
+  - [Intégration et configuration d'authentification](inventory/cli-install-update-onboard-doctor/first-run-onboarding-and-auth-selection.md)
+    - Fonctionnalités : Intégration guidée ; Reconfiguration ciblée ; Choix d'authentification ; Stockage d'authentification de passerelle ; Intégration à distance
+  - [Configuration de plugin et de canal](inventory/cli-install-update-onboard-doctor/plugin-and-channel-setup-during-onboarding.md)
+    - Fonctionnalités : Sélecteur de canal ; Sources d'installation de plugin ; Configuration de compte de canal ; Sondes post-configuration ; Caveat de passerelle distante
+  - [Gestion du service de passerelle](inventory/cli-install-update-onboard-doctor/gateway-service-install-and-lifecycle.md)
+    - Fonctionnalités : Exécutions de passerelle au premier plan ; Installation et contrôle du service ; Câblage d'authentification du service ; Récupération de dérive et de réinstallation ; Vérifications de santé du service
+  - [Observabilité CLI](inventory/cli-install-update-onboard-doctor/status-health-logs-and-diagnostics-support-path.md)
+    - Fonctionnalités : Instantanés d'état ; Instantanés de santé ; Suivi des journaux à distance ; Export de diagnostics ; Rédaction sûre pour le support
+  - [Docteur](inventory/cli-install-update-onboard-doctor/doctor-config-auth-plugin-and-lint.md)
+    - Fonctionnalités : Réparation interactive ; Migration de configuration ; Vérifications d'authentification et de SecretRef ; Validation et réparation de plugin ; Résultats de lint et JSON ; Découverte de passerelle supplémentaire ; Réparation de dérive du superviseur ; Diagnostic de port et de démarrage ; Vérifications du chemin d'exécution ; Conseils de redémarrage
+  - [Mises à jour et mises à niveau](inventory/cli-install-update-onboard-doctor/update-channel-and-core-upgrade-flow.md)
+    - Fonctionnalités : Canaux de mise à jour ; Changement de type d'installation ; Redémarrage de passerelle géré ; État de mise à jour et RPC ; Convergence de plugin
+- [Plugins](inventory/plugin-sdk-and-bundled-plugin-architecture/report.md) (`plugin-sdk-and-bundled-plugin-architecture`)
+  - [Création et empaquetage de plugins](inventory/plugin-sdk-and-bundled-plugin-architecture/public-sdk-api-and-subpaths.md)
+    - Fonctionnalités : Point d'entrée SDK racine ; Importations SDK ciblées ; Découverte de point d'entrée ; Shims de migration ; Manifeste de plugin ; Métadonnées de paquet ; Compatibilité d'exécution ; Retours de validation
+  - [Plugins groupés](inventory/plugin-sdk-and-bundled-plugin-architecture/bundled-plugin-discovery-and-inventory.md)
+    - Fonctionnalités : Listing de plugin groupé ; Superpositions de source groupée ; Plugins groupés emballés ; Inventaire de plugin généré ; ID de canal groupé
+  - [Plugin Canvas](inventory/plugin-sdk-and-bundled-plugin-architecture/canvas-plugin.md)
+    - Fonctionnalités : Surfaces Canvas et A2UI hébergées ; Outil Canvas d'agent ; Commandes Canvas de nœud ; Intégrations d'interface de contrôle ; Documents Canvas ; Transport A2UI et instantanés
+  - [Installation et exécution de plugins](inventory/plugin-sdk-and-bundled-plugin-architecture/runtime-loading-and-lifecycle.md)
+    - Fonctionnalités : Configuration de plugin ; Activation d'exécution ; Activation et désactivation ; Échecs de chargement sûrs ; Réparation de dépendance ; Installation, mise à jour et désinstallation
+  - [Plugins de canal](inventory/plugin-sdk-and-bundled-plugin-architecture/channel-plugin-architecture.md)
+    - Fonctionnalités : Gestion des événements entrants ; Livraison sortante ; Autorisation d'ingestion ; Résolution de destination ; Invites d'approbation natives
+  - [Plugins de fournisseur et d'outil](inventory/plugin-sdk-and-bundled-plugin-architecture/provider-tool-plugin-architecture.md)
+    - Fonctionnalités : Plugins de fournisseur ; Plugins d'outil ; Catalogues de modèle ; Authentification du fournisseur ; Recherche web et récupération ; Plugins mixtes
+  - [Approbations de plugin](inventory/plugin-sdk-and-bundled-plugin-architecture/approval-and-security-boundaries.md)
+    - Fonctionnalités : Demandes d'approbation ; Livraison d'approbation native ; Secours de même chat ; Séparation d'exécution et de plugin ; Protection contre la relecture d'approbation ; Aides de sécurité
+  - [Publication de plugins](inventory/plugin-sdk-and-bundled-plugin-architecture/distribution-release-and-compatibility.md)
+    - Fonctionnalités : Sources d'installation ; Publication ClawHub ; Publication npm ; Signalisation de compatibilité ; Attentes de mise à jour et de restauration ; Règles de publication par tiers
+  - [Test de plugins](inventory/plugin-sdk-and-bundled-plugin-architecture/developer-testing-and-fixtures.md)
+    - Fonctionnalités : Fixtures de test ; Environnement de test local ; Harnais d'exécution de plugin ; Échafaudages unitaires et d'intégration ; Suites de cycle de vie Docker ; Tests de fumée
+- [Runtime d'agent](inventory/agent-runtime-and-provider-execution/report.md) (`agent-runtime-and-provider-execution`)
+  - [Exécution de tour d'agent](inventory/agent-runtime-and-provider-execution/agent-turn-orchestration-and-runtime-lifecycle.md)
+    - Fonctionnalités : Démarrage de tour et choix d'exécution ; Coordination de session et d'exécution ; Abandon et résultats terminaux
+  - [Runtimes externes et sous-agents](inventory/agent-runtime-and-provider-execution/cli-harnesses-external-runtimes-and-subagents.md)
+    - Fonctionnalités : Sélection de harnais externe ; Alias d'exécution CLI ; Tours de sous-agent ; Récupération d'exécution
+  - [Exécution de fournisseur hébergée](inventory/agent-runtime-and-provider-execution/hosted-provider-adapters-and-payload-compatibility.md)
+    - Fonctionnalités : Tours de fournisseur hébergé ; Options de modèle spécifiques au fournisseur ; Utilisation d'outil hébergée ; Contrôles de raisonnement et de cache ; Streaming et réponses hébergées
+  - [Fournisseurs locaux et auto-hébergés](inventory/agent-runtime-and-provider-execution/local-and-self-hosted-provider-execution.md)
+    - Fonctionnalités : Profils de fournisseur local ; Drapeaux de capacité d'outil ; Délais d'expiration et fenêtres de contexte ; Vérifications de fumée locales ; Gestion des défaillances locales
+  - [Sélection de modèle et d'exécution](inventory/agent-runtime-and-provider-execution/model-selection-provider-routing-and-runtime-policy.md)
+    - Fonctionnalités : Sélection de référence de modèle ; Remplacements de fournisseur et d'exécution ; Paramètres de réflexion et de contexte ; Récupération de route invalide
+  - [Authentification du fournisseur](inventory/agent-runtime-and-provider-execution/provider-auth-profiles-and-credential-health.md)
+    - Fonctionnalités : Configuration de connexion et de clé API ; Sélection de profil d'authentification ; Vérifications de santé des identifiants ; Basculement d'authentification ; Récupération de secours du fournisseur ; Récupération de limite de débit et de capacité ; Conseils de clé manquante et OAuth ; Récupération de redémarrage et de route obsolète ; Diagnostics structurés du fournisseur ; Propagation des identifiants du sous-agent
+  - [Streaming et progression](inventory/agent-runtime-and-provider-execution/streaming-progress-and-preview-visibility.md)
+    - Fonctionnalités : Réponses en streaming ; Visibilité de la progression
+  - [Appels d'outil et gestion des réponses](inventory/agent-runtime-and-provider-execution/streaming-tool-call-and-response-normalization.md)
+    - Fonctionnalités : Gestion des appels d'outil ; Rapport d'utilisation et de réponse ; Récupération des défaillances
+  - [Contrôles d'exécution d'outil](inventory/agent-runtime-and-provider-execution/tool-execution-approvals-and-sandbox-policy.md)
+    - Fonctionnalités : Règles de disponibilité d'outil ; Comportement d'exécution en bac à sable ; Flux d'approbation ; Exécution élevée ; Contrôles de sécurité d'outil ; Accès d'outil délégué
+- [Moteur de session, de mémoire et de contexte](inventory/session-memory-and-context-engine/report.md) (`session-memory-and-context-engine`)
+  - [Gestion de session et de transcription CLI](inventory/session-memory-and-context-engine/cli-session-and-transcript-management.md)
+    - Fonctionnalités : Session CLI ; Gestion de transcription
+  - [Gestion des jetons](inventory/session-memory-and-context-engine/compaction-pruning-and-token-pressure.md)
+    - Fonctionnalités : Compaction ; Élagage ; Pression des jetons
+  - [Moteur de contexte](inventory/session-memory-and-context-engine/context-engine-and-runtime-assembly.md)
+    - Fonctionnalités : Moteur de contexte ; Assemblage d'exécution
+  - [Historique multi-client et parité de session](inventory/session-memory-and-context-engine/cross-client-history-and-session-parity.md)
+    - Fonctionnalités : Historique multi-client ; Parité de session
+  - [Diagnostics, maintenance et récupération](inventory/session-memory-and-context-engine/diagnostics-maintenance-and-recovery.md)
+    - Fonctionnalités : Rapports de diagnostic de session ; Avertissements de maintenance de session ; Récupération de session et de transcription
+  - [Invites et contexte principaux](inventory/session-memory-and-context-engine/instruction-profile-and-context-visibility.md)
+    - Fonctionnalités : Profil d'instruction ; Visibilité du contexte
+  - [Mémoire](inventory/session-memory-and-context-engine/memory-files-tools-and-active-memory.md)
+    - Fonctionnalités : Stockage de backend de mémoire ; Recherche par intégration ; Fichiers de mémoire ; Outils de recherche et de stockage de mémoire ; Mémoire active
+  - [Routage de session](inventory/session-memory-and-context-engine/session-routing-and-conversation-binding.md)
+    - Fonctionnalités : Routage de session ; Routage de conversation
+  - [Persistance de transcription](inventory/session-memory-and-context-engine/transcript-persistence-and-durability.md)
+    - Fonctionnalités : Persistance de transcription ; Durabilité
+- [Framework de canal](inventory/channel-framework/report.md) (`channel-framework`)
+  - [Actions de canal, commandes et approbations](inventory/channel-framework/channel-actions-commands-and-approvals.md)
+    - Fonctionnalités : Commandes natives de canal ; Cible de session de commande native ; Actions de message ; Découverte d'API d'outil de message ; Invites d'approbation natives de canal
+  - [Configuration de canal](inventory/channel-framework/channel-setup.md)
+    - Fonctionnalités : Catalogue de canal pris en charge ; Taxonomie d'état de canal dans la liste des canaux ; Flux de configuration/intégration ; Installation à la demande ; Métadonnées de l'assistant de configuration
+  - [Comportement de groupe, de fil et de salle ambiante](inventory/channel-framework/group-thread-and-ambient-room-behavior.md)
+    - Fonctionnalités : Isolation de session de groupe/canal ; Mention requise ; Fils natifs ; Groupes de diffusion ; Protection contre les boucles de bot
+  - [Accès entrant et portes d'identité](inventory/channel-framework/inbound-access-and-identity-gates.md)
+    - Fonctionnalités : Appairage DM ; Listes blanches de groupe/canal ; Expansion du groupe d'accès ; Gating de mention ; Projections d'identité/route entrante assainies
+  - [Pièces jointes multimédias et données de canal riche](inventory/channel-framework/media-attachments-and-rich-channel-data.md)
+    - Fonctionnalités : Normalisation des médias entrants ; Envois directs de texte/média sortants ; channelData spécifique au fournisseur ; Racines multimédias
+  - [Livraison sortante et pipeline de réponse](inventory/channel-framework/outbound-delivery-and-reply-pipeline.md)
+    - Fonctionnalités : Livraison de réponse finale automatique ; Orchestration d'envoi sortant durable ; Transformations du pipeline de réponse ; Pont d'adaptateur sortant du fournisseur
+  - [Routage et livraison de conversation](inventory/channel-framework/conversation-routing-and-delivery.md)
+    - Fonctionnalités : Routage de conversation entrant ; Construction de clé de session ; Précédence de sélection d'agent ; Routage de conversation d'exécution ; Placement parent-enfant de fil ; Résolution du registre de plugin ; Démarrage du compte de canal ; Contrôles de cycle de vie de canal entier ; Interactions de rechargement de configuration/secrets ; Redémarrage automatique
+  - [État, santé et contrôles d'opérateur](inventory/channel-framework/status-health-and-operator-controls.md)
+    - Fonctionnalités : channels.status ; Politique de santé du canal ; Contrôles CLI d'opérateur ; Modèle de lecture d'état
+- [Sécurité, authentification, appairage et secrets](inventory/security-auth-pairing-and-secrets/report.md) (`security-auth-pairing-and-secrets`)
+  - [Politique d'approbation et garanties d'outil dangereux](inventory/security-auth-pairing-and-secrets/approval-policy-and-dangerous-tool-safeguards.md)
+    - Fonctionnalités : Politique d'approbation ; Garanties d'outil dangereux
+  - [Authentification de passerelle et accès à distance](inventory/security-auth-pairing-and-secrets/gateway-auth-and-network-exposure.md)
+    - Fonctionnalités : Authentification par jeton/mot de passe de passerelle partagée ; Mode d'authentification de passerelle ; Identité de proxy de confiance ; Tailscale Serve/Funnel ; Restrictions de liaison et d'origine ; Authentification de poignée de main WebSocket ; Docs orientées opérateur ; Interface de contrôle du navigateur ; Confiance du client distant
+  - [Contrôle d'accès au canal](inventory/security-auth-pairing-and-secrets/channel-identity-allowlists-and-sender-pairing.md)
+    - Fonctionnalités : Identité de canal ; Listes blanches ; Appairage d'expéditeur
+  - [Appairage d'appareil et de nœud](inventory/security-auth-pairing-and-secrets/device-identity-and-operator-pairing.md)
+    - Fonctionnalités : Codes de configuration ; Création d'identité d'appareil ; Émission de jeton d'appareil ; Approbations d'appairage d'appareil pour opérateur ; Portées d'opérateur qui contrôlent l'appairage ; Interface de contrôle local ; Migration d'authentification ; Docs orientées opérateur ; Appairage de nœud ; Confiance de capacité ; Approbations d'exécution à distance
+  - [Confiance de plugin](inventory/security-auth-pairing-and-secrets/plugin-installation-trust-and-security-boundaries.md)
+    - Fonctionnalités : Confiance d'installation de plugin ; Limites de sécurité
+  - [Hygiène des identifiants et des secrets](inventory/security-auth-pairing-and-secrets/secrets-storage-redaction-and-configuration-hygiene.md)
+    - Fonctionnalités : Profils d'authentification du fournisseur ; Santé de la clé API ; Stockage des secrets ; Rédaction ; Hygiène de configuration
+- [Observabilité](inventory/telemetry-diagnostics-and-observability/report.md) (`telemetry-diagnostics-and-observability`)
+  - [Santé et réparation](inventory/telemetry-diagnostics-and-observability/health-status-probes.md)
+    - Fonctionnalités : Boucle de moniteur de santé en arrière-plan ; Paramètres d'activation/désactivation par compte ; Grâce au démarrage ; Journalisation du redémarrage ; openclaw doctor ; Vérifications de santé structurées ; Vérifications du docteur principal ; Contrats de docteur/santé du SDK de plugin ; openclaw status ; openclaw health ; Santé RPC de passerelle ; Instantanés de santé en cache
+  - [Journalisation](inventory/telemetry-diagnostics-and-observability/logging-log-tail-and-redaction.md)
+    - Fonctionnalités : Journaux de fichier JSONL roulant de passerelle ; openclaw logs ; Journaux RPC de passerelle.tail ; Modèles et récepteurs de rédaction ; Champs de corrélation de trace
+  - [Collecte de diagnostics](inventory/telemetry-diagnostics-and-observability/diagnostics-export-support-bundles.md)
+    - Fonctionnalités : Export de diagnostics de passerelle openclaw ; openclaw gateway stability --bundle ; Chat /diagnostics ; Composition de zip de support ; Enregistreur de stabilité en processus limité ; openclaw gateway stability ; Événements de pression mémoire ; Option d'instantané de pression mémoire critique
+  - [Export de télémétrie](inventory/telemetry-diagnostics-and-observability/diagnostic-events-hooks-and-trace-context.md)
+    - Fonctionnalités : Types d'événements de diagnostic ; Dispatch asynchrone ; Création de contexte de trace W3C ; Exports de diagnostic d'exécution du SDK de plugin ; Événements d'appel de modèle ; Installation du plugin diagnostics-otel ; Traces OTLP/HTTP ; Contexte de trace de confiance ; Télémétrie de modèle et d'exécution ; Installation du plugin diagnostics-prometheus ; GET /api/diagnostics/prometheus authentifié par passerelle ; Exposition de texte Prometheus ; Abonnement à événement de diagnostic de confiance
+  - [Diagnostics de session](inventory/telemetry-diagnostics-and-observability/session-run-and-usage-diagnostics.md)
+    - Fonctionnalités : session.state ; Instantanés d'activité de session de diagnostic ; Utilisation du modèle ; Export de signaux de session vers la stabilité
+- [Automatisation : cron, hooks, tâches, polling](inventory/automation-cron-hooks-tasks-polling/report.md) (`automation-cron-hooks-tasks-polling`)
+  - [Tâches Cron](inventory/automation-cron-hooks-tasks-polling/cron-job-lifecycle.md)
+    - Fonctionnalités : Créer/modifier/supprimer des tâches ; Types de calendrier ; Fuseau horaire et décalage ; RPC Cron ; Outil cron d'agent ; Exécutions cron manuelles ; Exécution cron isolée ; Préflight de modèle/fournisseur ; Historique d'exécution ; Diagnostics de délai d'expiration et de refus ; Livraison d'annonce de chat ; Livraison de webhook ; Destinations d'échec ; Alertes de course ignorée ; Aperçus de livraison
+  - [Ingestion d'événement](inventory/automation-cron-hooks-tasks-polling/channel-polling-webhooks.md)
+    - Fonctionnalités : Polling long Telegram ; Mode webhook Telegram ; Mode polling/webhook Zalo ; Diagnostics de stagnation du polling ; Secours de surveillance iMessage ; Assistant de configuration Gmail ; Démarrage/service du moniteur ; Routage Tailscale/public ; Validation du jeton de poussée ; Routage d'événement Gmail ; POST /hooks/wake ; POST /hooks/agent ; Hooks mappés ; Politique d'authentification des hooks ; Dispatch asynchrone
+  - [Hooks d'automatisation](inventory/automation-cron-hooks-tasks-polling/internal-hooks.md)
+    - Fonctionnalités : Création HOOK.md ; Découverte de hook ; Gestion CLI de hook ; Packs de hook ; Dispatch d'événement de cycle de vie ; Enregistrement api.on ; Hooks de politique d'appel d'outil ; Hooks de message ; Hooks de session/cycle de vie ; Demandes d'approbation de plugin ; cron_changed
+  - [Tâches et flux en arrière-plan](inventory/automation-cron-hooks-tasks-polling/background-task-ledger.md)
+    - Fonctionnalités : Liste/affichage/annulation de tâche ; Notifications de tâche ; Audit et maintenance de tâche ; Tableau de bord de tâche de chat ; État de pression de tâche ; Flux gérés ; Flux en miroir ; openclaw tasks flow ; Audit et maintenance de flux ; managedFlows de plugin
+  - [Battement de cœur](inventory/automation-cron-hooks-tasks-polling/heartbeat-commitments.md)
+    - Fonctionnalités : Planification du battement de cœur ; Heures actives ; Gestion du réveil et du refroidissement ; Tâches de battement de cœur uniquement dues ; Vérifications d'engagement
+  - [Contrôles de polling](inventory/automation-cron-hooks-tasks-polling/message-polls-process-polling.md)
+    - Fonctionnalités : openclaw message poll ; Sondages Telegram ; Sondages Teams ; Drapeaux de sondage ; Portes de capacité de canal ; process poll ; process log ; État du processus en arrière-plan ; Détection de boucle sans progrès ; Contrôles d'entrée de processus
+- [Compréhension des médias et génération de médias](inventory/media-understanding-and-media-generation/report.md) (`media-understanding-and-media-generation`)
+  - [Admission et accès aux médias](inventory/media-understanding-and-media-generation/media-file-intake-storage-and-secure-access.md)
+    - Fonctionnalités : Références multimédias locales et distantes ; Détection MIME et type ; Limites de taille et lectures limitées ; Récupération distante sûre ; Politique de racine locale ; Magasin de médias entrant ; Dispatch d'extraction PDF/document ; Classification d'aide QR et multimédia
+  - [Gestion des médias de canal](inventory/media-understanding-and-media-generation/channel-attachment-staging-and-reply-media-delivery.md)
+    - Fonctionnalités : Mise en scène des pièces jointes entrantes ; Réécritures multimédias en bac à sable ; Modélisation de réponse multimédia ; Livraison de pièce jointe d'outil de message ; Suppression de livraison en double
+  - [Configuration des médias](inventory/media-understanding-and-media-generation/media-understanding-orchestration-and-configuration.md)
+    - Fonctionnalités : Configuration de capacité multimédia
+  - [Livraison de synthèse vocale](inventory/media-understanding-and-media-generation/tts-and-outbound-voice-audio-delivery.md)
+    - Fonctionnalités : TTS ; Livraison audio vocal sortant
+  - [Compréhension des médias](inventory/media-understanding-and-media-generation/image-understanding-and-vision-routing.md)
+    - Fonctionnalités : Sélection de pièce jointe audio ; Fournisseur STT par lot et secours CLI ; Préflight de mention de note vocale ; Insertion et écho de transcription ; Proxy audio et gestion des limites ; Résumé d'image entrant ; Contournement du modèle de vision actif ; Déchargement multimédia du modèle texte uniquement ; Secours du fournisseur de vision ; Routage d'entrée d'image et PDF ; Compréhension vidéo ; Analyse vidéo directe
+  - [Génération de médias](inventory/media-understanding-and-media-generation/image-generation-tool-and-provider-routing.md)
+    - Fonctionnalités : Invocation d'outil de génération d'image ; Sélection de fournisseur et de modèle ; Édition d'image de référence ; Cycle de vie de tâche d'image générée ; Persistance et livraison d'image générée ; Invocation d'outil de génération de musique ; Sélection de fournisseur et de modèle ; Contrôles de paroles, instrumental, durée et format ; Entrées de référence où pris en charge ; Cycle de vie de tâche de musique et statut en double ; Persistance et livraison audio générée ; Invocation d'outil de génération vidéo ; Sélection de capacité de mode et de fournisseur ; Entrées d'image, vidéo et audio de référence ; Validation d'option de fournisseur ; Cycle de vie de tâche vidéo et état ; Persistance et livraison vidéo générée
+- [Voix et conversation en temps réel](inventory/voice-and-realtime-talk/report.md) (`voice-and-realtime-talk`)
+  - [Fournisseurs de conversation](inventory/voice-and-realtime-talk/talk-configuration-catalog-and-provider-selection.md)
+    - Fonctionnalités : Pont de backend de voix en temps réel OpenAI ; Pont de backend Google Gemini Live ; Contrats SDK du fournisseur de voix en temps réel ; Diagnostics du fournisseur ; Catalogue de conversation ; Configuration du fournisseur de conversation ; Analyse syntaxique de configuration native partagée
+  - [Sessions de conversation en temps réel](inventory/voice-and-realtime-talk/gateway-relay-and-realtime-session-runtime.md)
+    - Fonctionnalités : Transfert de consultation d'agent ; État d'exécution d'agent de conversation actif ; Comportement d'exécution de conversation ; Planification de consultation forcée ; Interface utilisateur de démarrage/arrêt de conversation du navigateur ; Sessions WebRTC du navigateur ; Mode relais du navigateur ; Transfert d'appel d'outil du navigateur ; Contrôles de session en temps réel ; Sessions de relais de passerelle ; Limites de trame audio
+  - [Parole et transcription](inventory/voice-and-realtime-talk/speech-transcription-directives-and-talk-speak.md)
+    - Fonctionnalités : Directives vocales ; Lecture de parole de conversation ; Sessions de relais de transcription ; Fournisseurs de transcription en temps réel ; Analyse syntaxique de directive native
+  - [Conversation d'application native](inventory/voice-and-realtime-talk/native-app-talk-loops-ios-android-macos.md)
+    - Fonctionnalités : Mode de conversation native macOS ; Mode de conversation iOS ; Mode de conversation Android ; Configuration de conversation partagée
+  - [Réveil vocal et routage](inventory/voice-and-realtime-talk/voice-wake-push-to-talk-and-routing.md)
+    - Fonctionnalités : Paramètres de mot de réveil ; Routage de réveil ; Exécution de réveil vocal macOS ; Préférences de réveil mobile
+  - [Observabilité de conversation](inventory/voice-and-realtime-talk/observability-diagnostics-session-health-and-latency.md)
+    - Fonctionnalités : Journalisation d'événement de conversation ; Santé du journal de session ; Sortie de fumée en direct ; Compteurs de diagnostic Prometheus ; Visibilité de l'opérateur dans la configuration
+- [Application Web de passerelle](inventory/browser-control-ui-and-webchat/report.md) (`browser-control-ui-and-webchat`)
+  - [Conversation en temps réel du navigateur](inventory/browser-control-ui-and-webchat/browser-realtime-talk-controls-and-voice-transports.md)
+    - Fonctionnalités : Démarrage/arrêt de conversation du navigateur ; Sélection de session de fournisseur ; Audio de relais de passerelle ; Consultations d'appel d'outil ; Direction et annulation
+  - [Accès et confiance du navigateur](inventory/browser-control-ui-and-webchat/gateway-connection-auth-device-pairing-and-origins.md)
+    - Fonctionnalités : Appairage d'appareil ; Authentification par jeton/mot de passe ; Authentification Tailscale Serve ; Authentification par proxy de confiance ; Origines/gatewayUrl autorisées
+  - [Configuration](inventory/browser-control-ui-and-webchat/config-schema-editing-and-safe-writes.md)
+    - Fonctionnalités : Instantanés de configuration ; Édition de formulaire de schéma ; Édition JSON brute ; Écritures gardées par hash de base ; Application et redémarrage
+  - [Interface utilisateur du navigateur](inventory/browser-control-ui-and-webchat/control-ui-static-shell-routing-and-pwa.md)
+    - Fonctionnalités : Interface utilisateur hébergée par passerelle ; Ouverture du tableau de bord/bootstrap d'authentification ; Routage du chemin de base ; Récupération d'actif statique ; Cible gatewayUrl de développement ; Métadonnées d'installation PWA ; Mises à jour du service worker ; Clés VAPID ; S'abonner/se désabonner ; Notifications de test
+  - [Conversations WebChat](inventory/browser-control-ui-and-webchat/chat-composer-session-model-controls-and-rendering.md)
+    - Fonctionnalités : Envoi et abandon ; Sélecteur de session et d'agent ; Contrôles de modèle/réflexion ; Pièces jointes ; Rendu markdown/outil/média ; Projection chat.history ; Cycle de vie chat.send ; Rétention abandon/partielle ; Notes d'assistant injectées ; Continuité de reconnexion ; Intégrations hébergées ; Gating d'intégration externe ; Tickets multimédias d'assistant ; Avatars authentifiés ; Politique d'image CSP
+  - [Console d'opérateur](inventory/browser-control-ui-and-webchat/diagnostics-logs-update-and-activity.md)
+    - Fonctionnalités : Santé/état/modèles ; Suivi des journaux en direct ; Exécution/état de mise à jour ; Résumés d'activité ; Télémétrie de synchronisation RPC ; Canaux/connexion ; Gestionnaire de session et historique ; Cron ; Compétences/nœuds ; Approbations d'exécution/agents
+- [TUI](inventory/tui-and-terminal-ux/report.md) (`tui-and-terminal-ux`)
+  - [Modes d'exécution](inventory/tui-and-terminal-ux/launch-modes-and-cli-entrypoints.md)
+    - Fonctionnalités : Lancement TUI de passerelle ; Lancement de chat local ; Lancement d'alias de terminal ; Lancement de message initial ; Validation d'option de lancement ; Connexion de passerelle ; Authentification de passerelle ; Chargement d'historique lors de l'attachement ; Visibilité de reconnexion ; RPC de commande de passerelle ; Chat local intégré ; Flux d'authentification local ; Boucle de réparation de configuration ; Récupération sans passerelle
+  - [Entrée et commandes](inventory/tui-and-terminal-ux/composer-keybindings-and-input-editing.md)
+    - Fonctionnalités : Composition de message ; Historique d'entrée ; Raccourcis clavier ; Gestion de collage et de soumission occupée ; Gestion IME et AltGr ; Commandes slash ; Sélecteurs ; Paramètres
+  - [Gestion de session](inventory/tui-and-terminal-ux/session-lifecycle-history-and-resume.md)
+    - Fonctionnalités : Cycle de vie de session ; Historique ; Reprendre
+  - [Exécution de shell local](inventory/tui-and-terminal-ux/local-shell-execution-and-approval-boundary.md)
+    - Fonctionnalités : Routage de commande bang ; Invite d'approbation ; Affichage de la sortie de commande ; Marqueur d'environnement d'exécution
+  - [Rendu et sécurité de sortie](inventory/tui-and-terminal-ux/streaming-message-rendering-and-tool-cards.md)
+    - Fonctionnalités : Rendu de message en streaming ; Cartes d'outil ; Primitives de rendu de terminal ; Sécurité de sortie
+- [ClawHub](inventory/clawhub-and-external-plugin-distribution/report.md) (`clawhub-and-external-plugin-distribution`)
+  - [Publication](inventory/clawhub-and-external-plugin-distribution/clawhub-and-npm-publishing-release-validation.md)
+    - Fonctionnalités : Propriétaire de publication de paquet ClawHub ; Validation de version de paquet détenu par OpenClaw pour ClawHub ; Portes de bump de version ; Provenance de publication de confiance npm ; Contrat de paquet de plugin de code externe requis ; Métadonnées de paquet de compétence ; Flux de publication de compétence
+  - [Découverte du catalogue](inventory/clawhub-and-external-plugin-distribution/clawhub-discovery-catalog-metadata-and-package-lookup.md)
+    - Fonctionnalités : openclaw plugins search en tant que ClawHub ; Métadonnées de résultat de recherche ; Distinction entre recherche de plugin ; Échec de recherche de catalogue ; Recherche de catalogue de compétence
+  - [Compatibilité et confiance](inventory/clawhub-and-external-plugin-distribution/compatibility-gates-and-official-external-catalog.md)
+    - Fonctionnalités : openclaw.compat.pluginApi ; Validation de compatibilité de paquet ClawHub ; Secours de compatibilité npm au plus récent ; Comportement du catalogue de plugin externe officiel ; Docs de compatibilité ; Modèle de confiance d'opérateur pour l'installation ; Archive ClawHub ; Dérive d'intégrité npm ; Scanner de code dangereux intégré ; Comportement de révision/version cachée de publication ClawHub en amont ; Sécurité d'archive de compétence ; Signaux d'audit de compétence
+  - [Cycle de vie et santé du plugin](inventory/clawhub-and-external-plugin-distribution/plugin-lifecycle-and-health.md)
+    - Fonctionnalités : Préfixes source ; Comportement de paquet nu lors du lancement ; Versions épinglées explicites ; Enregistrements d'installation gérés qui préservent la source ; Codex ; Local ; Liste de marché ; Fonctionnalités mappées prises en charge ; Sécurité du chemin du marché distant ; Mise à jour par ID de plugin ; Sémantique de réinstallation par rapport à la mise à jour ; Rétrogradation ; Nettoyage de configuration/index/politique/fichier de désinstallation ; Exigences de redémarrage/rechargement de passerelle après ; Projet npm géré par plugin ; Installations de candidat à la version locale npm-pack ; Propriété de dépendance entre paquets de plugin ; Reliaison de dépendance pair ; Nettoyage de racine de dépendance hérité ; Liste de plugins ; Index de plugin local ; Dépannage de configuration obsolète ; Vérification d'exécution après passerelle ; Installations de compétence ClawHub ; Chemin d'installation de téléchargement de compétence ; Installateurs de dépendance de compétence
+- [SDK d'application OpenClaw](inventory/openclaw-app-sdk/report.md) (`openclaw-app-sdk`)
+  - [API client](inventory/openclaw-app-sdk/client-api.md)
+    - Fonctionnalités : Points d'entrée SDK ; Disposition de l'espace de noms ; Fractionnement de paquet ; Limite d'application/plugin
+  - [Accès à la passerelle](inventory/openclaw-app-sdk/gateway-access.md)
+    - Fonctionnalités : Connexion de passerelle ; Configuration d'URL et de jeton ; Passerelle automatique ; Transport personnalisé ; Portées et rédaction
+  - [Conversations d'agent](inventory/openclaw-app-sdk/agent-conversations.md)
+    - Fonctionnalités : Poignées d'agent ; Exécutions d'agent ; Résultats d'exécution ; Création de session ; Envoi de session ; Contrôles de session
+  - [Événements et approbations](inventory/openclaw-app-sdk/events-and-approvals.md)
+    - Fonctionnalités : Flux d'événement ; Enveloppe d'événement ; Curseurs de relecture ; Rappels d'approbation ; Questions
+  - [Aides de ressource](inventory/openclaw-app-sdk/resource-helpers.md)
+    - Fonctionnalités : Modèles ; ToolSpace ; Artefacts ; Tâches ; Environnements
+  - [Compatibilité](inventory/openclaw-app-sdk/compatibility.md)
+    - Fonctionnalités : Client généré ; Wrappers ergonomiques ; Appels non pris en charge ; Alignement de schéma ; Contrat de paquet public
+
+### Platform (14 surfaces)
+
+- [Hôte de passerelle macOS](inventory/macos-gateway-host/report.md) (`macos-gateway-host`)
+  - [Configuration CLI](inventory/macos-gateway-host/cli-install-runtime-prerequisites.md)
+    - Fonctionnalités : Programme d'installation hébergé ; Recommandation Node 24 ; Installation CLI déclenchée par l'application ; Dérive de PATH shell et de gestionnaire de version
+  - [Intégration de passerelle locale](inventory/macos-gateway-host/local-gateway-mode-host-configuration.md)
+    - Fonctionnalités : Mode de connexion locale/distante de l'application ; Installation/redémarrage/désinstallation de LaunchAgent gérée par l'application ; Détection d'installation CLI ; Compatibilité d'attachement à la passerelle locale existante ; Point de terminaison de passerelle ; Configuration gateway.mode=local ; Liaison en boucle locale ; Résolution de point de terminaison d'application local ; Découverte Bonjour
+  - [Mode de passerelle distante](inventory/macos-gateway-host/remote-gateway-mode-transport.md)
+    - Fonctionnalités : Application macOS « Distant sur SSH » ; Configuration de tunnel SSH ; Tailscale MagicDNS ; Jeton/mot de passe/empreinte TLS de point de terminaison distant ; Démarrage d'hôte de nœud local
+  - [Cycle de vie du service de passerelle](inventory/macos-gateway-host/launchagent-service-lifecycle.md)
+    - Fonctionnalités : Installation de LaunchAgent par utilisateur ; Bootstrap launchctl ; Étiquettes LaunchAgent ; Gestion des jetons/env de passerelle ; Transfert de LaunchAgent géré par l'application ; Transfert de paquet openclaw update/git ; Actualisation de service gérée ; Détection de tâche launchd de mise à jour obsolète ; Récupération de service orphelin
+  - [Diagnostics et observabilité](inventory/macos-gateway-host/diagnostics-logs-operator-observability.md)
+    - Fonctionnalités : Chemins de journal LaunchAgent ; openclaw gateway status --deep ; La passerelle cesse silencieusement de répondre ; Tâches de mise à jour obsolètes
+  - [Permissions et capacités natives](inventory/macos-gateway-host/macos-permissions-native-node-capabilities.md)
+    - Fonctionnalités : Invites/état de permission TCC macOS ; Exposition de capacité de nœud native ; Politique system.run ; Support piloté par permission
+  - [Profils et isolation](inventory/macos-gateway-host/profiles-multi-gateway-isolation.md)
+    - Fonctionnalités : Étiquettes LaunchAgent spécifiques au profil ; Racines d'état/configuration/espace de travail spécifiques au profil ; Ports dérivés ; Configuration du bot de secours ; Détection de processus de passerelle supplémentaire
+- [Application compagnon macOS](inventory/macos-companion-app/report.md) (`macos-companion-app`)
+  - [Canvas](inventory/macos-companion-app/canvas-a2ui.md)
+    - Fonctionnalités : Ouverture/masquage/navigation/évaluation/instantané du panneau Canvas ; Schéma d'URL personnalisé local ; Navigation automatique d'hôte A2UI ; Paramètre d'activation/désactivation de Canvas
+  - [Configuration locale](inventory/macos-companion-app/onboarding-cli-workspace.md)
+    - Fonctionnalités : Attachement/démarrage/arrêt de passerelle en mode local ; Installation/mise à jour/redémarrage/désinstallation de LaunchAgent ; Détection d'écouteur existant ; Flux d'intégration native au premier lancement ; Découverte CLI ; Sélection d'espace de travail local ; Séparation de session WebChat d'intégration
+  - [État et paramètres](inventory/macos-companion-app/settings-health-diagnostics.md)
+    - Fonctionnalités : État de la barre de menu ; Ingestion d'état d'activité ; Navigation des paramètres ; Polling de santé ; Paramètres des canaux
+  - [Capacités natives](inventory/macos-companion-app/node-mode-system-run-exec-host.md)
+    - Fonctionnalités : Connexion de session de nœud Mac ; system.run ; Politique d'approbation d'exécution ; Demandes de permission ; Persistance TCC
+  - [Connexions distantes](inventory/macos-companion-app/remote-mode-discovery-tunnels.md)
+    - Fonctionnalités : Sélection du mode de connexion distante ; Tunnel SSH ; Découverte de passerelle
+  - [Voix et conversation](inventory/macos-companion-app/voice-wake-talk.md)
+    - Fonctionnalités : Exécution de réveil vocal ; Appui pour parler ; Plan de lecture du fournisseur de conversation
+  - [WebChat](inventory/macos-companion-app/webchat-sessions.md)
+    - Fonctionnalités : Fenêtre WebChat SwiftUI native ; Transport de chat de passerelle ; Réutilisation du plan de données local et distant
+  - [WebChat distant](inventory/macos-companion-app/native-webchat-and-remote-client-bridges.md)
+    - Fonctionnalités : Transport WebChat macOS ; Plan de données de tunnel SSH ; Mode distant ws/wss direct ; Continuité de session ; Dépannage à distance
+- [Hôte de passerelle Linux](inventory/linux-gateway-host/report.md) (`linux-gateway-host`)
+  - [Configuration d'hôte et mises à jour](inventory/linux-gateway-host/linux-cli-install-and-update-path.md)
+    - Fonctionnalités : Installation CLI Linux ; Conditions préalables du runtime Node ; Politique du gestionnaire de paquets ; Chemin de mise à jour
+  - [Contrôle du runtime et du service de passerelle](inventory/linux-gateway-host/foreground-gateway-runtime-and-process-control.md)
+    - Fonctionnalités : Exécution de passerelle au premier plan ; Contrôle de processus ; Configuration du cycle de vie du service utilisateur Systemd ; Opération du cycle de vie du service utilisateur Systemd ; État du cycle de vie du service utilisateur Systemd ; Récupération du cycle de vie du service utilisateur Systemd
+  - [Accès à distance et sécurité](inventory/linux-gateway-host/remote-network-exposure-tls-and-tailscale.md)
+    - Fonctionnalités : Exposition réseau distante ; TLS ; Tailscale ; Garanties d'exposition de passerelle ; Modes d'authentification de passerelle ; Gestion des secrets
+  - [Diagnostics et réparation](inventory/linux-gateway-host/diagnostics-logs-doctor-and-repair.md)
+    - Fonctionnalités : Rapports de diagnostic de passerelle ; Suivi des journaux de passerelle ; Vérifications du docteur ; Conseils de réparation d'opérateur
+  - [Cibles de déploiement](inventory/linux-gateway-host/vps-container-and-cloud-deployment-guidance.md)
+    - Fonctionnalités : VPS ; Conteneur ; Conseils de déploiement cloud
+- [Application compagnon Linux](inventory/linux-companion-app/report.md) (`linux-companion-app`)
+  - [Distribution d'application](inventory/linux-companion-app/packaging-install-update-desktop-integration.md)
+    - Fonctionnalités : Paquet d'application native ; Cibles de paquet Distro ; Métadonnées de version officielle
+  - [Connectivité de passerelle](inventory/linux-companion-app/gateway-connection-pairing-local-remote.md)
+    - Fonctionnalités : Attachement et état de passerelle locale ; Appairage et authentification de passerelle ; Mode distant ; Limites de ressource locale et distante
+  - [Chat et sessions](inventory/linux-companion-app/native-chat-session-controls.md)
+    - Fonctionnalités : Fenêtre de chat Linux native ; Transcription ; Transport de chat de passerelle
+  - [Capacités de bureau](inventory/linux-companion-app/desktop-permissions-secrets-sandbox.md)
+    - Fonctionnalités : Permissions de bureau Linux ; Stockage des secrets ; Posture de bac à sable/paquet ; Identité de nœud native Linux ; Exécution de commande d'hôte ; Outils de bureau ; Conversation native Linux ; Capture de microphone ; Permissions multimédias natives
+  - [État et diagnostics](inventory/linux-companion-app/diagnostics-health-operator-repair.md)
+    - Fonctionnalités : Disponibilité de l'application Linux native ; Affichage de santé/état de passerelle ; Ouverture de journal/transcription ; Affordances de docteur/réparation ; Élément de plateau/état Linux ; Ligne d'état d'exécution ; Intégration d'environnement de bureau
+- [Windows via WSL2](inventory/windows-via-wsl2/report.md) (`windows-via-wsl2`)
+  - [Configuration WSL](inventory/windows-via-wsl2/wsl2-install-and-runtime-prerequisites.md)
+    - Fonctionnalités : Installation WSL2 + Ubuntu ; Runtime Node ; Flux d'installation Linux à l'intérieur de WSL2 ; Limite de runtime WSL2 ; Exigences de famille réseau WSL2 ; Installation source et construction à l'intérieur de WSL2
+  - [CLI](inventory/windows-via-wsl2/wsl2-cli.md)
+    - Fonctionnalités : Points d'entrée CLI WSL2 ; openclaw onboard ; openclaw doctor status and logs ; openclaw update ; npm/pnpm/git package-root ; Redémarrage de passerelle géré par systemd ; Actualisation des métadonnées du service ; Avertissements du gestionnaire de paquets
+  - [Cycle de vie du service de passerelle](inventory/windows-via-wsl2/systemd-gateway-service-lifecycle.md)
+    - Fonctionnalités : Installation systemd intégrée ; Installation du service de passerelle ; Rendu de l'unité utilisateur systemd ; Conseils systemd indisponible conscient de WSL ; Réparation du service du docteur ; Linger du service utilisateur WSL ; Disponibilité de Systemd après le démarrage de Windows ; Tâche de démarrage Windows pour WSL ; Vérification avant la connexion Windows ; Attentes claires autour de la puissance du PC
+  - [Accès et exposition de la passerelle](inventory/windows-via-wsl2/auth-secrets-and-exposure-posture.md)
+    - Fonctionnalités : Authentification par jeton/mot de passe de passerelle ; Identifiants du fournisseur ; SecretRefs d'authentification de passerelle ; Précédence des identifiants d'URL distante ; Réseau virtuel WSL ; Configuration portproxy Windows ; Règles du pare-feu Windows ; URL de passerelle accessibles ; Exposition en boucle locale et LAN ; Réseau IPv4 WSL2 ; Accès à distance Tailscale
+  - [Diagnostics et réparation](inventory/windows-via-wsl2/diagnostics-doctor-logs-and-repair.md)
+    - Fonctionnalités : openclaw doctor ; openclaw status ; openclaw logs ; SecretRef ; Conseils WSL/systemd indisponible ; Conseils de réparation d'opérateur après service WSL2
+  - [Navigateur et interface de contrôle](inventory/windows-via-wsl2/split-host-browser-and-control-ui-interop.md)
+    - Fonctionnalités : Passerelle WSL2 avec navigateur Windows ; URL d'interface de contrôle Windows ; CDP distant brut vers Chrome Windows ; MCP Chrome local d'hôte ; Profil de navigateur cdpUrl ; Diagnostics en couches
+- [Windows natif](inventory/native-windows-cli-and-gateway/report.md) (`native-windows-cli-and-gateway`)
+  - [CLI](inventory/native-windows-cli-and-gateway/native-powershell-install-and-cli-entrypoints.md)
+    - Fonctionnalités : Programme d'installation PowerShell ; Bootstrap Node et gestionnaire de paquets ; Installation npm global ; Lanceur CLI emballé ; Shims de commande Windows ; openclaw onboard ; Configuration de passerelle locale ; Drapeaux d'installation du démon ; Limite de configuration native vs WSL
+  - [Gestion de la passerelle](inventory/native-windows-cli-and-gateway/native-gateway-foreground-runtime-and-process-control.md)
+    - Fonctionnalités : openclaw gateway ; Santé/disponibilité d'exécution au premier plan ; Redémarrage/signal spécifique à Windows ; Mode au premier plan non géré ; openclaw gateway install ; Fichiers de lanceur de passerelle ; État d'exécution de tâche planifiée ; Secours du dossier de démarrage ; openclaw status ; Inspection du service Windows ; Diagnostics post-installation
+  - [Réseau](inventory/native-windows-cli-and-gateway/windows-host-networking-portproxy-and-remote-access.md)
+    - Fonctionnalités : Réseau d'hôte Windows natif ; netsh interface portproxy ; Sortie d'état et de sonde de passerelle ; Limite de boucle locale, LAN et WSL
+  - [Mises à jour](inventory/native-windows-cli-and-gateway/windows-update-restart-handoff-and-package-locks.md)
+    - Fonctionnalités : openclaw update sur paquet Windows natif ; Arrêt/redémarrage de passerelle géré ; Transfert de mise à jour détaché ; Verrous de paquet Windows
+- [Application compagnon Windows native](inventory/native-windows-companion-app/report.md) (`native-windows-companion-app`)
+  - [Installation et mises à jour](inventory/native-windows-companion-app/packaging-install-update-desktop-integration.md)
+    - Fonctionnalités : Téléchargement d'application officiel ; Empaquetage MSI/MSIX/App Installer/winget ; Gestion de l'architecture Windows pour x64 ; Canal de version d'application
+  - [Connexion de passerelle](inventory/native-windows-companion-app/gateway-connection-pairing-local-remote.md)
+    - Fonctionnalités : Attachement/démarrage de passerelle locale géré par l'application ; Modes de connexion de passerelle distante ; Appairage d'appareil/nœud
+  - [Sessions de chat](inventory/native-windows-companion-app/native-chat-session-controls.md)
+    - Fonctionnalités : Fenêtre de chat Windows native ; Transport de chat de passerelle
+  - [État et réparation](inventory/native-windows-companion-app/diagnostics-health-operator-repair.md)
+    - Fonctionnalités : États de santé de l'application ; Réparation spécifique à l'application ; Plateau système Windows ; Indicateurs d'état ; Permission de notification spécifique à l'application
+  - [Outils de bureau et permissions](inventory/native-windows-companion-app/node-host-capabilities-exec-approvals.md)
+    - Fonctionnalités : Identité de nœud Windows ; Exécution de commande d'hôte ; Politique de commande de bureau ; Invites d'approbation d'application ; Capture d'écran et multimédia ; Comportement d'hôte Canvas ; Intégrations de shell Windows ; Secrets d'application ; ACL Windows ; Approbation de commande
+- [Application Android](inventory/android-app/report.md) (`android-app`)
+  - [Capture de médias](inventory/android-app/camera-media-capture.md)
+    - Fonctionnalités : Capture de caméra et multimédia
+  - [Chat mobile](inventory/android-app/chat-sessions-ui.md)
+    - Fonctionnalités : Onglet Chat
+  - [Configuration de connexion](inventory/android-app/gateway-pairing-security.md)
