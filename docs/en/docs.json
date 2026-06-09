@@ -61,6 +61,14 @@
       "destination": "/channels/matrix-migration"
     },
     {
+      "source": "/concepts/openclaw-sdk",
+      "destination": "/gateway/external-apps"
+    },
+    {
+      "source": "/reference/openclaw-sdk-api-design",
+      "destination": "/gateway/external-apps"
+    },
+    {
       "source": "/mcp",
       "destination": "/cli/mcp"
     },
@@ -1257,6 +1265,7 @@
                   "plugins/admin-http-rpc",
                   "plugins/voice-call",
                   "plugins/memory-wiki",
+                  "plugins/llama-cpp",
                   "plugins/memory-lancedb",
                   "plugins/oc-path",
                   "plugins/zalouser"
@@ -1794,8 +1803,7 @@
                 "group": "RPC and API",
                 "pages": [
                   "reference/rpc",
-                  "concepts/openclaw-sdk",
-                  "reference/openclaw-sdk-api-design",
+                  "gateway/external-apps",
                   "reference/code-mode",
                   "reference/device-models"
                 ]
@@ -2219,6 +2227,7 @@
                   "fr/plugins/admin-http-rpc",
                   "fr/plugins/voice-call",
                   "fr/plugins/memory-wiki",
+                  "fr/plugins/llama-cpp",
                   "fr/plugins/memory-lancedb",
                   "fr/plugins/oc-path",
                   "fr/plugins/zalouser"
@@ -2735,8 +2744,7 @@
                 "group": "RPC and API",
                 "pages": [
                   "fr/reference/rpc",
-                  "fr/concepts/openclaw-sdk",
-                  "fr/reference/openclaw-sdk-api-design",
+                  "fr/gateway/external-apps",
                   "fr/reference/code-mode",
                   "fr/reference/device-models"
                 ]
