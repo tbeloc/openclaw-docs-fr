@@ -1136,6 +1136,7 @@
                   "channels/mattermost",
                   "channels/nextcloud-talk",
                   "channels/nostr",
+                  "channels/raft",
                   "channels/tlon",
                   "channels/synology-chat",
                   "channels/twitch"
@@ -2101,6 +2102,7 @@
                   "fr/channels/mattermost",
                   "fr/channels/nextcloud-talk",
                   "fr/channels/nostr",
+                  "fr/channels/raft",
                   "fr/channels/tlon",
                   "fr/channels/synology-chat",
                   "fr/channels/twitch"
