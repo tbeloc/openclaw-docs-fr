@@ -69,6 +69,14 @@
       "destination": "/gateway/external-apps"
     },
     {
+      "source": "/reference/maturity-scorecard",
+      "destination": "/maturity/scorecard"
+    },
+    {
+      "source": "/reference/maturity-taxonomy",
+      "destination": "/maturity/taxonomy"
+    },
+    {
       "source": "/mcp",
       "destination": "/cli/mcp"
     },
@@ -1908,6 +1916,8 @@
               {
                 "group": "Release and CI",
                 "pages": [
+                  "maturity/scorecard",
+                  "maturity/taxonomy",
                   "reference/RELEASING",
                   "reference/full-release-validation",
                   "reference/release-performance-sweep",
@@ -2851,6 +2861,8 @@
               {
                 "group": "Release and CI",
                 "pages": [
+                  "fr/maturity/scorecard",
+                  "fr/maturity/taxonomy",
                   "fr/reference/RELEASING",
                   "fr/reference/full-release-validation",
                   "fr/reference/release-performance-sweep",
