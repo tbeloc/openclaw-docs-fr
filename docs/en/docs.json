@@ -1916,6 +1916,7 @@
               {
                 "group": "Release and CI",
                 "pages": [
+                  "releases/index",
                   "maturity/scorecard",
                   "maturity/taxonomy",
                   "reference/RELEASING",
@@ -2861,6 +2862,7 @@
               {
                 "group": "Release and CI",
                 "pages": [
+                  "fr/releases/index",
                   "fr/maturity/scorecard",
                   "fr/maturity/taxonomy",
                   "fr/reference/RELEASING",
