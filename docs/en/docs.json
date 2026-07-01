@@ -1916,7 +1916,13 @@
               {
                 "group": "Release and CI",
                 "pages": [
-                  "releases/index",
+                  {
+                    "group": "Release notes",
+                    "pages": [
+                      "releases/index",
+                      "releases/2026.6.11"
+                    ]
+                  },
                   "maturity/scorecard",
                   "maturity/taxonomy",
                   "reference/RELEASING",
@@ -2862,7 +2868,12 @@
               {
                 "group": "Release and CI",
                 "pages": [
-                  "fr/releases/index",
+                  {
+                    "group": "Release notes",
+                    "pages": [
+                      "fr/releases/index"
+                    ]
+                  },
                   "fr/maturity/scorecard",
                   "fr/maturity/taxonomy",
                   "fr/reference/RELEASING",
