@@ -1796,6 +1796,7 @@
                   {
                     "group": "Interfaces",
                     "pages": [
+                      "cli/attach",
                       "cli/dashboard",
                       "cli/tui"
                     ]
@@ -2749,6 +2750,7 @@
                   {
                     "group": "Interfaces",
                     "pages": [
+                      "fr/cli/attach",
                       "fr/cli/dashboard",
                       "fr/cli/tui"
                     ]
