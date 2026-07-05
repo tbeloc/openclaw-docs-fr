@@ -312,6 +312,7 @@ Do not edit it by hand; run `pnpm docs:map:gen`.
   - H3: Account config keys
   - H2: Multiple bots
   - H2: Reply modes
+  - H2: Agent activity rows
   - H2: Targets
   - H2: Permissions
   - H2: Troubleshooting
@@ -4820,6 +4821,12 @@ Do not edit it by hand; run `pnpm docs:map:gen`.
 - Route: /platforms/android
 - Headings:
   - H2: Support snapshot
+  - H2: Mirror and control Android from a remote Mac
+  - H3: Before you begin
+  - H3: Enable ADB over TCP
+  - H3: Allow only the controller Mac
+  - H3: Connect and start mirroring
+  - H3: Troubleshooting
   - H2: Connection runbook
   - H3: Prerequisites
   - H3: 1. Start the Gateway
@@ -5515,6 +5522,18 @@ Do not edit it by hand; run `pnpm docs:map:gen`.
   - H2: Configuration
   - H2: Native Runtime
   - H2: Troubleshooting
+
+## plugins/logbook.md
+
+- Route: /plugins/logbook
+- Headings:
+  - H2: Default state
+  - H2: Requirements
+  - H2: How it works
+  - H2: Configuration
+  - H2: Dashboard tab
+  - H2: Gateway methods
+  - H2: Privacy notes
 
 ## plugins/manage-plugins.md
 
