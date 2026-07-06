@@ -1368,7 +1368,7 @@ Do not edit it by hand; run `pnpm docs:map:gen`.
   - H2: Examples
   - H2: Operations and approval
   - H2: Setup bootstrap
-  - H2: Model-assisted planner
+  - H2: AI conversation
   - H3: CLI harness trust model
   - H2: Switching to an agent
   - H2: Message rescue mode
@@ -4676,6 +4676,7 @@ Do not edit it by hand; run `pnpm docs:map:gen`.
 - Route: /nodes
 - Headings:
   - H2: Pairing + status
+  - H2: Version skew and upgrade order
   - H2: Remote node host (system.run)
   - H3: Start a node host (foreground)
   - H3: Remote gateway via SSH tunnel (loopback bind)
@@ -4867,6 +4868,7 @@ Do not edit it by hand; run `pnpm docs:map:gen`.
   - H3: 7. Canvas + camera
   - H4: Gateway Canvas Host (recommended for web content)
   - H3: 8. Voice + expanded Android command surface
+  - H3: 9. Workspace files (read-only)
   - H2: Assistant entrypoints
   - H2: Notification forwarding
   - H2: Related
@@ -4912,6 +4914,7 @@ Do not edit it by hand; run `pnpm docs:map:gen`.
   - H3: Bonjour (LAN)
   - H3: Tailnet (cross-network)
   - H3: Manual host/port
+  - H2: Multiple gateways
   - H2: Canvas + A2UI
   - H2: Computer Use relationship
   - H3: Canvas eval / snapshot
@@ -5421,6 +5424,7 @@ Do not edit it by hand; run `pnpm docs:map:gen`.
   - H2: How native plugin setup works
   - H2: V1 support boundary
   - H2: App inventory and ownership
+  - H2: Connected account apps
   - H2: Thread app config
   - H2: Destructive action policy
   - H2: Troubleshooting
@@ -6259,6 +6263,24 @@ Do not edit it by hand; run `pnpm docs:map:gen`.
   - H1: Lobster plugin
   - H2: Distribution
   - H2: Surface
+
+## plugins/reference/logbook.md
+
+- Route: /plugins/reference/logbook
+- Headings:
+  - H1: Logbook plugin
+  - H2: Distribution
+  - H2: Surface
+  - H2: Related docs
+
+## plugins/reference/longcat.md
+
+- Route: /plugins/reference/longcat
+- Headings:
+  - H1: LongCat plugin
+  - H2: Distribution
+  - H2: Surface
+  - H2: Related docs
 
 ## plugins/reference/matrix.md
 
@@ -7561,6 +7583,19 @@ Do not edit it by hand; run `pnpm docs:map:gen`.
   - H2: Troubleshooting
   - H3: LM Studio not detected
   - H3: Authentication errors (HTTP 401)
+  - H2: Related
+
+## providers/longcat.md
+
+- Route: /providers/longcat
+- Headings:
+  - H2: Install plugin
+  - H2: Getting started
+  - H3: Non-interactive setup
+  - H2: Reasoning behavior
+  - H2: Pricing
+  - H2: Self-hosted LongCat-2.0
+  - H2: Troubleshooting
   - H2: Related
 
 ## providers/minimax.md
@@ -9094,6 +9129,7 @@ Do not edit it by hand; run `pnpm docs:map:gen`.
   - H2: Syntax highlighting
   - H2: Output details contract
   - H3: Collapsed unchanged sections
+  - H3: Multi-file navigation
   - H2: Plugin defaults
   - H3: Persistent viewer URL config
   - H2: Security config
