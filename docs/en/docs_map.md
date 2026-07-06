@@ -2339,7 +2339,7 @@ Do not edit it by hand; run `pnpm docs:map:gen`.
 - Headings:
   - H2: Currently documented flags
   - H2: Local model lean mode
-  - H3: Why these three tools
+  - H3: Why these tools
   - H3: When to turn it on
   - H3: When to leave it off
   - H3: Enable
@@ -5527,13 +5527,20 @@ Do not edit it by hand; run `pnpm docs:map:gen`.
 
 - Route: /plugins/logbook
 - Headings:
-  - H2: Default state
-  - H2: Requirements
+  - H2: Before you begin
+  - H2: Quickstart
   - H2: How it works
+  - H2: Model and data flow
   - H2: Configuration
+  - H3: Vision model selection
   - H2: Dashboard tab
   - H2: Gateway methods
   - H2: Privacy notes
+  - H2: Troubleshooting
+  - H3: The Logbook tab is missing
+  - H3: Capture reports an error
+  - H3: Captures succeed but no cards appear
+  - H2: Related
 
 ## plugins/manage-plugins.md
 
@@ -9773,11 +9780,13 @@ Do not edit it by hand; run `pnpm docs:map:gen`.
   - H2: Runtime config endpoint
   - H2: Language support
   - H2: Appearance themes
+  - H2: Sidebar navigation
   - H2: What it can do (today)
   - H2: MCP page
   - H2: Activity tab
   - H2: Operator terminal
   - H2: Chat behavior
+  - H2: Connection loss and reconnect
   - H2: PWA install and web push
   - H2: Hosted embeds
   - H2: Chat message width

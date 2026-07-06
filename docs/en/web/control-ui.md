@@ -111,6 +111,12 @@ Imported themes are stored only in the current browser profile; they are not wri
 
 Appearance also has a browser-local Text size setting, stored with the rest of Control UI preferences. It applies to chat text, composer text, tool cards, and chat sidebars, and keeps text inputs at least 16px so mobile Safari does not auto-zoom on focus.
 
+## Sidebar navigation
+
+The sidebar keeps sessions first, split into **Pinned** and **Sessions** groups. Every pinned session stays visible, while unpinned sessions keep an independent nine-item recent budget. **Overview** is the only destination pinned by default; expand **More** to reach every other destination. Select **Customize sidebar** under More, or right-click the navigation area, to pin or unpin destinations and restore the defaults. The pinned set and More expansion state are stored in the current browser profile and survive reloads.
+
+The compact footer keeps connection status, **Settings**, **Docs**, and mobile pairing together. On desktop, use the topbar button next to the terminal control to collapse or expand the sidebar. At drawer breakpoints, the hamburger button replaces that control.
+
 ## What it can do (today)
 
 <AccordionGroup>
@@ -234,9 +240,9 @@ The terminal is also available as a full-screen, terminal-only document at `/?vi
   <Accordion title="Talk mode (browser realtime)">
     Talk mode uses a registered realtime voice provider. Configure OpenAI with `talk.realtime.provider: "openai"` plus an `openai` API-key auth profile, `talk.realtime.providers.openai.apiKey`, or `OPENAI_API_KEY`; OpenAI OAuth profiles do not configure Realtime voice. Configure Google with `talk.realtime.provider: "google"` plus `talk.realtime.providers.google.apiKey`. The browser never receives a standard provider API key: OpenAI receives an ephemeral Realtime client secret for WebRTC, and Google Live receives a one-use constrained Live API auth token for a browser WebSocket session, with instructions and tool declarations locked into the token by the Gateway. Providers that only expose a backend realtime bridge run through the Gateway relay transport, so credentials and vendor sockets stay server-side while browser audio moves through authenticated Gateway RPCs. The Realtime session prompt is assembled by the Gateway; `talk.client.create` does not accept caller-provided instruction overrides.
 
-    The Chat composer includes a Talk options button next to the Talk start/stop button. Options apply to the next Talk session and can override provider, transport, model, voice, reasoning effort, VAD threshold, silence duration, and prefix padding. A blank option falls back to configured defaults or the provider default. Selecting Gateway relay forces the backend relay path; selecting WebRTC keeps the session client-owned and fails instead of silently falling back to relay if the provider cannot create a browser session.
+    The Chat composer includes a Talk options caret next to the Talk start/stop button. Its compact panel keeps only Voice, Model, and Sensitivity for the next Talk session. **More in Settings** opens **Settings → Communications → Talk**, where persistent provider, transport, reasoning effort, exact VAD threshold, silence duration, and prefix padding defaults live; changing those defaults requires `operator.admin` access. Blank composer values fall back to those configured defaults or the provider default. Configuring Gateway relay forces the backend relay path; configuring WebRTC keeps the session client-owned and fails instead of silently falling back to relay if the provider cannot create a browser session.
 
-    The Talk control itself is the waves button next to the microphone dictation button. When Talk starts, the composer status row shows `Connecting Talk...`, then `Talk live` while audio is connected, or `Asking OpenClaw...` while a realtime tool call is consulting the configured larger model through `talk.client.toolCall`.
+    The Talk control itself is the microphone button in the composer toolbar, with a small caret beside it that opens Talk options. When Talk starts, the composer status row shows `Connecting Talk...`, then `Talk live` while audio is connected, or `Asking OpenClaw...` while a realtime tool call is consulting the configured larger model through `talk.client.toolCall`.
 
     Maintainer live smoke: `OPENAI_API_KEY=... GEMINI_API_KEY=... node --import tsx scripts/dev/realtime-talk-live-smoke.ts` verifies the OpenAI backend WebSocket bridge, OpenAI browser WebRTC SDP exchange, Google Live constrained-token browser WebSocket setup, and the Gateway relay browser adapter with fake microphone media. The command prints provider status only and does not log secrets.
 
@@ -255,6 +261,17 @@ The terminal is also available as a full-screen, terminal-only document at `/?vi
 
   </Accordion>
 </AccordionGroup>
+
+## Connection loss and reconnect
+
+Once a session is established, a dropped Gateway connection does not log you out. The dashboard
+stays visible with an amber "Gateway connection lost — reconnecting…" banner while the client
+retries automatically with backoff (800 ms up to 15 s). Live updates and actions pause until the
+connection returns; **Retry now** in the banner forces an immediate attempt.
+
+The login gate only appears when there is no established session yet (first open, page reload
+before connect) or when the Gateway actively rejects the credentials (bad token/password, revoked
+pairing) — states that need your input rather than waiting.
 
 ## PWA install and web push
 
