@@ -1745,6 +1745,7 @@
                     "pages": [
                       "cli/agent",
                       "cli/agents",
+                      "cli/audit",
                       "cli/hooks",
                       "cli/infer",
                       "cli/memory",
@@ -2704,6 +2705,7 @@
                     "pages": [
                       "fr/cli/agent",
                       "fr/cli/agents",
+                      "fr/cli/audit",
                       "fr/cli/hooks",
                       "fr/cli/infer",
                       "fr/cli/memory",
