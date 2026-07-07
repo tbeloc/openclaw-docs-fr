@@ -1754,6 +1754,7 @@
                       "cli/commitments",
                       "cli/message",
                       "cli/models",
+                      "cli/promos",
                       "cli/sessions",
                       "cli/system",
                       "cli/tasks"
@@ -2716,6 +2717,7 @@
                       "fr/cli/commitments",
                       "fr/cli/message",
                       "fr/cli/models",
+                      "fr/cli/promos",
                       "fr/cli/sessions",
                       "fr/cli/system",
                       "fr/cli/tasks"
