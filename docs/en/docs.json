@@ -1632,7 +1632,8 @@
                       "gateway/gateway-lock",
                       "gateway/background-process",
                       "gateway/restart-recovery",
-                      "gateway/multiple-gateways"
+                      "gateway/multiple-gateways",
+                      "gateway/multi-tenant-hosting"
                     ]
                   },
                   {
@@ -1744,6 +1745,7 @@
                       "cli/crestodian",
                       "cli/daemon",
                       "cli/doctor",
+                      "cli/fleet",
                       "cli/gateway",
                       "cli/health",
                       "cli/logs",
@@ -2602,7 +2604,8 @@
                       "fr/gateway/gateway-lock",
                       "fr/gateway/background-process",
                       "fr/gateway/restart-recovery",
-                      "fr/gateway/multiple-gateways"
+                      "fr/gateway/multiple-gateways",
+                      "fr/gateway/multi-tenant-hosting"
                     ]
                   },
                   {
@@ -2714,6 +2717,7 @@
                       "fr/cli/crestodian",
                       "fr/cli/daemon",
                       "fr/cli/doctor",
+                      "fr/cli/fleet",
                       "fr/cli/gateway",
                       "fr/cli/health",
                       "fr/cli/logs",
