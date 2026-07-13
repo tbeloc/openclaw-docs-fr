@@ -1317,6 +1317,7 @@
                 "pages": [
                   "tools/skills",
                   "tools/skill-workshop",
+                  "tools/self-learning",
                   "tools/creating-skills",
                   "tools/skills-config",
                   "tools/slash-commands",
@@ -1544,6 +1545,7 @@
                   "platforms/windows",
                   "platforms/android",
                   "platforms/ios",
+                  "platforms/ios-healthkit",
                   "platforms/easyrunner"
                 ]
               },
@@ -1610,6 +1612,7 @@
                       "gateway/authentication",
                       "auth-credential-semantics",
                       "gateway/secrets",
+                      "gateway/1password",
                       "gateway/secrets-plan-contract",
                       "gateway/trusted-proxy-auth"
                     ]
@@ -2315,6 +2318,7 @@
                 "pages": [
                   "fr/tools/skills",
                   "fr/tools/skill-workshop",
+                  "fr/tools/self-learning",
                   "fr/tools/creating-skills",
                   "fr/tools/skills-config",
                   "fr/tools/slash-commands",
@@ -2520,6 +2524,7 @@
                   "fr/platforms/windows",
                   "fr/platforms/android",
                   "fr/platforms/ios",
+                  "fr/platforms/ios-healthkit",
                   "fr/platforms/easyrunner"
                 ]
               },
@@ -2586,6 +2591,7 @@
                       "fr/gateway/authentication",
                       "fr/auth-credential-semantics",
                       "fr/gateway/secrets",
+                      "fr/gateway/1password",
                       "fr/gateway/secrets-plan-contract",
                       "fr/gateway/trusted-proxy-auth"
                     ]
