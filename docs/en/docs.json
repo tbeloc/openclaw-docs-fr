@@ -1292,6 +1292,7 @@
                   "plugins/admin-http-rpc",
                   "plugins/voice-call",
                   "plugins/vault",
+                  "plugins/onepassword",
                   "plugins/memory-wiki",
                   "plugins/llama-cpp",
                   "plugins/memory-lancedb",
@@ -1805,7 +1806,8 @@
                       "cli/flows",
                       "cli/node",
                       "cli/nodes",
-                      "cli/sandbox"
+                      "cli/sandbox",
+                      "cli/worker"
                     ]
                   },
                   {
@@ -2293,6 +2295,7 @@
                   "fr/plugins/admin-http-rpc",
                   "fr/plugins/voice-call",
                   "fr/plugins/vault",
+                  "fr/plugins/onepassword",
                   "fr/plugins/memory-wiki",
                   "fr/plugins/llama-cpp",
                   "fr/plugins/memory-lancedb",
@@ -2784,7 +2787,8 @@
                       "fr/cli/flows",
                       "fr/cli/node",
                       "fr/cli/nodes",
-                      "fr/cli/sandbox"
+                      "fr/cli/sandbox",
+                      "fr/cli/worker"
                     ]
                   },
                   {
