@@ -1663,6 +1663,7 @@
                       "gateway/security/secure-file-operations",
                       "gateway/security/shrinkwrap",
                       "gateway/security/audit-checks",
+                      "gateway/security/rate-limiting",
                       "gateway/operator-scopes",
                       "gateway/sandboxing",
                       "gateway/openshell",
@@ -1959,6 +1960,12 @@
                 "group": "Project",
                 "pages": [
                   "reference/credits"
+                ]
+              },
+              {
+                "group": "Contributing",
+                "pages": [
+                  "reference/pull-request-review-flow"
                 ]
               },
               {
@@ -2645,6 +2652,7 @@
                       "fr/gateway/security/secure-file-operations",
                       "fr/gateway/security/shrinkwrap",
                       "fr/gateway/security/audit-checks",
+                      "fr/gateway/security/rate-limiting",
                       "fr/gateway/operator-scopes",
                       "fr/gateway/sandboxing",
                       "fr/gateway/openshell",
@@ -2940,6 +2948,12 @@
                 "group": "Project",
                 "pages": [
                   "fr/reference/credits"
+                ]
+              },
+              {
+                "group": "Contribuer",
+                "pages": [
+                  "fr/reference/pull-request-review-flow"
                 ]
               },
               {
