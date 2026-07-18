@@ -2215,7 +2215,8 @@ Do not edit it by hand; run `pnpm docs:map:gen`.
 
 - Route: /concepts/active-memory
 - Headings:
-  - H2: Quick start
+  - H2: Remember across conversations
+  - H2: Advanced Active Memory quick start
   - H2: How it works
   - H2: When it runs
   - H3: Session types
@@ -2227,7 +2228,7 @@ Do not edit it by hand; run `pnpm docs:map:gen`.
   - H3: Speed recommendations
   - H4: Cerebras setup
   - H2: Memory tools
-  - H3: Built-in memory-core
+  - H3: Built-in memory
   - H3: LanceDB memory
   - H3: Lossless Claw
   - H2: Advanced escape hatches
@@ -2941,6 +2942,7 @@ Do not edit it by hand; run `pnpm docs:map:gen`.
   - H2: How messages are routed
   - H2: DM isolation
   - H3: Dock linked channels
+  - H2: Remember across conversations
   - H2: Session lifecycle
   - H2: Where state lives
   - H2: Session maintenance
@@ -3200,6 +3202,7 @@ Do not edit it by hand; run `pnpm docs:map:gen`.
   - H2: Using it as a fallback
   - H2: Configuration
   - H2: How it works
+  - H2: Timeouts and long-running work
   - H3: Claude CLI specifics
   - H2: Sessions
   - H2: Fallback prelude from claude-cli sessions
@@ -3876,6 +3879,7 @@ Do not edit it by hand; run `pnpm docs:map:gen`.
 
 - Route: /gateway/secrets-plan-contract
 - Headings:
+  - H2: Plan file requirements
   - H2: Plan file shape
   - H2: Provider upserts and deletes
   - H2: Supported target scope
@@ -8638,6 +8642,22 @@ Do not edit it by hand; run `pnpm docs:map:gen`.
   - H2: License
   - H2: Related
 
+## reference/database-schemas.md
+
+- Route: /reference/database-schemas
+- Headings:
+  - H2: Database layout
+  - H2: Versioning contract
+  - H2: Agent schema history
+  - H2: State schema history
+  - H2: Integrity checks
+  - H2: Troubleshooting
+  - H3: Why you cannot go back after updating to 2026.7.2
+  - H3: The Gateway refuses to start with a newer schema version error
+  - H3: A database is quarantined after integrity verification failed
+  - H2: Downgrades are unsupported
+  - H3: Example: agent schema 11 to 9
+
 ## reference/device-models.md
 
 - Route: /reference/device-models
@@ -8663,6 +8683,7 @@ Do not edit it by hand; run `pnpm docs:map:gen`.
 
 - Route: /reference/memory-config
 - Headings:
+  - H2: Remember across conversations
   - H2: Provider selection
   - H3: Custom provider ids
   - H3: API key resolution
@@ -10428,6 +10449,7 @@ Do not edit it by hand; run `pnpm docs:map:gen`.
 - Headings:
   - H2: Quick start
   - H2: Tool parameters
+  - H2: Result
   - H2: How it works
   - H2: Progress updates
   - H2: Config
@@ -10444,6 +10466,7 @@ Do not edit it by hand; run `pnpm docs:map:gen`.
   - H2: Quick start
   - H2: Choosing a provider
   - H3: Provider comparison
+  - H2: Result shape
   - H2: Auto-detection
   - H2: Native OpenAI web search
   - H2: Native Codex web search
