@@ -1686,6 +1686,8 @@
                     "group": "Protocols and APIs",
                     "pages": [
                       "gateway/protocol",
+                      "gateway/clients",
+                      "gateway/embedding",
                       "gateway/bridge-protocol",
                       "gateway/openai-http-api",
                       "gateway/openresponses-http-api",
@@ -2683,6 +2685,8 @@
                     "group": "Protocols and APIs",
                     "pages": [
                       "fr/gateway/protocol",
+                      "fr/gateway/clients",
+                      "fr/gateway/embedding",
                       "fr/gateway/bridge-protocol",
                       "fr/gateway/openai-http-api",
                       "fr/gateway/openresponses-http-api",
