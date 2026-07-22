@@ -1801,6 +1801,7 @@
                     "pages": [
                       "cli/agent",
                       "cli/agents",
+                      "cli/claws",
                       "cli/audit",
                       "cli/hooks",
                       "cli/infer",
@@ -2801,6 +2802,7 @@
                     "pages": [
                       "fr/cli/agent",
                       "fr/cli/agents",
+                      "fr/cli/claws",
                       "fr/cli/audit",
                       "fr/cli/hooks",
                       "fr/cli/infer",
