@@ -1376,6 +1376,7 @@ Do not edit it by hand; run `pnpm docs:map:gen`.
   - H2: Inspect and preview
   - H2: Inspect installed state
   - H2: Remove an installed Claw
+  - H2: Export an installed agent
   - H2: Command reference
   - H2: See also
 
@@ -7565,6 +7566,7 @@ Do not edit it by hand; run `pnpm docs:map:gen`.
   - H3: Why
   - H2: Compatibility policy
   - H3: Channel setup input field compatibility
+  - H4: Verifying readers
   - H2: How to migrate
   - H2: Import path reference
   - H2: Removed compatibility surfaces
