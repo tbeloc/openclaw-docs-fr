@@ -1946,7 +1946,6 @@
                   "reference/templates/HEARTBEAT",
                   "reference/templates/IDENTITY",
                   "reference/templates/SOUL",
-                  "reference/templates/TOOLS",
                   "reference/templates/USER"
                 ]
               },
@@ -2948,7 +2947,6 @@
                   "fr/reference/templates/HEARTBEAT",
                   "fr/reference/templates/IDENTITY",
                   "fr/reference/templates/SOUL",
-                  "fr/reference/templates/TOOLS",
                   "fr/reference/templates/USER"
                 ]
               },
