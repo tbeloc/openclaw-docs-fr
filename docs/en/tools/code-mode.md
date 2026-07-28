@@ -300,6 +300,7 @@ Bundled provider catalogs currently flag these models as `"preferred"`:
 | anthropic | `claude-fable-5`, `claude-opus-5`, `claude-sonnet-5`, `claude-mythos-5`, `claude-opus-4-8`, `claude-haiku-4-5`                               |
 | deepseek  | `deepseek-v4-pro`, `deepseek-v4-flash`                                                                                                       |
 | google    | `gemini-3-flash-preview`, `gemini-3.1-pro-preview`, `gemini-3.1-flash-lite`, `gemini-3.5-flash`, `gemini-3.5-flash-lite`, `gemini-3.6-flash` |
+| kimi      | `k3`, `k3-256k`                                                                                                                              |
 | minimax   | `MiniMax-M3`                                                                                                                                 |
 | moonshot  | `kimi-k3`                                                                                                                                    |
 | openai    | `gpt-5.6`, `gpt-5.6-sol`, `gpt-5.6-terra`, `gpt-5.6-luna`, `gpt-5.5`, `gpt-5.5-pro`                                                          |
@@ -308,6 +309,24 @@ Bundled provider catalogs currently flag these models as `"preferred"`:
 
 Everything else, including all Ollama-served local models, stays unflagged and
 keeps normal tool exposure under `"auto"`.
+
+### Models shipped by more than one provider
+
+Several vendors are reachable through more than one provider id: a subscription
+endpoint next to an API endpoint, or a gateway that resells another vendor's
+model. Because `"auto"` resolves the tier from whichever catalog served the run,
+two catalogs describing the same upstream model must not disagree by accident.
+
+Every catalog row for a shared model therefore states its tier explicitly once
+any sibling row states one. When the shared model is listed under different ids,
+the non-canonical row points at the canonical one with `upstreamModel`, as the
+`kimi` catalog does for `moonshot/kimi-k3`. Reseller catalogs such as
+`github-copilot`, `opencode`, `opencode-go`, `ollama-cloud`, `qianfan`,
+`venice`, and `volcengine-plan` currently declare `"capable"` for the models
+first-party catalogs flag `"preferred"`: the preferred tier came from
+evaluations on the first-party endpoints, and those runs have not been repeated
+per reseller. Promoting one of those rows is a deliberate, evidence-backed
+change rather than an oversight.
 
 For OpenAI models, the flag matters only when the run resolves to the OpenClaw
 embedded agent runtime. Default OpenAI routing uses the Codex-style harness
