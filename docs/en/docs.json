@@ -1725,6 +1725,7 @@
                 "pages": [
                   "gateway/remote",
                   "gateway/remote-gateway-readme",
+                  "gateway/stable-https-url",
                   "gateway/tailscale"
                 ]
               },
@@ -2736,6 +2737,7 @@
                 "pages": [
                   "fr/gateway/remote",
                   "fr/gateway/remote-gateway-readme",
+                  "fr/gateway/stable-https-url",
                   "fr/gateway/tailscale"
                 ]
               },
