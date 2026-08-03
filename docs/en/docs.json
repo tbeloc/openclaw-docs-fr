@@ -1154,6 +1154,7 @@
                   "channels/discord",
                   "channels/discord-activities",
                   "channels/slack",
+                  "channels/sms",
                   "channels/telegram",
                   "channels/whatsapp",
                   "channels/signal",
@@ -1170,6 +1171,8 @@
               {
                 "group": "Developer and self-hosted",
                 "pages": [
+                  "channels/buzz",
+                  "channels/clickclack",
                   "channels/irc",
                   "channels/mattermost",
                   "channels/nextcloud-talk",
@@ -1186,6 +1189,7 @@
                 "pages": [
                   "channels/line",
                   "channels/wechat",
+                  "channels/wecom",
                   "channels/qqbot",
                   "channels/feishu",
                   "channels/yuanbao",
@@ -1205,8 +1209,7 @@
                   "channels/broadcast-groups",
                   "channels/channel-routing",
                   "channels/location",
-                  "channels/troubleshooting",
-                  "channels/qa-channel"
+                  "channels/troubleshooting"
                 ]
               }
             ]
@@ -2189,6 +2192,7 @@
                   "fr/channels/discord",
                   "fr/channels/discord-activities",
                   "fr/channels/slack",
+                  "fr/channels/sms",
                   "fr/channels/telegram",
                   "fr/channels/whatsapp",
                   "fr/channels/signal",
@@ -2205,6 +2209,8 @@
               {
                 "group": "Developer and self-hosted",
                 "pages": [
+                  "fr/channels/buzz",
+                  "fr/channels/clickclack",
                   "fr/channels/irc",
                   "fr/channels/mattermost",
                   "fr/channels/nextcloud-talk",
@@ -2221,6 +2227,7 @@
                 "pages": [
                   "fr/channels/line",
                   "fr/channels/wechat",
+                  "fr/channels/wecom",
                   "fr/channels/qqbot",
                   "fr/channels/feishu",
                   "fr/channels/yuanbao",
@@ -2240,8 +2247,7 @@
                   "fr/channels/broadcast-groups",
                   "fr/channels/channel-routing",
                   "fr/channels/location",
-                  "fr/channels/troubleshooting",
-                  "fr/channels/qa-channel"
+                  "fr/channels/troubleshooting"
                 ]
               }
             ]
