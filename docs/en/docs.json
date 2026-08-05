@@ -1585,6 +1585,7 @@
                   "platforms/linux",
                   "platforms/windows",
                   "platforms/android",
+                  "platforms/chromeos",
                   "platforms/ios",
                   "platforms/ios-healthkit",
                   "platforms/easyrunner"
@@ -2601,6 +2602,7 @@
                   "fr/platforms/linux",
                   "fr/platforms/windows",
                   "fr/platforms/android",
+                  "fr/platforms/chromeos",
                   "fr/platforms/ios",
                   "fr/platforms/ios-healthkit",
                   "fr/platforms/easyrunner"
