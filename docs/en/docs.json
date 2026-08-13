@@ -1725,6 +1725,7 @@
                       "network",
                       "gateway/pairing",
                       "gateway/discovery",
+                      "gateway/portals",
                       "gateway/bonjour"
                     ]
                   }
@@ -2759,6 +2760,7 @@
                       "fr/network",
                       "fr/gateway/pairing",
                       "fr/gateway/discovery",
+                      "fr/gateway/portals",
                       "fr/gateway/bonjour"
                     ]
                   }
