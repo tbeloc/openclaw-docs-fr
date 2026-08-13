@@ -1115,6 +1115,7 @@
                 "group": "Hosting",
                 "pages": [
                   "install/azure",
+                  "install/cloudflare",
                   "install/daytona",
                   "install/digitalocean",
                   "install/docker-vm-runtime",
@@ -2170,6 +2171,7 @@
                 "group": "Hosting",
                 "pages": [
                   "fr/install/azure",
+                  "fr/install/cloudflare",
                   "fr/install/daytona",
                   "fr/install/digitalocean",
                   "fr/install/docker-vm-runtime",
