@@ -1740,7 +1740,8 @@
                   "gateway/remote",
                   "gateway/remote-gateway-readme",
                   "gateway/stable-https-url",
-                  "gateway/tailscale"
+                  "gateway/tailscale",
+                  "gateway/cloudflare-access"
                 ]
               },
               {
@@ -2778,7 +2779,8 @@
                   "fr/gateway/remote",
                   "fr/gateway/remote-gateway-readme",
                   "fr/gateway/stable-https-url",
-                  "fr/gateway/tailscale"
+                  "fr/gateway/tailscale",
+                  "fr/gateway/cloudflare-access"
                 ]
               },
               {
