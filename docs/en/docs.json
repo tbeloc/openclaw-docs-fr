@@ -1362,6 +1362,7 @@
                 "group": "Skills",
                 "pages": [
                   "tools/skills",
+                  "tools/custodian-skills",
                   "tools/skill-workshop",
                   "tools/self-learning",
                   "tools/creating-skills",
@@ -2422,6 +2423,7 @@
                 "group": "Skills",
                 "pages": [
                   "fr/tools/skills",
+                  "fr/tools/custodian-skills",
                   "fr/tools/skill-workshop",
                   "fr/tools/self-learning",
                   "fr/tools/creating-skills",
